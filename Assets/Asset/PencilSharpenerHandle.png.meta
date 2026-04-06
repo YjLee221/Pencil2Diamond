@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f2713eab62613324a88365c1430ef8c5
+guid: f7c63a8d10b969a4fae87db9252747b6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4205463378166016732
-    second: PencilCutter_0
+      213: 4041138928128137512
+    second: PencilSharpenerHandle_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PencilCutter_0
+      name: PencilSharpenerHandle_0
       rect:
         serializedVersion: 2
-        x: 213
-        y: 40
-        width: 325
-        height: 268
+        x: 128
+        y: 67
+        width: 279
+        height: 369
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cdaef7339aecc5a30800000000000000
-      internalID: 4205463378166016732
+      spriteID: 829941bb172051830800000000000000
+      internalID: 4041138928128137512
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PencilCutter_0: 4205463378166016732
+      PencilSharpenerHandle_0: 4041138928128137512
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    [SerializeField] GameObject playerPencil;
+    [SerializeField] GameObject uiPencil;
+
     [Header("UI Item")]
     [SerializeField] Button btnKnife;
     [SerializeField] Button btnPencilCutter;
@@ -38,6 +41,8 @@ public class UIManager : MonoBehaviour
 
     public void OnClickConfirm()
     {
+        playerPencil.SetActive(false);
+        uiPencil.SetActive(true);
 
     }
 

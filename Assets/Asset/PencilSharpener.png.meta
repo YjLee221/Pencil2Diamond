@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: cf3f1acc2d45806408647480de648263
+guid: 6999816cf7d55874f9d0e95854b75ace
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3310002292416464744
-    second: image-removebg-preview_0
+      213: 4231162843131837532
+    second: PencilSharpener_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: image-removebg-preview_0
+      name: PencilSharpener_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 44
-        width: 513
-        height: 380
+        x: 177
+        y: 51
+        width: 362
+        height: 301
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 867463d3c8d7fed20800000000000000
-      internalID: 3310002292416464744
+      spriteID: c5c74bb203c18ba30800000000000000
+      internalID: 4231162843131837532
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      image-removebg-preview_0: 3310002292416464744
+      PencilSharpener_0: 4231162843131837532
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
