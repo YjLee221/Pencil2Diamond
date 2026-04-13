@@ -1,58 +1,18 @@
-using System;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class UIManager : MonoBehaviour
+public class ToolManager : MonoBehaviour
 {
-    [SerializeField] GameObject playerPencil;
-    [SerializeField] GameObject uiPencil;
+    [SerializeField] Pencil currentPencil; // 씬에 있는 연필
+    [SerializeField] BaseTool selectedTool;      // 현재 유저가 장착한 도구 (다형성 활용)
 
-    [Header("UI Item")]
-    [SerializeField] Button btnKnife;
-    [SerializeField] Button btnPencilCutter;
-
-    [Header("UI Text")]
-    [SerializeField] TextMeshProUGUI uiText;
-    [SerializeField] Button btnConfirm;
-    [SerializeField] Button btnCancel;
-
-    public void Start()
+    // UI 버튼 이벤트나, 화면 터치 이벤트에서 이 함수를 호출합니다.
+    public void OnUserAction()
     {
-        btnConfirm.gameObject.SetActive(false);
-        btnCancel.gameObject.SetActive(false);
-    }
-
-    public void OnClickItem(Button clickedButton)
-    {
-        // 클릭된 버튼이 아닌 다른 아이템 버튼을 비활성화
-        Button otherButton = clickedButton == btnKnife ? btnPencilCutter : btnKnife;
-        otherButton.gameObject.SetActive(false);
-        
-        OnClickTool();
-    }
-
-    void OnClickTool()
-    {
-        uiText.gameObject.SetActive(false);
-        btnConfirm.gameObject.SetActive(true);
-        btnCancel.gameObject.SetActive(true);
-    }
-
-    public void OnClickConfirm()
-    {
-        playerPencil.SetActive(false);
-        uiPencil.SetActive(true);
-
-    }
-
-    public void OnClickCancel()
-    {
-        btnConfirm.gameObject.SetActive(false);
-        btnCancel.gameObject.SetActive(false);
-
-        uiText.gameObject.SetActive(true);
-        btnKnife.gameObject.SetActive(true);
-        btnPencilCutter.gameObject.SetActive(true);
+        if (selectedTool != null && currentPencil != null)
+        {
+            // 장착된 도구가 칼인지 연필깎이인지 매니저는 알 필요가 없습니다.
+            // 알아서 각자의 TryUseTool 로직이 작동합니다.
+            selectedTool.TryUseTool(currentPencil);
+        }
     }
 }
