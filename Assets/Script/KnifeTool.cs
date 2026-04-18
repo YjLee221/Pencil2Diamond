@@ -1,67 +1,101 @@
-using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class KnifeTool : BaseTool, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [Header("드래그 세팅")]
-    RectTransform knifeOriginTransform; // 칼의 원래 위치를 저장할 변수
-    [SerializeField] RectTransform knifeTransform; // 칼의 UI 요소
-    [SerializeField] RectTransform knifeHitArea; // 칼날이 닿는 영역
+    Vector2 knifeOriginPosition;
+    [SerializeField] RectTransform knifeTransform;
+    [SerializeField] RectTransform knifeHitArea;
 
-    [Header("깎임 정도 세팅")]
-    [SerializeField] float shaveCooltime = 0.1f; // 광클 방지용 쿨타임
-    float lastShaveTime; // 마지막으로 깎은 시간 기록
+    [Header("거리 기반 타격 세팅")]
+    [Tooltip("칼을 이 픽셀만큼 움직일 때마다 1번씩 깎입니다.")]
+    [SerializeField] float distanceToShave = 30f;
 
-    Pencil targetPencil;
+    // 드래그 상태 관리 변수
+    float accumulatedDistance = 0f;
+    Vector2 lastPointerPosition;
+    int activePointId = -999;
 
-    void Start()
+    [SerializeField] Pencil targetPencil;
+
+    void Awake()
     {
-        knifeOriginTransform = GetComponent<RectTransform>();
+        knifeOriginPosition = knifeTransform.anchoredPosition;
     }
 
-    public void OnBeginDrag(PointerEventData eventData){ Debug.Log("칼 드래그 시작"); }
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        if (activePointId != -999) return;
+
+        activePointId = eventData.pointerId;
+        lastPointerPosition = eventData.position;
+        accumulatedDistance = 0f;
+    }
 
     public void OnDrag(PointerEventData eventData)
     {
-        knifeTransform.position = eventData.position; // 칼이 마우스를 따라다니도록 위치 업데이트
+        if (eventData.pointerId != activePointId) return;
+        
+        if (targetPencil == null || targetPencil.currentPencilHp <= 0) return;
 
-        if (targetPencil == null) return;
+        // 1. 칼의 위치를 드래그 위치로 업데이트
+        Vector3 worldPos;
+        if (RectTransformUtility.ScreenPointToWorldPointInRectangle(knifeTransform, eventData.position,
+            eventData.pressEventCamera, out worldPos))
+        {
+            knifeTransform.position = worldPos;
+        }
 
-        if(Time.time - lastShaveTime >= shaveCooltime)
+        // 2. 거리 누적 계산
+        float moveDelta = Vector2.Distance(eventData.position, lastPointerPosition);
+        accumulatedDistance += moveDelta;
+        lastPointerPosition = eventData.position;
+
+        // 안전장치: Inspector에서 distanceToShave를 0 이하로 설정했을 때 무한 루프 도는 것 방지
+        if (distanceToShave <= 0f) distanceToShave = 30f;
+
+        // 3. 누적된 거리가 설정치를 넘을 때마다 연속 타격 실행
+        while (accumulatedDistance >= distanceToShave)
         {
             TryUseTool(targetPencil);
-            lastShaveTime = Time.time;
+            accumulatedDistance -= distanceToShave;
+
+            if (targetPencil.currentPencilHp <= 0) break;
         }
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("칼 드래그 종료");
-        knifeTransform = knifeOriginTransform; // 칼을 원래 위치로 되돌림
+        knifeTransform.anchoredPosition = knifeOriginPosition;
+        activePointId = -999;
     }
 
     public override void TryUseTool(Pencil targetPencil)
     {
+        // 연필의 히트박스와 닿았는지 체크
         bool isHitWithPencil = IsHitAreaOverlapped(knifeHitArea, targetPencil.pencilHitArea);
 
         if (isHitWithPencil)
         {
             targetPencil.TakeShaveDamage(shavePower);
+            Debug.Log("슥슥! 연필 깎는 중!");
+        }
 
-            if (targetPencil.currentPencilHp <= 0) { OnEndDrag(null); }
+        if (targetPencil.currentPencilHp <= 0)
+        {
+            OnEndDrag(null);
         }
     }
 
-    // hitArea 두 개가 겹치는지 체크하는 함수
-    bool IsHitAreaOverlapped(RectTransform rect1, RectTransform rect2)
+    // 칼의 히트 영역과 연필의 히트 영역이 겹치는지 체크하는 함수
+    bool IsHitAreaOverlapped(RectTransform knifeRect, RectTransform targetRect)
     {
-        // 1. 두 UI의 실제 화면상 면적(Rect)을 계산해서 가져옵니다.
-        Rect r1 = UIUtills.GetScreenRect(rect1);
-        Rect r2 = UIUtills.GetScreenRect(rect2);
+        Camera canvasCamera = targetRect.GetComponentInParent<Canvas>().worldCamera;
+        Vector2 knifeBladeScreenPoint = RectTransformUtility.WorldToScreenPoint(canvasCamera, knifeRect.position);
 
-        // 2. 두 사각형이 겹치는지 확인합니다. (AABB 충돌 판정)
-        return r1.Overlaps(r2);
-    }   
+        return RectTransformUtility.RectangleContainsScreenPoint(targetRect, knifeBladeScreenPoint, canvasCamera);
+    }
 }

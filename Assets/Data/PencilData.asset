@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c436ca27a31564e98225f8528e7125, type: 3}
+  m_Name: PencilData
+  m_EditorClassIdentifier: Assembly-CSharp::PencilData
+  pencilName: "\uC5F0\uC2B5\uC6A9 \uC5F0\uD544"
+  pencilType: 0
+  maxPencilHp: 100
+  imgPencilStates:
+  - remainingHpPercent: 1
+    pencilSprite: {fileID: 5806247343882902020, guid: 1ceabae795bcfa6438aeac65fa4a01a9, type: 3}
+  - remainingHpPercent: 0.5
+    pencilSprite: {fileID: 2478069006673878822, guid: 45823131582c47644a447de7b43efe45, type: 3}
+  - remainingHpPercent: 0
+    pencilSprite: {fileID: 1778453237253330166, guid: 45823131582c47644a447de7b43efe45, type: 3}
