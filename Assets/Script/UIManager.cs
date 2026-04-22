@@ -3,12 +3,20 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    [Header("Canvas Objects")]
+    [SerializeField] GameObject backgroundCanvas;
+    [SerializeField] GameObject mainCanvas;
+    [SerializeField] GameObject inworkCanvas;
+    [SerializeField] GameObject popupCanvas;
+
     [SerializeField] Pencil currentPencil;   // 씬에 있는 연필
     [SerializeField] BaseTool selectedTool;  // 현재 유저가 장착한 도구 (다형성 활용)
     [SerializeField] Button btnGoPress; // UI 버튼
 
     void Start()
     {
+        ShowCanvas();
+
         if(currentPencil != null)
         {
             // 연필이 완전히 깎였을 때 버튼 활성화
@@ -19,6 +27,15 @@ public class UIManager : MonoBehaviour
         {
             btnGoPress.gameObject.SetActive(false); // 시작할 때 버튼 비활성화
         }
+    }
+
+    void ShowCanvas()
+    {
+        backgroundCanvas.SetActive(true);
+        mainCanvas.SetActive(true);
+        popupCanvas.SetActive(false);
+        inworkCanvas.SetActive(false);
+        popupCanvas.SetActive(false);
     }
 
     // 오브젝트가 파괴될 때 이벤트 구독 해제 (메모리 누수 방지)

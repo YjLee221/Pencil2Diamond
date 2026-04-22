@@ -1,0 +1,16 @@
+id,type,speaker,content
+TUTORIAL_01_01,Dialog,Player,으아아악! 내 공방! 내 피 같은 공방이 하루 아침에 쫄딱 망하다니!! ㅠㅠ
+TUTORIAL_01_02,Dialog,Player,빚쟁이들이 다 털어가고 남은 건... 이 싸구려 연필 한 자루랑 커터칼뿐이잖아...?
+TUTORIAL_01_03,Dialog,Player,그래! 어디서 주워들은 적이 있어! 연필심의 흑연을 미친 듯이 압축하면 다이아몬드가 된다는 전설의 연금술...!
+TUTORIAL_01_04,Dialog,Player,"좋아, 이걸로 다이아몬드를 깎아서 우주 최고 갑부가 되어주마!! 하하하!"
+,,,
+TUTORIAL_02_01,Dialog,Player,어디 한 번 이 초라한 연필을 한 번 깎아볼까?
+TUTORIAL_02_02,Instruction,System,커터칼을 연필로 드래그하여 깎아주세요!
+TUTORIAL_02_03,Quest,System,퀘스트 완료: 연필의 흑연이 모습을 드러냈다
+TUTORIAL_02_04,Dialog,Player,"오호라, 까만 흑연이 모습을 드러냈군. 이걸 어떻게 해야 흑연만 깔끔하게 얻을 수 있을까?"
+TUTORIAL_02_05,Dialog,Player,에잇! 몰라! 일단 칼로 마구 썰어서 잘라내자!!!
+TUTORIAL_02_06,Instruction,System,커터칼로 흑연을 사정없이 썰어주세요.
+TUTORIAL_02_07,Quest,System,퀘스트 완료: 흑연 조각 획득!
+TUTORIAL_02_08,Dialog,Player,헉헉... 드디어 순도 99%의 흑연 조각을 얻었어! 이제 프레스기로 꾹꾹 눌러줄 차례군.
+TUTORIAL_02_09,Dialog,Player,이 연필은 '2B'연필이니까... 온도를 300도까지 화끈하게 올려야 압축이 되겠군!
+TUTORIAL_02_10,Quest,System,연필 종류에 맞춰 프레스기의 온도를 설정하세요.
