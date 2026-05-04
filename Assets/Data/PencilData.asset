@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PencilData
   pencilName: "\uC5F0\uC2B5\uC6A9 \uC5F0\uD544"
   pencilType: 0
-  maxPencilHp: 100
+  maxPencilHp: 10
   imgPencilStates:
   - remainingHpPercent: 1
     pencilSprite: {fileID: 5806247343882902020, guid: 1ceabae795bcfa6438aeac65fa4a01a9, type: 3}
