@@ -1,16 +1,12 @@
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 
 // 대화의 데이터 및 Controller 역할을 하는 클래스
 public class TalkManager : MonoBehaviour
 {
     public TextAsset tutorialDialogTsv;
     public DialogManager dialogManager;
-
-    [SerializeField] SharpeningPencil currentPencil;
 
     Dictionary<string, DialogData> dialogDatabase = new Dictionary<string, DialogData>();
     DialogData currentData;
@@ -22,17 +18,7 @@ public class TalkManager : MonoBehaviour
         LoadDialogData();
     }
 
-    void OnEnable()
-    {
-        if (currentPencil != null) currentPencil.OnPencilCompleted += ResumeAfterMinigame;
-    }
-
-    void OnDisable()
-    {
-        if(currentPencil != null) currentPencil.OnPencilCompleted -= ResumeAfterMinigame;
-    }
-
-    void ResumeAfterMinigame()
+    public void ResumeAfterMinigame()
     {
         Debug.Log("미니게임 클리어! 대화 재개~");
 
