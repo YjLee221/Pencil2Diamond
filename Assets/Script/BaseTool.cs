@@ -6,5 +6,5 @@ public abstract class BaseTool : MonoBehaviour
     [SerializeField] string toolName;
     [SerializeField] public float shavePower; // 깎는 힘
 
-    public abstract void TryUseTool(Pencil targetPencil);
+    public abstract void TryUseTool(SharpeningPencil targetPencil);
 }

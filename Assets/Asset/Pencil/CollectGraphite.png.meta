@@ -1,0 +1,429 @@
+fileFormatVersion: 2
+guid: 93801b44843e4b545b5922e645326abb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5121670408284642568
+    second: CollectGraphite_0
+  - first:
+      213: 7329886438145406085
+    second: CollectGraphite_1
+  - first:
+      213: 2129274100913712697
+    second: CollectGraphite_2
+  - first:
+      213: 7434966454767722804
+    second: CollectGraphite_3
+  - first:
+      213: 8450811183499706223
+    second: CollectGraphite_4
+  - first:
+      213: -5204690249235270086
+    second: CollectGraphite_5
+  - first:
+      213: 458210779530948732
+    second: CollectGraphite_6
+  - first:
+      213: -1772447269266696951
+    second: CollectGraphite_7
+  - first:
+      213: -5152119576393630095
+    second: CollectGraphite_8
+  - first:
+      213: 3778652885647775342
+    second: CollectGraphite_9
+  - first:
+      213: 5875436240424518390
+    second: CollectGraphite_10
+  - first:
+      213: 4647721560991094775
+    second: CollectGraphite_11
+  - first:
+      213: -6376159508630629584
+    second: CollectGraphite_12
+  - first:
+      213: 6294461994155297185
+    second: CollectGraphite_13
+  - first:
+      213: 3013097000089704114
+    second: CollectGraphite_14
+  - first:
+      213: 9213504726819985798
+    second: CollectGraphite_15
+  - first:
+      213: -8950297975305881966
+    second: CollectGraphite_16
+  - first:
+      213: 4317772850252805238
+    second: CollectGraphite_17
+  - first:
+      213: -3214525941965507589
+    second: CollectGraphite_18
+  - first:
+      213: -619740564181888643
+    second: CollectGraphite_19
+  - first:
+      213: -2240849313358586421
+    second: CollectGraphite_20
+  - first:
+      213: 2235632200419488543
+    second: CollectGraphite_21
+  - first:
+      213: 7069136311200216823
+    second: CollectGraphite_22
+  - first:
+      213: 7861515722772527743
+    second: CollectGraphite_23
+  - first:
+      213: 3412572159311949799
+    second: CollectGraphite_24
+  - first:
+      213: 4868379130474849295
+    second: CollectGraphite_25
+  - first:
+      213: -1113288826586995441
+    second: CollectGraphite_26
+  - first:
+      213: 2859587236389968423
+    second: CollectGraphite_27
+  - first:
+      213: 8616307623910637493
+    second: CollectGraphite_28
+  - first:
+      213: -7976886834803481282
+    second: CollectGraphite_29
+  - first:
+      213: 3557604044553630006
+    second: CollectGraphite_30
+  - first:
+      213: 5593581157116084880
+    second: CollectGraphite_31
+  - first:
+      213: 8548855399446522270
+    second: CollectGraphite_32
+  - first:
+      213: 7139126570820882376
+    second: CollectGraphite_33
+  - first:
+      213: -1866949978425115856
+    second: CollectGraphite_34
+  - first:
+      213: -2088253037204191405
+    second: CollectGraphite_35
+  - first:
+      213: -7203583386222248493
+    second: CollectGraphite_36
+  - first:
+      213: -8293476702185026942
+    second: CollectGraphite_37
+  - first:
+      213: -1070080582006778892
+    second: CollectGraphite_38
+  - first:
+      213: -9055387888736176606
+    second: CollectGraphite_39
+  - first:
+      213: 9011460327038524959
+    second: CollectGraphite_40
+  - first:
+      213: 6789063101888273347
+    second: CollectGraphite_41
+  - first:
+      213: 532352944483177492
+    second: CollectGraphite_42
+  - first:
+      213: -5018613798491123873
+    second: CollectGraphite_43
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CollectGraphite_0
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 339
+        width: 256
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f2609146eb2ce8b0800000000000000
+      internalID: -5121670408284642568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CollectGraphite_1
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 256
+        width: 242
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5843c9d41ecf8b560800000000000000
+      internalID: 7329886438145406085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CollectGraphite_2
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 179
+        width: 247
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93ea66e6383bc8d10800000000000000
+      internalID: 2129274100913712697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CollectGraphite_4
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 98
+        width: 226
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6ff5604fff474570800000000000000
+      internalID: 8450811183499706223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CollectGraphite_5
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 32
+        width: 210
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3674604bc935c7b0800000000000000
+      internalID: -5204690249235270086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5ca2e92c522377541ba688cf1bdbe229
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      CollectGraphite_0: -5121670408284642568
+      CollectGraphite_1: 7329886438145406085
+      CollectGraphite_10: 5875436240424518390
+      CollectGraphite_11: 4647721560991094775
+      CollectGraphite_12: -6376159508630629584
+      CollectGraphite_13: 6294461994155297185
+      CollectGraphite_14: 3013097000089704114
+      CollectGraphite_15: 9213504726819985798
+      CollectGraphite_16: -8950297975305881966
+      CollectGraphite_17: 4317772850252805238
+      CollectGraphite_18: -3214525941965507589
+      CollectGraphite_19: -619740564181888643
+      CollectGraphite_2: 2129274100913712697
+      CollectGraphite_20: -2240849313358586421
+      CollectGraphite_21: 2235632200419488543
+      CollectGraphite_22: 7069136311200216823
+      CollectGraphite_23: 7861515722772527743
+      CollectGraphite_24: 3412572159311949799
+      CollectGraphite_25: 4868379130474849295
+      CollectGraphite_26: -1113288826586995441
+      CollectGraphite_27: 2859587236389968423
+      CollectGraphite_28: 8616307623910637493
+      CollectGraphite_29: -7976886834803481282
+      CollectGraphite_3: 7434966454767722804
+      CollectGraphite_30: 3557604044553630006
+      CollectGraphite_31: 5593581157116084880
+      CollectGraphite_32: 8548855399446522270
+      CollectGraphite_33: 7139126570820882376
+      CollectGraphite_34: -1866949978425115856
+      CollectGraphite_35: -2088253037204191405
+      CollectGraphite_36: -7203583386222248493
+      CollectGraphite_37: -8293476702185026942
+      CollectGraphite_38: -1070080582006778892
+      CollectGraphite_39: -9055387888736176606
+      CollectGraphite_4: 8450811183499706223
+      CollectGraphite_40: 9011460327038524959
+      CollectGraphite_41: 6789063101888273347
+      CollectGraphite_42: 532352944483177492
+      CollectGraphite_43: -5018613798491123873
+      CollectGraphite_5: -5204690249235270086
+      CollectGraphite_6: 458210779530948732
+      CollectGraphite_7: -1772447269266696951
+      CollectGraphite_8: -5152119576393630095
+      CollectGraphite_9: 3778652885647775342
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

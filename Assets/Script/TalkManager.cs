@@ -10,7 +10,7 @@ public class TalkManager : MonoBehaviour
     public TextAsset tutorialDialogTsv;
     public DialogManager dialogManager;
 
-    [SerializeField] Pencil currentPencil;
+    [SerializeField] SharpeningPencil currentPencil;
 
     Dictionary<string, DialogData> dialogDatabase = new Dictionary<string, DialogData>();
     DialogData currentData;

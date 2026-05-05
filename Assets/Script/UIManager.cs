@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject inworkCanvas;
     [SerializeField] GameObject popupCanvas;
 
-    [SerializeField] Pencil currentPencil;   // 씬에 있는 연필
+    [SerializeField] SharpeningPencil currentPencil;   // 씬에 있는 연필
     [SerializeField] BaseTool selectedTool;  // 현재 유저가 장착한 도구 (다형성 활용)
 
     void Start()

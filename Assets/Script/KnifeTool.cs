@@ -19,7 +19,7 @@ public class KnifeTool : BaseTool, IBeginDragHandler, IDragHandler, IEndDragHand
     Vector2 lastPointerPosition;
     int activePointId = -999;
 
-    [SerializeField] Pencil targetPencil;
+    [SerializeField] SharpeningPencil targetPencil;
 
     void Awake()
     {
@@ -74,7 +74,7 @@ public class KnifeTool : BaseTool, IBeginDragHandler, IDragHandler, IEndDragHand
         activePointId = -999;
     }
 
-    public override void TryUseTool(Pencil targetPencil)
+    public override void TryUseTool(SharpeningPencil targetPencil)
     {
         // 연필의 히트박스와 닿았는지 체크
         bool isHitWithPencil = IsHitAreaOverlapped(knifeHitArea, targetPencil.pencilHitArea);

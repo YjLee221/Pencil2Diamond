@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Pencil : MonoBehaviour
+public class SharpeningPencil : MonoBehaviour
 {
     [SerializeField] public RectTransform pencilHitArea; // 연필이 깎일 영역
     public float currentPencilHp { get; private set; } // 외부에서의 수정이 불가능하도록 private set으로 설정
