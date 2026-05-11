@@ -7,7 +7,7 @@ public class StartMenuUI: MonoBehaviour
     [SerializeField] GameObject startPanel;
     [SerializeField] GameObject scriptPanel;
 
-    [SerializeField] TalkManager talkManager;
+    [SerializeField] GameMode gameMode;
 
     void Start()
     {
@@ -22,6 +22,6 @@ public class StartMenuUI: MonoBehaviour
         startPanel.SetActive(false);
         scriptPanel.SetActive(true);
 
-        talkManager.StartDialog("100101");
+        gameMode.GameStart();
     }
 }

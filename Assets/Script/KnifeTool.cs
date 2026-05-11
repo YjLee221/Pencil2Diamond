@@ -37,7 +37,6 @@ public class KnifeTool : BaseTool, IBeginDragHandler, IDragHandler, IEndDragHand
     {
         if (eventData.pointerId != activePointId) return;
         
-        Debug.Log("???????????????????: " + targetPencil.currentPencilHp);
         if (targetPencil == null || targetPencil.currentPencilHp <= 0) return;
 
         // 1. 칼의 위치를 드래그 위치로 업데이트

@@ -53,7 +53,7 @@ public class DialogManager : MonoBehaviour
         scriptPanel.SetActive(false);
     }
 
-    public void ShowDialog(string message, PlayerEmotion currentEmotion = PlayerEmotion.Normal)
+    public void ShowDialog(string message, PlayerEmotion currentEmotion)
     {
         ChangePlayerEmotion(currentEmotion);
 
@@ -73,7 +73,11 @@ public class DialogManager : MonoBehaviour
                     playerImage.gameObject.SetActive(false);
                     return;
                 }
-                else playerImage.sprite = item.playerSprite;
+                else 
+                {
+                    playerImage.gameObject.SetActive(true);
+                    playerImage.sprite = item.playerSprite;
+                }
             }
         }
     }

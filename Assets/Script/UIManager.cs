@@ -22,8 +22,6 @@ public class UIManager : MonoBehaviour
 
     void ShowCanvas()
     {
-        Debug.Log("First Starting!");
-
         backgroundCanvas.SetActive(true);
         mainCanvas.SetActive(true);
         popupCanvas.SetActive(true);

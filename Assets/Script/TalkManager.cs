@@ -13,9 +13,26 @@ public class TalkManager : MonoBehaviour
 
     [SerializeField] UIManager uiManager;
 
+    [SerializeField] SharpeningPencil targetPencil;
+
     void Awake()
     {
         LoadDialogData();
+    }
+
+    void OnEnable()
+    {
+        if(targetPencil) targetPencil.OnPencilSharpeningCompleted += HandleCompletedPencilSharpening; 
+    }
+
+    void OnDisable()
+    {
+        if (targetPencil) targetPencil.OnPencilSharpeningCompleted -= HandleCompletedPencilSharpening;
+    }
+
+    void HandleCompletedPencilSharpening(SharpeningPencil pencil)
+    {
+        ResumeAfterMinigame();
     }
 
     public void ResumeAfterMinigame()
