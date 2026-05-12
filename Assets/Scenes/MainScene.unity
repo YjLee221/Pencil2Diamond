@@ -545,6 +545,8 @@ MonoBehaviour:
   mainCanvas: {fileID: 637994256}
   inworkCanvas: {fileID: 180317481}
   popupCanvas: {fileID: 1875908800}
+  sharpeningPanel: {fileID: 1829566110}
+  extractingPanel: {fileID: 253498595}
   factoryImg: {fileID: 1905654753}
   deskImg: {fileID: 1590954972}
   selectedTool: {fileID: 0}
@@ -2058,8 +2060,7 @@ MonoBehaviour:
   gameStartbutton: {fileID: 1492018551}
   startPanel: {fileID: 1304611888}
   scriptPanel: {fileID: 2010262616}
-  talkManager: {fileID: 612718844}
-  gm: {fileID: 1754813000}
+  gameMode: {fileID: 1754813000}
 --- !u!1 &1325479351
 GameObject:
   m_ObjectHideFlags: 0
@@ -2600,7 +2601,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameMode
   isTutorialMode: 1
-  pm: {fileID: 2132270389}
+  pencilManager: {fileID: 2132270389}
+  talkManager: {fileID: 612718844}
 --- !u!4 &1754813001
 Transform:
   m_ObjectHideFlags: 0
@@ -3040,6 +3042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SharpeningPencil
   pencilHitArea: {fileID: 954638276}
+  uiManager: {fileID: 390131465}
 --- !u!1 &2059208386
 GameObject:
   m_ObjectHideFlags: 0

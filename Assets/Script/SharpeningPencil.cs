@@ -17,10 +17,13 @@ public class SharpeningPencil : MonoBehaviour
 {
     [SerializeField] public RectTransform pencilHitArea; // 연필이 깎일 영역
     public float currentPencilHp { get; private set; } // 외부에서의 수정이 불가능하도록 private set으로 설정
+    public float currentGraphiteHp { get; private set; } // 연필심의 HP (추출 단계에서 사용)
     public PencilPhase currentPencilPhase { get; private set; } // 연필의 현재 진행 단계
 
     Image pencilImageForHealth; // 연필의 HP에 따라 변경될 이미지 (Sprite Swap)
     PencilData currentPencilData; // 현재 작업 중인 연필 (ScriptableObject)
+
+    [SerializeField] UIManager uiManager; // UIManager 참조 (추후 작업 진행 단계에 따라 UI 변경을 위해 필요)
 
     // 이벤트 발생 시 Manager가 어떤 슬롯인지 알 수 있도록 자신을 인자로 전달
     public event Action<SharpeningPencil> OnPencilSharpeningCompleted; // 연필의 나무부분이 완전히 깎였을 때
@@ -36,6 +39,7 @@ public class SharpeningPencil : MonoBehaviour
     {
         currentPencilData = newPencil;
         currentPencilHp = newPencil.MaxPencilHp; // 연필의 최대 HP로 초기화
+        currentGraphiteHp = newPencil.MaxGraphiteHp; // 연필심의 최대 HP로 초기화
         currentPencilPhase = PencilPhase.ReadyToSharpen; // 연필이 깎일 준비가 된 상태로 설정
 
         pencilImageForHealth.enabled = true; // 연필 이미지 활성화
@@ -96,6 +100,8 @@ public class SharpeningPencil : MonoBehaviour
         if(currentPencilPhase != PencilPhase.ReadyToExtract) return;
 
         currentPencilPhase = PencilPhase.Extracting; // 추출 중으로 상태 변경
+
+        uiManager.ExtractingGraphiteCanvas(); // UI 매니저에게 추출 단계로 UI 변경 요청
 
         OnPencilExtractingCompleted?.Invoke(this);
 

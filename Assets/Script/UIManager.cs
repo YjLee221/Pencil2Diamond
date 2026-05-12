@@ -9,6 +9,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject inworkCanvas;
     [SerializeField] GameObject popupCanvas;
 
+    [Header("Working Panel")]
+    [SerializeField] GameObject sharpeningPanel;
+    [SerializeField] GameObject extractingPanel;
+
     [Header("Background Image")]
     [SerializeField] Image factoryImg;
     [SerializeField] Image deskImg;
@@ -17,10 +21,10 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        ShowCanvas();
+        ShowCanvasFirst();
     }
 
-    void ShowCanvas()
+    void ShowCanvasFirst()
     {
         backgroundCanvas.SetActive(true);
         mainCanvas.SetActive(true);
@@ -44,6 +48,12 @@ public class UIManager : MonoBehaviour
 
         factoryImg.gameObject.SetActive(true);
         deskImg.gameObject.SetActive(false);
+    }
+
+    public void ExtractingGraphiteCanvas()
+    {
+        sharpeningPanel.SetActive(false);
+        extractingPanel.SetActive(true);
     }
 
     // TODO: 추후 자동 도구 버튼 클릭 시 호출될 메서드
