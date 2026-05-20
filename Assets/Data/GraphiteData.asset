@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a5c553fe2eeac5489a5daef2f25fc2f, type: 3}
+  m_Name: GraphiteData
+  m_EditorClassIdentifier: Assembly-CSharp::GraphiteData
+  graphiteName: "\uC5F0\uC2B5\uC6A9 \uD751\uC5F0"
+  graphiteType: 0
+  maxGraphiteHp: 15
+  imgGraphiteStates:
+  - remainingHpPercent: 1
+    graphiteSprite: {fileID: -5121670408284642568, guid: 93801b44843e4b545b5922e645326abb, type: 3}
+  - remainingHpPercent: 0.75
+    graphiteSprite: {fileID: 7329886438145406085, guid: 93801b44843e4b545b5922e645326abb, type: 3}
+  - remainingHpPercent: 0.5
+    graphiteSprite: {fileID: 2129274100913712697, guid: 93801b44843e4b545b5922e645326abb, type: 3}
+  - remainingHpPercent: 0.25
+    graphiteSprite: {fileID: 8450811183499706223, guid: 93801b44843e4b545b5922e645326abb, type: 3}
+  - remainingHpPercent: 0
+    graphiteSprite: {fileID: -5204690249235270086, guid: 93801b44843e4b545b5922e645326abb, type: 3}

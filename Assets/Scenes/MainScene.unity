@@ -275,7 +275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.019607844}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.011764706}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -558,12 +558,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 390131464}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.61571, y: 0.10791, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1615554388}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &448132555
 GameObject:
@@ -924,11 +924,11 @@ Transform:
   m_GameObject: {fileID: 612718840}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.61571, y: 0.10791, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1615554388}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &612718844
 MonoBehaviour:
@@ -1701,11 +1701,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KnifeTool
   toolName: knife
-  shavePower: 1
+  shavePower: 0
   knifeTransform: {fileID: 1016232008}
   knifeHitArea: {fileID: 448132556}
   distanceToShave: 30
-  targetPencil: {fileID: 2017841659}
+  targetPencil: {fileID: 1829566110}
 --- !u!1 &1075467169
 GameObject:
   m_ObjectHideFlags: 0
@@ -1900,6 +1900,7 @@ GameObject:
   - component: {fileID: 1264491689}
   - component: {fileID: 1264491691}
   - component: {fileID: 1264491690}
+  - component: {fileID: 1264491692}
   m_Layer: 5
   m_Name: ImgSharpenedPencil
   m_TagString: Untagged
@@ -1965,6 +1966,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1264491688}
   m_CullTransparentMesh: 1
+--- !u!114 &1264491692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1264491688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5151c10d0f6c597408f2718f857bbe96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PencilCollectedGraphite
+  currentPencilData: {fileID: 11400000, guid: 0eb68e07708b17a4684ef8df3260bcb5, type: 2}
+  currentGraphiteHp: 15
+  graphiteHitArea: {fileID: 830719644}
 --- !u!1 &1304611888
 GameObject:
   m_ObjectHideFlags: 0
@@ -2147,6 +2163,7 @@ GameObject:
   - component: {fileID: 1341501178}
   - component: {fileID: 1341501180}
   - component: {fileID: 1341501179}
+  - component: {fileID: 1341501181}
   m_Layer: 5
   m_Name: ImgKnife
   m_TagString: Untagged
@@ -2212,6 +2229,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1341501177}
   m_CullTransparentMesh: 1
+--- !u!114 &1341501181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341501177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3abba1f9219d17743afb17e6a3b6916d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KnifeTool
+  toolName: 
+  shavePower: 0
+  knifeTransform: {fileID: 1341501178}
+  knifeHitArea: {fileID: 1325479352}
+  distanceToShave: 30
+  targetPencil: {fileID: 1264491688}
 --- !u!1 &1410619203
 GameObject:
   m_ObjectHideFlags: 0
@@ -2571,6 +2606,40 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1590954970}
   m_CullTransparentMesh: 1
+--- !u!1 &1615554387
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1615554388}
+  m_Layer: 0
+  m_Name: Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1615554388
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615554387}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.61571, y: -0.10791, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2132270390}
+  - {fileID: 612718843}
+  - {fileID: 390131466}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1754812999
 GameObject:
   m_ObjectHideFlags: 0
@@ -3042,7 +3111,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SharpeningPencil
   pencilHitArea: {fileID: 954638276}
-  uiManager: {fileID: 390131465}
 --- !u!1 &2059208386
 GameObject:
   m_ObjectHideFlags: 0
@@ -3194,6 +3262,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PencilManager
   pencilSlots:
   - {fileID: 2017841659}
+  uiManager: {fileID: 390131465}
+  graphiteCollector: {fileID: 1264491692}
   pencilData:
   - {fileID: 11400000, guid: 0eb68e07708b17a4684ef8df3260bcb5, type: 2}
 --- !u!4 &2132270390
@@ -3204,12 +3274,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132270388}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.61571, y: 0.10791, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1615554388}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -3222,8 +3292,6 @@ SceneRoots:
   - {fileID: 180317485}
   - {fileID: 1875908804}
   - {fileID: 1075467172}
-  - {fileID: 390131466}
   - {fileID: 1454521994}
-  - {fileID: 612718843}
-  - {fileID: 2132270390}
   - {fileID: 1754813001}
+  - {fileID: 1615554388}

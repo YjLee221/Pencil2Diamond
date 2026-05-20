@@ -17,7 +17,7 @@ public class KnifeTool : BaseTool, IBeginDragHandler, IDragHandler, IEndDragHand
     Vector2 lastPointerPosition;
     int activePointId = -999;
 
-    [SerializeField] SharpeningPencil targetPencil;
+    [SerializeField] GameObject targetPencil;
 
     void Awake()
     {
@@ -36,9 +36,44 @@ public class KnifeTool : BaseTool, IBeginDragHandler, IDragHandler, IEndDragHand
     public void OnDrag(PointerEventData eventData)
     {
         if (eventData.pointerId != activePointId) return;
-        
-        if (targetPencil == null || targetPencil.currentPencilHp <= 0) return;
 
+        if(targetPencil == targetPencil.GetComponent<SharpeningPencil>())
+        {
+            if (targetPencil.GetComponent<SharpeningPencil>().currentPencilHp <= 0) return;
+            
+            CalculateKnifePosition(eventData);
+
+            // 3. 누적된 거리가 설정치를 넘을 때마다 연속 타격 실행
+            while (accumulatedDistance >= distanceToShave)
+            {
+                TryUseTool(targetPencil.GetComponent<SharpeningPencil>());
+
+                accumulatedDistance -= distanceToShave;
+
+                if (targetPencil.GetComponent<SharpeningPencil>().currentPencilHp <= 0) break;  
+            }
+
+            return;
+        }
+
+        else if(targetPencil == targetPencil.GetComponent<PencilCollectedGraphite>())
+        {
+            if(targetPencil.GetComponent<PencilCollectedGraphite>().currentGraphiteHp <= 0) return;
+            CalculateKnifePosition(eventData);
+
+            while (accumulatedDistance >= distanceToShave)
+            {
+                TryUseTool(targetPencil.GetComponent<PencilCollectedGraphite>());
+
+                accumulatedDistance -= distanceToShave;
+
+                if (targetPencil.GetComponent<PencilCollectedGraphite>().currentGraphiteHp <= 0) break;
+            }
+        }
+    }
+
+    public void CalculateKnifePosition(PointerEventData eventData)
+    {
         // 1. 칼의 위치를 드래그 위치로 업데이트
         Vector3 worldPos;
         if (RectTransformUtility.ScreenPointToWorldPointInRectangle(knifeTransform, eventData.position,
@@ -54,16 +89,6 @@ public class KnifeTool : BaseTool, IBeginDragHandler, IDragHandler, IEndDragHand
 
         // 안전장치: Inspector에서 distanceToShave를 0 이하로 설정했을 때 무한 루프 도는 것 방지
         if (distanceToShave <= 0f) distanceToShave = 30f;
-
-        // 3. 누적된 거리가 설정치를 넘을 때마다 연속 타격 실행
-        while (accumulatedDistance >= distanceToShave)
-        {
-            TryUseTool(targetPencil);
-
-            accumulatedDistance -= distanceToShave;
-
-            if (targetPencil.currentPencilHp <= 0) break;
-        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
