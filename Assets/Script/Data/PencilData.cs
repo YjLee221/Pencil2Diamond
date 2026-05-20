@@ -31,12 +31,15 @@ public class PencilData : ScriptableObject
     [Header("연필 상태별 이미지")]
     [SerializeField] PencilState[] imgPencilStates; // 연필의 HP 단계별로 보여줄 이미지 설정
 
+    public GraphiteData graphiteData;
+
     // 외부에서 읽을 수 있도록 프로퍼티로 공개
     public string PencilName => pencilName;
     public PencilType PencilType { get { return pencilType; } }
     public int MaxPencilHp => maxPencilHp;
-
     public int MaxGraphiteHp => maxGraphiteHp;
     public PencilState[] PencilStates { get { return imgPencilStates; } }
+
+    public GraphiteData GraphiteData { get { return graphiteData; } }
 }
 

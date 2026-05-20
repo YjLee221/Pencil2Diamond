@@ -16,13 +16,13 @@ MonoBehaviour:
   graphiteType: 0
   maxGraphiteHp: 15
   imgGraphiteStates:
-  - remainingHpPercent: 1
+  - remainingHpPercent: 100
     graphiteSprite: {fileID: -5121670408284642568, guid: 93801b44843e4b545b5922e645326abb, type: 3}
-  - remainingHpPercent: 0.75
+  - remainingHpPercent: 75
     graphiteSprite: {fileID: 7329886438145406085, guid: 93801b44843e4b545b5922e645326abb, type: 3}
-  - remainingHpPercent: 0.5
+  - remainingHpPercent: 50
     graphiteSprite: {fileID: 2129274100913712697, guid: 93801b44843e4b545b5922e645326abb, type: 3}
-  - remainingHpPercent: 0.25
+  - remainingHpPercent: 25
     graphiteSprite: {fileID: 8450811183499706223, guid: 93801b44843e4b545b5922e645326abb, type: 3}
   - remainingHpPercent: 0
     graphiteSprite: {fileID: -5204690249235270086, guid: 93801b44843e4b545b5922e645326abb, type: 3}

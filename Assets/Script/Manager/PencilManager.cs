@@ -11,6 +11,7 @@ public class PencilManager : MonoBehaviour
 
     [Header("Pencil Data")]
     [SerializeField] PencilData[] pencilData;
+    [SerializeField] GraphiteData[] graphiteData;
 
     void OnEnable()
     {
@@ -66,7 +67,7 @@ public class PencilManager : MonoBehaviour
         uiManager.ExtractingGraphiteCanvas();
 
         graphiteCollector.gameObject.SetActive(true);
-        graphiteCollector.StartExtractingPhase(sharpenedPencil.currentPencilData, sharpenedPencil.currentGraphiteHp);
+        graphiteCollector.StartExtractingPhase(sharpenedPencil.currentPencilData, sharpenedPencil.currentPencilData.graphiteData, sharpenedPencil.currentGraphiteHp);
         
         sharpenedPencil.gameObject.SetActive(false);
 

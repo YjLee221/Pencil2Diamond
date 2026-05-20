@@ -1701,11 +1701,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KnifeTool
   toolName: knife
-  shavePower: 0
+  shavePower: 1
   knifeTransform: {fileID: 1016232008}
   knifeHitArea: {fileID: 448132556}
   distanceToShave: 30
-  targetPencil: {fileID: 1829566110}
+  pencilObject: {fileID: 2017841655}
 --- !u!1 &1075467169
 GameObject:
   m_ObjectHideFlags: 0
@@ -2242,11 +2242,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KnifeTool
   toolName: 
-  shavePower: 0
+  shavePower: 1
   knifeTransform: {fileID: 1341501178}
   knifeHitArea: {fileID: 1325479352}
   distanceToShave: 30
-  targetPencil: {fileID: 1264491688}
+  pencilObject: {fileID: 1264491688}
 --- !u!1 &1410619203
 GameObject:
   m_ObjectHideFlags: 0

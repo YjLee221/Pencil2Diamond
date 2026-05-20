@@ -19,18 +19,23 @@ public class PencilCollectedGraphite : MonoBehaviour, IPencil
     public GraphiteData currentGraphiteData { get; private set; }
     public event Action<PencilCollectedGraphite> OnGraphiteExtractionCompleted;
 
-    public void StartExtractingPhase(PencilData pencilData, int graphiteHP)
+    public void StartExtractingPhase(PencilData pencilData, GraphiteData graphiteData, int graphiteHP)
     {
         currentPencilData = pencilData;
+        currentGraphiteData = graphiteData;
         currentGraphiteHp = graphiteHP;
         currentPencilPhase = PencilPhase.Extracting;
+        Debug.Log($"currentGraphiteData: {currentGraphiteData}");
     }
 
     public void TakeShaveDamage(int damage)
     {
         if(currentGraphiteData == null || currentGraphiteHp <= 0) return;
 
-        if(currentGraphiteHp <= 0)
+        currentGraphiteHp -= damage;
+        Debug.Log($"Graphite took {damage} damage, current HP: {currentGraphiteHp}");
+
+        if (currentGraphiteHp <= 0)
         {
             currentGraphiteHp = 0;
 
@@ -46,7 +51,7 @@ public class PencilCollectedGraphite : MonoBehaviour, IPencil
     {
         if (currentGraphiteData == null) return;
 
-        float currentHPRatio = currentGraphiteHp / currentPencilData.MaxGraphiteHp;
+        float currentHPRatio = (float)currentGraphiteHp / currentPencilData.MaxGraphiteHp;
 
         if(currentHPRatio < 1)
         {

@@ -17,11 +17,15 @@ public class KnifeTool : BaseTool, IBeginDragHandler, IDragHandler, IEndDragHand
     Vector2 lastPointerPosition;
     int activePointId = -999;
 
-    [SerializeField] GameObject targetPencil;
+    [SerializeField] GameObject pencilObject;
+
+    IPencil targetPencil;
 
     void Awake()
     {
         knifeOriginPosition = knifeTransform.anchoredPosition;
+
+        if(pencilObject != null)  targetPencil = pencilObject.GetComponent<IPencil>();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -37,37 +41,19 @@ public class KnifeTool : BaseTool, IBeginDragHandler, IDragHandler, IEndDragHand
     {
         if (eventData.pointerId != activePointId) return;
 
-        if(targetPencil == targetPencil.GetComponent<SharpeningPencil>())
+        if (targetPencil == null || targetPencil.CurrentHP <= 0) return;
+        
+        CalculateKnifePosition(eventData);
+
+        while(accumulatedDistance >= distanceToShave)
         {
-            if (targetPencil.GetComponent<SharpeningPencil>().currentPencilHp <= 0) return;
-            
-            CalculateKnifePosition(eventData);
+            TryUseTool(targetPencil);
+            accumulatedDistance -= distanceToShave;
 
-            // 3. 누적된 거리가 설정치를 넘을 때마다 연속 타격 실행
-            while (accumulatedDistance >= distanceToShave)
+            if(targetPencil.CurrentHP <= 0)
             {
-                TryUseTool(targetPencil.GetComponent<SharpeningPencil>());
-
-                accumulatedDistance -= distanceToShave;
-
-                if (targetPencil.GetComponent<SharpeningPencil>().currentPencilHp <= 0) break;  
-            }
-
-            return;
-        }
-
-        else if(targetPencil == targetPencil.GetComponent<PencilCollectedGraphite>())
-        {
-            if(targetPencil.GetComponent<PencilCollectedGraphite>().currentGraphiteHp <= 0) return;
-            CalculateKnifePosition(eventData);
-
-            while (accumulatedDistance >= distanceToShave)
-            {
-                TryUseTool(targetPencil.GetComponent<PencilCollectedGraphite>());
-
-                accumulatedDistance -= distanceToShave;
-
-                if (targetPencil.GetComponent<PencilCollectedGraphite>().currentGraphiteHp <= 0) break;
+                OnEndDrag(eventData);
+                break;
             }
         }
     }
@@ -97,18 +83,16 @@ public class KnifeTool : BaseTool, IBeginDragHandler, IDragHandler, IEndDragHand
         activePointId = -999;
     }
 
-    public override void TryUseTool(SharpeningPencil targetPencil)
+    public override void TryUseTool(IPencil targetPencil)
     {
         // 연필의 히트박스와 닿았는지 체크
-        bool isHitWithPencil = IsHitAreaOverlapped(knifeHitArea, targetPencil.pencilHitArea);
-
+        bool isHitWithPencil = IsHitAreaOverlapped(knifeHitArea, targetPencil.HitArea);
         if (isHitWithPencil)
         {
             targetPencil.TakeShaveDamage(shavePower);
-            Debug.Log("슥슥! 연필 깎는 중!");
         }
 
-        if (targetPencil.currentPencilHp <= 0)
+        if (targetPencil.CurrentHP <= 0)
         {
             OnEndDrag(null);
         }
@@ -121,5 +105,10 @@ public class KnifeTool : BaseTool, IBeginDragHandler, IDragHandler, IEndDragHand
         Vector2 knifeBladeScreenPoint = RectTransformUtility.WorldToScreenPoint(canvasCamera, knifeRect.position);
 
         return RectTransformUtility.RectangleContainsScreenPoint(targetRect, knifeBladeScreenPoint, canvasCamera);
+    }
+
+    public void TakeShaveDamage(int damage)
+    {
+        throw new System.NotImplementedException();
     }
 }

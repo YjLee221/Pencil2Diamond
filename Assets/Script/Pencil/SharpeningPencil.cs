@@ -60,6 +60,7 @@ public class SharpeningPencil : MonoBehaviour, IPencil
         if (currentPencilData == null || currentPencilHp <= 0) return;
 
         currentPencilHp -= damage;
+        Debug.Log($"Pencil took {damage} damage, current HP: {currentPencilHp}");
 
         if (currentPencilHp <= 0)
         {
@@ -83,9 +84,8 @@ public class SharpeningPencil : MonoBehaviour, IPencil
     {
         if (currentPencilData == null) return;
 
-        float currentHPRatio = currentPencilHp / currentPencilData.MaxPencilHp;
-
-        if (currentHPRatio <= 0.5)
+        float currentHPRatio = (float)currentPencilHp / currentPencilData.MaxPencilHp;
+        if (currentHPRatio <= 0.5f)
         {
             pencilImageForHealth.sprite = currentPencilData.PencilStates[1].pencilSprite; // HP 50% 이하일 때 이미지 변경
 
