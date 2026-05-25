@@ -109,6 +109,5 @@ public class KnifeTool : BaseTool, IBeginDragHandler, IDragHandler, IEndDragHand
 
     public void TakeShaveDamage(int damage)
     {
-        throw new System.NotImplementedException();
     }
 }

@@ -62,8 +62,6 @@ public class PencilManager : MonoBehaviour
 
     void HandleSharpeningCompleted(SharpeningPencil sharpenedPencil)
     {
-        Debug.Log($"Sharpening completed for pencil: {sharpenedPencil.name}");
-
         uiManager.ExtractingGraphiteCanvas();
 
         graphiteCollector.gameObject.SetActive(true);

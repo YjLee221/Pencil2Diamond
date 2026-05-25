@@ -25,7 +25,6 @@ public class PencilCollectedGraphite : MonoBehaviour, IPencil
         currentGraphiteData = graphiteData;
         currentGraphiteHp = graphiteHP;
         currentPencilPhase = PencilPhase.Extracting;
-        Debug.Log($"currentGraphiteData: {currentGraphiteData}");
     }
 
     public void TakeShaveDamage(int damage)
@@ -33,7 +32,6 @@ public class PencilCollectedGraphite : MonoBehaviour, IPencil
         if(currentGraphiteData == null || currentGraphiteHp <= 0) return;
 
         currentGraphiteHp -= damage;
-        Debug.Log($"Graphite took {damage} damage, current HP: {currentGraphiteHp}");
 
         if (currentGraphiteHp <= 0)
         {
@@ -52,25 +50,16 @@ public class PencilCollectedGraphite : MonoBehaviour, IPencil
         if (currentGraphiteData == null) return;
 
         float currentHPRatio = (float)currentGraphiteHp / currentPencilData.MaxGraphiteHp;
+        Sprite currentSprite = currentGraphiteData.GraphiteStates[0].graphiteSprite;
 
-        if(currentHPRatio < 1)
+        // 현재 HP 비율에 따라 그래파이트의 스프라이트를 교체하는 로직
+        // 그래파이트의 HP 단계별로 설정된 스프라이트 배열을 순회하면서, 현재 HP 비율이 해당 단계의 남은 HP 퍼센트 이하인 경우 해당 스프라이트로 교체
+        // 예시: 그래파이트의 HP가 70% 이하일 때 첫 번째 스프라이트, 40% 이하일 때 두 번째 스프라이트, 10% 이하일 때 세 번째 스프라이트로 교체
+        
+
+        if (graphiteImageForHealth != null)
         {
-            if (currentHPRatio <= 0.75f)
-            {
-                graphiteImageForHealth.sprite = currentGraphiteData.GraphiteStates[1].graphiteSprite;
-            }
-            else if (currentHPRatio <= 0.5f)
-            {
-                graphiteImageForHealth.sprite = currentGraphiteData.GraphiteStates[2].graphiteSprite;
-            }
-            else if (currentHPRatio <= 0.25f)
-            {
-                graphiteImageForHealth.sprite = currentGraphiteData.GraphiteStates[3].graphiteSprite;
-            }
-            else
-            {
-                graphiteImageForHealth.sprite = currentGraphiteData.GraphiteStates[4].graphiteSprite;
-            }
+            graphiteImageForHealth.sprite = currentSprite;
         }
     }
 }

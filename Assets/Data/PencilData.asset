@@ -23,3 +23,4 @@ MonoBehaviour:
     pencilSprite: {fileID: 2478069006673878822, guid: 45823131582c47644a447de7b43efe45, type: 3}
   - remainingHpPercent: 0
     pencilSprite: {fileID: 1778453237253330166, guid: 45823131582c47644a447de7b43efe45, type: 3}
+  graphiteData: {fileID: 11400000, guid: bfd9341b9cb1b5a4eb4e8f75aec61501, type: 2}

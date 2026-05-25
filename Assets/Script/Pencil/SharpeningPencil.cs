@@ -60,7 +60,6 @@ public class SharpeningPencil : MonoBehaviour, IPencil
         if (currentPencilData == null || currentPencilHp <= 0) return;
 
         currentPencilHp -= damage;
-        Debug.Log($"Pencil took {damage} damage, current HP: {currentPencilHp}");
 
         if (currentPencilHp <= 0)
         {
