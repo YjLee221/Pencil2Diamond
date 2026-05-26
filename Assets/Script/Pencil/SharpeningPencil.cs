@@ -28,7 +28,7 @@ public class SharpeningPencil : MonoBehaviour, IPencil
     public PencilData currentPencilData { get; private set; } // 현재 작업 중인 연필 (ScriptableObject)
 
     // 이벤트 발생 시 Manager가 어떤 슬롯인지 알 수 있도록 자신을 인자로 전달
-    public event Action<SharpeningPencil> OnPencilSharpeningCompleted; // 연필의 나무부분이 완전히 깎였을 때
+    public static event Action<SharpeningPencil> OnPencilSharpeningCompleted; // 연필의 나무부분이 완전히 깎였을 때
     
     void Awake()
     {

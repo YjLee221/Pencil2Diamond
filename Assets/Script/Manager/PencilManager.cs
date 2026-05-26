@@ -3,9 +3,6 @@ using System.Linq;
 
 public class PencilManager : MonoBehaviour
 {
-    [Header("Slots")]
-    [SerializeField] SharpeningPencil[] pencilSlots;
-
     [SerializeField] UIManager uiManager;
     [SerializeField] PencilCollectedGraphite graphiteCollector;
 
@@ -13,36 +10,22 @@ public class PencilManager : MonoBehaviour
     [SerializeField] PencilData[] pencilData;
     [SerializeField] GraphiteData[] graphiteData;
 
+    [SerializeField] SharpeningPencil sharpeningPencil;
+
     void OnEnable()
     {
-        foreach (var slot in pencilSlots)
-        {
-            slot.OnPencilSharpeningCompleted += HandleSharpeningCompleted;
-        }
+        SharpeningPencil.OnPencilSharpeningCompleted += HandleSharpeningCompleted;
     }
 
     void OnDisable()
     {
-        foreach (var slot in pencilSlots)
-        {
-            slot.OnPencilSharpeningCompleted -= HandleSharpeningCompleted;
-        }
+        SharpeningPencil.OnPencilSharpeningCompleted -= HandleSharpeningCompleted;
     }
 
     public void StartTutorialMode()
     {
-        if (pencilSlots.Length > 0)
-        {
-            pencilSlots[0].gameObject.SetActive(true);
-            
-            PencilData introPencil = GetPencilData(PencilType.INTRO_PENCIL);
-            
-            if (introPencil != null) 
-            {
-                pencilSlots[0].LoadPencil(introPencil);
-            }
-        }
-
+        PencilData introPencil = GetPencilData(PencilType.INTRO_PENCIL);
+        sharpeningPencil.LoadPencil(introPencil);
     }
 
     public void MainGameMode(SharpeningPencil targetSlot, PencilType userSelectedPencil)

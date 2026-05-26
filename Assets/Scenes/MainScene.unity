@@ -945,7 +945,6 @@ MonoBehaviour:
   tutorialDialogTsv: {fileID: 4900000, guid: ef7c08be45d471e49b513ed7e31a39bd, type: 3}
   dialogManager: {fileID: 612718845}
   uiManager: {fileID: 390131465}
-  targetPencil: {fileID: 2017841659}
 --- !u!114 &612718845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1981,6 +1980,7 @@ MonoBehaviour:
   currentPencilData: {fileID: 11400000, guid: 0eb68e07708b17a4684ef8df3260bcb5, type: 2}
   currentGraphiteHp: 15
   graphiteHitArea: {fileID: 830719644}
+  imgSharpenedPencil: {fileID: 1264491690}
 --- !u!1 &1304611888
 GameObject:
   m_ObjectHideFlags: 0
@@ -3260,12 +3260,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08476f6f658c21e4fad46f9fe4791cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PencilManager
-  pencilSlots:
-  - {fileID: 2017841659}
   uiManager: {fileID: 390131465}
   graphiteCollector: {fileID: 1264491692}
   pencilData:
   - {fileID: 11400000, guid: 0eb68e07708b17a4684ef8df3260bcb5, type: 2}
+  graphiteData:
+  - {fileID: 11400000, guid: bfd9341b9cb1b5a4eb4e8f75aec61501, type: 2}
+  sharpeningPencil: {fileID: 2017841659}
 --- !u!4 &2132270390
 Transform:
   m_ObjectHideFlags: 0
