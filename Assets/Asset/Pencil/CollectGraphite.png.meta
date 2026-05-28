@@ -258,86 +258,20 @@ TextureImporter:
       name: CollectGraphite_0
       rect:
         serializedVersion: 2
-        x: 24
-        y: 339
-        width: 256
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 170
+        y: 294
+        width: 510
+        height: 73
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 8f2609146eb2ce8b0800000000000000
+      spriteID: 4d6c4787a72a05f4c88b3be7e2dde84d
       internalID: -5121670408284642568
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CollectGraphite_2
-      rect:
-        serializedVersion: 2
-        x: 26
-        y: 179
-        width: 247
-        height: 35
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 93ea66e6383bc8d10800000000000000
-      internalID: 2129274100913712697
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CollectGraphite_4
-      rect:
-        serializedVersion: 2
-        x: 325
-        y: 177
-        width: 256
-        height: 30
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f6ff5604fff474570800000000000000
-      internalID: 8450811183499706223
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CollectGraphite_5
-      rect:
-        serializedVersion: 2
-        x: 325
-        y: 17
-        width: 270
-        height: 36
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a3674604bc935c7b0800000000000000
-      internalID: -5204690249235270086
       vertices: []
       indices: 
       edges: []
@@ -346,20 +280,86 @@ TextureImporter:
       name: CollectGraphite_1
       rect:
         serializedVersion: 2
-        x: 324
-        y: 330
-        width: 236
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 170
+        y: 221
+        width: 510
+        height: 73
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 992b6cfdfe24f4543abf2930d8404a19
+      spriteID: 0615e901885ea3348ad40ae90b6affc5
       internalID: 7329886438145406085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CollectGraphite_2
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 148
+        width: 510
+        height: 73
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4051eab0a8a48944b82783c977c18d38
+      internalID: 2129274100913712697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CollectGraphite_3
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 75
+        width: 510
+        height: 73
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df0ce21f80e807b4f81a443aca75600f
+      internalID: 7434966454767722804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CollectGraphite_4
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 2
+        width: 510
+        height: 73
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fefda72bf73acc4eac10be55c42e3b6
+      internalID: 8450811183499706223
       vertices: []
       indices: 
       edges: []
@@ -376,52 +376,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":5.0},"gridSpriteSize":{"x":680.0,"y":73.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":4,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       CollectGraphite_0: -5121670408284642568
       CollectGraphite_1: 7329886438145406085
-      CollectGraphite_10: 5875436240424518390
-      CollectGraphite_11: 4647721560991094775
-      CollectGraphite_12: -6376159508630629584
-      CollectGraphite_13: 6294461994155297185
-      CollectGraphite_14: 3013097000089704114
-      CollectGraphite_15: 9213504726819985798
-      CollectGraphite_16: -8950297975305881966
-      CollectGraphite_17: 4317772850252805238
-      CollectGraphite_18: -3214525941965507589
-      CollectGraphite_19: -619740564181888643
       CollectGraphite_2: 2129274100913712697
-      CollectGraphite_20: -2240849313358586421
-      CollectGraphite_21: 2235632200419488543
-      CollectGraphite_22: 7069136311200216823
-      CollectGraphite_23: 7861515722772527743
-      CollectGraphite_24: 3412572159311949799
-      CollectGraphite_25: 4868379130474849295
-      CollectGraphite_26: -1113288826586995441
-      CollectGraphite_27: 2859587236389968423
-      CollectGraphite_28: 8616307623910637493
-      CollectGraphite_29: -7976886834803481282
       CollectGraphite_3: 7434966454767722804
-      CollectGraphite_30: 3557604044553630006
-      CollectGraphite_31: 5593581157116084880
-      CollectGraphite_32: 8548855399446522270
-      CollectGraphite_33: 7139126570820882376
-      CollectGraphite_34: -1866949978425115856
-      CollectGraphite_35: -2088253037204191405
-      CollectGraphite_36: -7203583386222248493
-      CollectGraphite_37: -8293476702185026942
-      CollectGraphite_38: -1070080582006778892
-      CollectGraphite_39: -9055387888736176606
       CollectGraphite_4: 8450811183499706223
-      CollectGraphite_40: 9011460327038524959
-      CollectGraphite_41: 6789063101888273347
-      CollectGraphite_42: 532352944483177492
-      CollectGraphite_43: -5018613798491123873
-      CollectGraphite_5: -5204690249235270086
-      CollectGraphite_6: 458210779530948732
-      CollectGraphite_7: -1772447269266696951
-      CollectGraphite_8: -5152119576393630095
-      CollectGraphite_9: 3778652885647775342
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
