@@ -13,10 +13,10 @@ id	type	speaker	content	emotion	next_id	fail_id
 100208					100209	0
 100209	Quest	System	퀘스트 완료: 흑연 조각 획득!	None	100210	0
 100210	Dialog	Player	헉헉... 드디어 순도 99%의 흑연 조각을 얻었어! 이제 프레스기로 꾹꾹 눌러줄 차례군.	Happy	100301	0
-100211	Dialog	Player	이 연필은 '2B'연필이니까... 온도를 300도까지 화끈하게 올려야 압축이 되겠군!	Happy	100305	0
+100211	Dialog	Player	이 연필은 '2B'연필이니까... 온도를 600도까지 화끈하게 올려야 압축이 되겠군!	Happy	100305	0
 100301	Quest	System	연필 종류에 맞춰 프레스기의 온도를 설정하세요.	None	100302	0
 100302					100304	100303
-100303	Dialog	Player	앗, 온도가 안 맞잖아? 다시 300도로 맞춰보자!	Sad	100302	0
+100303	Dialog	Player	앗, 온도가 안 맞잖아? 다시 600도로 맞춰보자!	Sad	100302	0
 100304	Quest	System	온도 설정에 성공했습니다. 다이아몬드 생성 중입니다.	None	100305	0
 100305	Quest	System	다이아몬드 생성 완료!	None	100306	0
 100306	Dialog	Player	뭐야? 정말 다이아몬드가 됐잖아? 지금은 작고 볼품 없지만 지금은 급한 자금을 마련할 정도로 충분해!	Surprised	100307	0
