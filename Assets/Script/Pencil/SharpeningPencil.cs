@@ -43,6 +43,8 @@ public class SharpeningPencil : MonoBehaviour, IPencil
         currentGraphiteHp = newPencil.MaxGraphiteHp; // 연필심의 최대 HP로 초기화
         currentPencilPhase = PencilPhase.ReadyToSharpen; // 연필이 깎일 준비가 된 상태로 설정
 
+        if (pencilImageForHealth == null) pencilImageForHealth = GetComponent<Image>();
+
         pencilImageForHealth.enabled = true; // 연필 이미지 활성화
 
         UpdatePencilSprite();

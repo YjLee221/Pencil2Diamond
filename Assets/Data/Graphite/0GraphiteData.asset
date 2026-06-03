@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a5c553fe2eeac5489a5daef2f25fc2f, type: 3}
-  m_Name: GraphiteData
+  m_Name: 0GraphiteData
   m_EditorClassIdentifier: Assembly-CSharp::GraphiteData
   graphiteName: "\uC5F0\uC2B5\uC6A9 \uD751\uC5F0"
   graphiteType: 0
   maxGraphiteHp: 15
+  targetPressTemperature: 600
   imgGraphiteStates:
   - remainingHpPercent: 100
     graphiteSprite: {fileID: -5121670408284642568, guid: 93801b44843e4b545b5922e645326abb, type: 3}

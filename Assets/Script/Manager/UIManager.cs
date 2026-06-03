@@ -12,6 +12,9 @@ public class UIManager : MonoBehaviour
     [Header("Working Panel")]
     [SerializeField] GameObject sharpeningPanel;
     [SerializeField] GameObject extractingPanel;
+    [SerializeField] GameObject pressingPanel;
+    [SerializeField] PressMachine pressMachine;
+    [SerializeField] PencilCollectedGraphite graphiteCollector;
 
     [Header("Background Image")]
     [SerializeField] Image factoryImg;
@@ -30,9 +33,69 @@ public class UIManager : MonoBehaviour
         mainCanvas.SetActive(true);
         popupCanvas.SetActive(true);
         inworkCanvas.SetActive(false);
+        ShowOnlyWorkPanel(null);
     }
 
     public void StartWorkingCanvas()
+    {
+        StartSharpeningCanvas();
+    }
+
+    public void StartWorkingCanvas(string dialogId)
+    {
+        switch (dialogId)
+        {
+            case "100203":
+                StartSharpeningCanvas();
+                break;
+            case "100208":
+                ExtractingGraphiteCanvas();
+                break;
+            case "100302":
+                PressingCanvas();
+                break;
+            default:
+                StartSharpeningCanvas();
+                Debug.LogWarning($"No work panel is mapped for dialog id: {dialogId}");
+                break;
+        }
+    }
+
+    public void StartSharpeningCanvas()
+    {
+        ShowWorkCanvas();
+        ShowOnlyWorkPanel(sharpeningPanel);
+    }
+
+    public void EndWorkCanvas()
+    {
+        inworkCanvas.SetActive(false);
+        popupCanvas.SetActive(true);
+        ShowOnlyWorkPanel(null);
+
+        factoryImg.gameObject.SetActive(true);
+        deskImg.gameObject.SetActive(false);
+    }
+
+    public void ExtractingGraphiteCanvas()
+    {
+        ShowWorkCanvas();
+        ShowOnlyWorkPanel(extractingPanel);
+    }
+
+    public void PressingCanvas()
+    {
+        ShowWorkCanvas();
+        ShowOnlyWorkPanel(pressingPanel);
+
+        if (pressMachine != null)
+        {
+            GraphiteData graphiteData = graphiteCollector != null ? graphiteCollector.currentGraphiteData : null;
+            pressMachine.StartPressing(graphiteData);
+        }
+    }
+
+    void ShowWorkCanvas()
     {
         inworkCanvas.SetActive(true);
         popupCanvas.SetActive(false);
@@ -41,19 +104,11 @@ public class UIManager : MonoBehaviour
         deskImg.gameObject.SetActive(true);
     }
 
-    public void EndWorkCanvas()
+    void ShowOnlyWorkPanel(GameObject activePanel)
     {
-        inworkCanvas.SetActive(false);
-        popupCanvas.SetActive(true);
-
-        factoryImg.gameObject.SetActive(true);
-        deskImg.gameObject.SetActive(false);
-    }
-
-    public void ExtractingGraphiteCanvas()
-    {
-        sharpeningPanel.SetActive(false);
-        extractingPanel.SetActive(true);
+        if (sharpeningPanel != null) sharpeningPanel.SetActive(sharpeningPanel == activePanel);
+        if (extractingPanel != null) extractingPanel.SetActive(extractingPanel == activePanel);
+        if (pressingPanel != null) pressingPanel.SetActive(pressingPanel == activePanel);
     }
 
     // TODO: 추후 자동 도구 버튼 클릭 시 호출될 메서드

@@ -24,6 +24,7 @@ public class GraphiteData : ScriptableObject
     [SerializeField] string graphiteName; // 흑연 이름
     [SerializeField] GraphiteType graphiteType; // 흑연 종류
     [SerializeField] int maxGraphiteHp = 15; // 흑연의 최대 HP
+    [SerializeField] int targetPressTemperature = 600;
 
     [Header("흑연 상태별 이미지")]
     [SerializeField] GraphiteState[] imgGraphiteStates; // 흑연의 HP 단계별로 보여줄 이미지 설정
@@ -32,4 +33,6 @@ public class GraphiteData : ScriptableObject
     public GraphiteType GraphiteType { get { return graphiteType; } }
     public int MaxGraphiteHp => maxGraphiteHp;
     public GraphiteState[] ImgGraphiteStates { get { return imgGraphiteStates; } }
+
+    public int TargetPressTemperature { get { return targetPressTemperature; } }
 }

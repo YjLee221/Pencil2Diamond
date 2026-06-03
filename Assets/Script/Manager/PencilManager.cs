@@ -45,8 +45,6 @@ public class PencilManager : MonoBehaviour
 
     void HandleSharpeningCompleted(SharpeningPencil sharpenedPencil)
     {
-        uiManager.ExtractingGraphiteCanvas();
-
         graphiteCollector.gameObject.SetActive(true);
         graphiteCollector.StartExtractingPhase(sharpenedPencil.currentPencilData, sharpenedPencil.currentPencilData.graphiteData, sharpenedPencil.currentGraphiteHp);
         

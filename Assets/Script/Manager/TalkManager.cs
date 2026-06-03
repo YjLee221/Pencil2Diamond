@@ -129,9 +129,9 @@ public class TalkManager : MonoBehaviour
     {
         if (dialogDatabase.TryGetValue(startId, out currentData))
         {
-            if (currentData.type.Equals(""))
+            if (string.IsNullOrEmpty(currentData.type))
             {
-                uiManager.StartWorkingCanvas();
+                uiManager.StartWorkingCanvas(currentData.id);
                 return;
             }
 
