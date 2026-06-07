@@ -6,7 +6,6 @@ public class PressMachine : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 {
     [Header("Dial")]
     [SerializeField] RectTransform dialTouchArea;
-    //[SerializeField] RectTransform dialVisual;
     [SerializeField] float minDialDegree = -135f;
     [SerializeField] float maxDialDegree = 135f;
 
@@ -23,8 +22,7 @@ public class PressMachine : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     float currentDialDegree;
 
     int activePointerId = int.MinValue;
-    float startPointerAngle;
-    float startDialDegree;
+    float previousPointerAngle;
 
     void Awake()
     {
@@ -58,8 +56,7 @@ public class PressMachine : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         if (dialTouchArea == null) return;
 
         activePointerId = eventData.pointerId;
-        startPointerAngle = GetPointerAngle(eventData);
-        startDialDegree = currentDialDegree;
+        previousPointerAngle = GetPointerAngle(eventData);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -68,9 +65,10 @@ public class PressMachine : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         if (dialTouchArea == null) return;
 
         float pointerAngle = GetPointerAngle(eventData);
-        float deltaAngle = Mathf.DeltaAngle(startPointerAngle, pointerAngle);
+        float deltaAngle = Mathf.DeltaAngle(previousPointerAngle, pointerAngle);
 
-        SetDialDegree(startDialDegree + deltaAngle);
+        SetDialDegree(currentDialDegree + deltaAngle);
+        previousPointerAngle = pointerAngle;
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -82,11 +80,12 @@ public class PressMachine : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     float GetPointerAngle(PointerEventData eventData)
     {
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(dialTouchArea, eventData.position,
-            eventData.pressEventCamera, out Vector2 localPoint
-        );
+        Vector2 centerPoint = RectTransformUtility.WorldToScreenPoint(eventData.pressEventCamera, dialTouchArea.position);
+        Vector2 pointerDirection = eventData.position - centerPoint;
 
-        return Mathf.Atan2(localPoint.y, localPoint.x) * Mathf.Rad2Deg;
+        if (pointerDirection.sqrMagnitude <= Mathf.Epsilon) return previousPointerAngle;
+
+        return Mathf.Atan2(pointerDirection.y, pointerDirection.x) * -Mathf.Rad2Deg;
     }
 
     void SetDialDegree(float degree)

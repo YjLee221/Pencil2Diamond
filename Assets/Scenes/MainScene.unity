@@ -393,7 +393,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PressMachine
   dialTouchArea: {fileID: 1686091260}
-  dialVisual: {fileID: 0}
   minDialDegree: -135
   maxDialDegree: 135
   userSettingTemperature: {fileID: 947954289}
@@ -3131,7 +3130,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -46, y: -277}
+  m_AnchoredPosition: {x: -46, y: -298}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1686091262
@@ -3570,7 +3569,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2017072478
 RectTransform:
   m_ObjectHideFlags: 0
