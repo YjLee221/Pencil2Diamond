@@ -1,6 +1,8 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class PressMachine : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -17,12 +19,17 @@ public class PressMachine : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     [SerializeField] int temperatureStep = 50;
     [SerializeField] int successTolerance = 0;
 
+    [Header("Confirm")]
+    [SerializeField] Button confirmBtn;
+
     int currentTemperature;
     int targetTemperature;
     float currentDialDegree;
 
     int activePointerId = int.MinValue;
     float previousPointerAngle;
+
+    public static event Action<bool> OnMatchingTemperatureCompleted;
 
     void Awake()
     {
@@ -31,6 +38,29 @@ public class PressMachine : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         ResetTemperature();
         UpdateTemperatureUI();
         UpdateDialVisual();
+    }
+
+    void Start()
+    {
+        if (confirmBtn != null)
+        {
+            confirmBtn.onClick.AddListener(OnConfirmButtonClicked);
+        }
+    }
+
+    private void OnConfirmButtonClicked()
+    {
+        bool checkTemperature = Mathf.Abs(currentTemperature - targetTemperature) <= successTolerance;
+        if (checkTemperature)
+        {
+            Debug.Log("성공! 온도 맞추기 성공~");
+            OnMatchingTemperatureCompleted?.Invoke(true);
+        }
+        else
+        {
+            Debug.Log("실패! 온도 맞추기 실패~");
+            OnMatchingTemperatureCompleted?.Invoke(false);
+        }
     }
 
     public void StartPressing(GraphiteData graphiteData)
@@ -125,10 +155,5 @@ public class PressMachine : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     void UpdateDialVisual()
     {
         dialTouchArea.localRotation = Quaternion.Euler(0f, 0f, currentDialDegree);
-    }
-
-    public bool IsCorrectTemperature()
-    {
-        return Mathf.Abs(currentTemperature - targetTemperature) <= successTolerance;
     }
 }
