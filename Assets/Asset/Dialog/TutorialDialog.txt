@@ -1,26 +1,31 @@
 id	type	speaker	content	emotion	next_id	fail_id
 100101	Dialog	Player	으아아악! 내 공방! 내 피 같은 공방이 하루 아침에 쫄딱 망하다니!! ㅠㅠ	Sad	100102	0
-100102	Dialog	Player	빚쟁이들이 다 털어가고 남은 건... 이 싸구려 연필 한 자루랑 커터칼뿐이잖아...?	Sad	100103	0
-100103	Dialog	Player	그래! 어디서 주워들은 적이 있어! 연필심의 흑연을 미친 듯이 압축하면 다이아몬드가 된다는 전설의 연금술...!	Happy	100104	0
-100104	Dialog	Player	좋아, 이걸로 다이아몬드를 깎아서 다시 공방을 일으켜 세울거야!!	Happy	100201	0
-100201	Dialog	Player	어디 한 번 이 연필을 한 번 깎아볼까?	Normal	100202	0
-100202	Instruction	System	커터칼을 연필로 드래그하여 깎아주세요!	None	100203	0
+100102	Dialog	Player	빚쟁이들이 다 털어가고 남은 건... 집에 뒹굴던 연필 한 자루랑 커터칼뿐이잖아...?\n하.. 어디서 돈을 마련해야 하지...??	Sad	100103	0
+100103	Dialog	Player	맞아!! 어디서 주워들은 적이 있어! 연필심의 흑연을 미친 듯이 압축하면 다이아몬드가 된다는 전설의 연금술...!	Happy	100104	0
+100104	Dialog	Player	좋아, 이걸로 다이아몬드를 만들어서 다시 공방을 일으켜 세울거야!!	Happy	100201	0
+100201	Dialog	Player	어디 이 연필을 한 번 깎아볼까?	Normal	100202	0
+100202	Instruction	System	커터칼을 연필로 드래그하여 깎아주세요	None	100203	0
 100203					100204	0
 100204	Quest	System	퀘스트 완료: 연필의 흑연이 모습을 드러냈다	None	100205	0
-100205	Dialog	Player	오호라, 까만 흑연이 모습을 드러냈군. 이걸 어떻게 해야 흑연만 깔끔하게 얻을 수 있을까?	Normal	100206	0
+100205	Dialog	Player	까만 흑연이 모습을 드러냈군. 이걸 어떻게 해야 흑연만 깔끔하게 얻을 수 있을까?	Normal	100206	0
 100206	Dialog	Player	에잇! 몰라! 일단 칼로 마구 썰어서 잘라내자!!!	Happy	100207	0
 100207	Instruction	System	커터칼로 흑연을 사정없이 썰어주세요.	None	100208	0
 100208					100209	0
 100209	Quest	System	퀘스트 완료: 흑연 조각 획득!	None	100210	0
-100210	Dialog	Player	헉헉... 드디어 순도 99%의 흑연 조각을 얻었어! 이제 프레스기로 꾹꾹 눌러줄 차례군.	Happy	100301	0
-100211	Dialog	Player	이 연필은 '2B'연필이니까... 온도를 600도까지 화끈하게 올려야 압축이 되겠군!	Happy	100305	0
-100301	Quest	System	연필 종류에 맞춰 프레스기의 온도를 설정하세요.	None	100302	0
+100210	Dialog	Player	허억... 드디어 순도 99%의 흑연 조각을 얻었어! 이제 압축기에 넣어볼 차례군.	Happy	100211	0
+100211	Dialog	Player	온도를 얼마로 설정해야 할까? 일단은 600도로 해보자.	Normal	100301	0
+100301	Quest	System	압축기의 온도를 설정하세요.	None	100302	0
 100302					100304	100303
 100303	Dialog	Player	앗, 온도가 안 맞잖아? 다시 600도로 맞춰보자!	Sad	100302	0
 100304	Quest	System	온도 설정에 성공했습니다. 다이아몬드 생성 중입니다.	None	100305	0
-100305	Quest	System	다이아몬드 생성 완료!	None	100306	0
-100306	Dialog	Player	뭐야? 정말 다이아몬드가 됐잖아? 지금은 작고 볼품 없지만 지금은 급한 자금을 마련할 정도로 충분해!	Surprised	100307	0
-100307	Dialog	Player	앞으로 더 좋은 연필을 사서 흑연을 많이 모아 더 많은 다이아몬드를 만들어보자!!!	Happy	100308	0
-100308	Instruction	System	연필을 깎고 흑연을 많이 모아 다이아몬드를 많이 만들어보세요.	None	100309	0
-100309	Instruction	System	좋은 연필일수록 좋은 품질의 다이아몬드를 얻을 수 있고, 더 좋은 도구로 흑연을 더 많이 모을 수 있습니다.	None	100310	0
-100310	Instruction	System	다이아몬드를 얻어 공방을 부흥시켜보세요.	None	0	0
+100305	Quest	System	다이아몬드 생성 완료	None	100306	0
+100306	Dialog	Player	뭐야? 정말 다이아몬드가 됐잖아!	Surprised	100307	0
+100307	Dialog	Player	흠...지금은 작고 볼품없지만, 보석상인에게 가서 팔아봐야겠다. 급한 자금은 마련할 수 있을 거야!	Normal	100308	0
+100308	Instruction	System	보석상인을 만나러 가봅시다.	None	100309	0
+100309	Quest	System	메인 화면의 [납품] 버튼을 눌러 다이아몬드를 보석상인에게 납품하세요.	None		0
+100310	Dialog	Merchant	흠, 첫 작품치고는 제법이군. 아직 작지만 충분히 값어치는 있어. 이건 내가 매입하지.	Normal	100311	0
+100311	Instruction	System	다이아몬드를 납품해 200 코인을 획득했습니다!	None	100312	0
+100312	Dialog	Player	좋아! 이 코인으로 더 좋은 연필을 사서 흑연을 많이 모아, 더 많은 다이아몬드를 만들어 보자!	Happy	100313	0
+100313	Instruction	System	다이아몬드의 품질은 연필의 등급과 프레스 온도에 따라 달라집니다.	None	100314	0
+100314	Instruction	System	목표 온도에 가까울수록 더 높은 품질의 다이아몬드를 만들 수 있습니다.	None	100315	0
+100315	Instruction	System	더 좋은 연필과 도구를 마련해 다이아몬드를 납품하고 공방을 부흥시키세요.	None	0	0
