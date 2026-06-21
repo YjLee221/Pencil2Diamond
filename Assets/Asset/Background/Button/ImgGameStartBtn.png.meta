@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e86d21d702032d84594296e77efe576e
+guid: 91b78e7274343274e84ed8dbbb65816c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5028411839766275808
-    second: ImgTempureSetting_0
+      213: -3851659305387124347
+    second: ImgPressBG_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,23 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ImgTempureSetting_0
+      name: ImgPressBG_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 385
-        height: 816
+        width: 1023
+        height: 1537
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 029dc5ac21e773ab0800000000000000
-      internalID: -5028411839766275808
+      spriteID: 589929ac4482c8ac0800000000000000
+      internalID: -3851659305387124347
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 991eb90d7201af447addf201ec792838
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ImgTempureSetting_0: -5028411839766275808
+      ImgPressBG_0: -3851659305387124347
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
