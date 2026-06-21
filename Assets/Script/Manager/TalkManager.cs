@@ -22,12 +22,14 @@ public class TalkManager : MonoBehaviour
     {
         SharpeningPencil.OnPencilSharpeningCompleted += HandleCompletedPencilSharpening;
         PencilCollectedGraphite.OnGraphiteExtractionCompleted += HandleCompletedPencilSharpening;
+        PressMachine.OnMatchingTemperatureCompleted += HandleCompletedPencilSharpening;
     }
 
     void OnDisable()
     {
         SharpeningPencil.OnPencilSharpeningCompleted -= HandleCompletedPencilSharpening;
         PencilCollectedGraphite.OnGraphiteExtractionCompleted -= HandleCompletedPencilSharpening;
+        PressMachine.OnMatchingTemperatureCompleted -= HandleCompletedPencilSharpening;
     }
 
     void HandleCompletedPencilSharpening(SharpeningPencil pencil)
@@ -39,6 +41,11 @@ public class TalkManager : MonoBehaviour
         ResumeAfterMinigame();
     }
 
+    private void HandleCompletedPencilSharpening(bool isSuccess)
+    {
+        ResumeAfterMinigame_successOrFail(isSuccess);
+    }
+
     public void ResumeAfterMinigame()
     {
         Debug.Log("미니게임 클리어! 대화 재개~");
@@ -46,6 +53,23 @@ public class TalkManager : MonoBehaviour
         if(currentData != null && !string.IsNullOrEmpty(currentData.nextId))
         {
             StartDialog(currentData.nextId);
+        }
+        else
+        {
+            dialogManager.HideDialog();
+            Debug.Log("대화 끝~!!");
+            currentData = null;
+        }
+    }
+
+    private void ResumeAfterMinigame_successOrFail(bool isSuccess)
+    {
+        Debug.Log($"미니게임 클리어 여부: {isSuccess}. 대화 재개~");
+        string nextDialogId = isSuccess ? currentData.nextId : currentData.failId;
+
+        if(!string.IsNullOrEmpty(nextDialogId))
+        {
+            StartDialog(nextDialogId);
         }
         else
         {

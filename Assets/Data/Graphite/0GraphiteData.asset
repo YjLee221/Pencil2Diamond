@@ -24,6 +24,6 @@ MonoBehaviour:
   - remainingHpPercent: 0.5
     graphiteSprite: {fileID: 2129274100913712697, guid: 93801b44843e4b545b5922e645326abb, type: 3}
   - remainingHpPercent: 0.25
-    graphiteSprite: {fileID: 7434966454767722804, guid: 93801b44843e4b545b5922e645326abb, type: 3}
+    graphiteSprite: {fileID: 2129274100913712697, guid: 93801b44843e4b545b5922e645326abb, type: 3}
   - remainingHpPercent: 0
     graphiteSprite: {fileID: 8450811183499706223, guid: 93801b44843e4b545b5922e645326abb, type: 3}

@@ -91,6 +91,7 @@ public class UIManager : MonoBehaviour
         if (pressMachine != null)
         {
             GraphiteData graphiteData = graphiteCollector != null ? graphiteCollector.currentGraphiteData : null;
+
             pressMachine.StartPressing(graphiteData);
         }
     }

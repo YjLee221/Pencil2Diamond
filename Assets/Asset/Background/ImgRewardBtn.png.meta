@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: b984a1a7016f3bd4cb5b2efd90627649
+guid: 8aa5dd89e117145489c94da286c82fa6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3851659305387124347
-    second: ImgPressBG_0
+      213: 4567189596866750414
+    second: ImgRewardBtn_0
+  - first:
+      213: -9116745003703934647
+    second: ImgRewardBtn_1
+  - first:
+      213: 8748084640097315007
+    second: ImgRewardBtn_2
+  - first:
+      213: -5602251357834989753
+    second: ImgRewardBtn_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,44 +135,113 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ImgPressBG_0
+      name: ImgRewardBtn_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1023
-        height: 1537
+        x: 162
+        y: 207
+        width: 175
+        height: 177
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
+      customData:
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 589929ac4482c8ac0800000000000000
-      internalID: -3851659305387124347
+      spriteID: ec72a178dbae16f30800000000000000
+      internalID: 4567189596866750414
       vertices: []
-      indices: 
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ImgRewardBtn_1
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 152
+        width: 39
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 941e862c8b0da7180800000000000000
+      internalID: -9116745003703934647
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ImgRewardBtn_2
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 165
+        width: 25
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb82d0e71a0776970800000000000000
+      internalID: 8748084640097315007
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ImgRewardBtn_3
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 146
+        width: 31
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74fabc1721ec042b0800000000000000
+      internalID: -5602251357834989753
+      vertices: []
+      indices:
       edges: []
       weights: []
     outline: []
-    customData: 
+    customData:
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID:
     internalID: 0
     vertices: []
-    indices: 
+    indices:
     edges: []
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ImgPressBG_0: -3851659305387124347
-  mipmapLimitGroupName: 
+      ImgRewardBtn_0: 4567189596866750414
+      ImgRewardBtn_1: -9116745003703934647
+      ImgRewardBtn_2: 8748084640097315007
+      ImgRewardBtn_3: -5602251357834989753
+  mipmapLimitGroupName:
   pSDRemoveMatte: 0
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+  userData:
+  assetBundleName:
+  assetBundleVariant:

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2244851fa4fac9b40bcafc2cffbd5081
+guid: ceeb96e5f90a6584b970748ea10b80b5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7725652012036514327
-    second: ImgFactoryBG_01_0
+      213: -7849732277368368979
+    second: PressMachine_01_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,44 +126,44 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ImgFactoryBG_01_0
+      name: PressMachine_01_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 941
-        height: 1672
+        width: 1086
+        height: 1448
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      customData:
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 712e7bb9297073b60800000000000000
-      internalID: 7725652012036514327
+      spriteID: da05a895516201390800000000000000
+      internalID: -7849732277368368979
       vertices: []
-      indices:
+      indices: 
       edges: []
       weights: []
     outline: []
-    customData:
+    customData: 
     physicsShape: []
     bones: []
-    spriteID:
+    spriteID: 
     internalID: 0
     vertices: []
-    indices:
+    indices: 
     edges: []
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ImgFactoryBG_01_0: 7725652012036514327
-  mipmapLimitGroupName:
+      PressMachine_01_0: -7849732277368368979
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  userData:
-  assetBundleName:
-  assetBundleVariant:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

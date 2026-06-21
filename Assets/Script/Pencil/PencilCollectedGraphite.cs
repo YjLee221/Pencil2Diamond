@@ -24,6 +24,8 @@ public class PencilCollectedGraphite : MonoBehaviour, IPencil
         currentGraphiteData = graphiteData;
         currentGraphiteHp = graphiteHP;
         currentPencilPhase = PencilPhase.Extracting;
+
+        UpdateGraphiteSprite();
     }
 
     public void TakeShaveDamage(int damage)
@@ -35,6 +37,7 @@ public class PencilCollectedGraphite : MonoBehaviour, IPencil
         if (currentGraphiteHp <= 0)
         {
             currentGraphiteHp = 0;
+            UpdateGraphiteSprite();
             OnGraphiteExtractionCompleted?.Invoke(this);
         }
         else

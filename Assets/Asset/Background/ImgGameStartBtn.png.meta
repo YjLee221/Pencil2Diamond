@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 437489c4bcc3bfe499f9ad302dd2d16b
+guid: 38522c8f9fa86aa479941bd567d806e5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -920621944182108156
-    second: PressMachine_0
+      213: -5552208349116422501
+    second: ImgGameStartBtn_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,44 +126,44 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PressMachine_0
+      name: ImgGameStartBtn_0
       rect:
         serializedVersion: 2
-        x: 50
-        y: 0
-        width: 323
-        height: 620
+        x: 165
+        y: 70
+        width: 536
+        height: 156
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
+      customData:
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 400989c283b4933f0800000000000000
-      internalID: -920621944182108156
+      spriteID: b9625ff5ce792f2b0800000000000000
+      internalID: -5552208349116422501
       vertices: []
-      indices: 
+      indices:
       edges: []
       weights: []
     outline: []
-    customData: 
+    customData:
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID:
     internalID: 0
     vertices: []
-    indices: 
+    indices:
     edges: []
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PressMachine_0: -920621944182108156
-  mipmapLimitGroupName: 
+      ImgGameStartBtn_0: -5552208349116422501
+  mipmapLimitGroupName:
   pSDRemoveMatte: 0
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+  userData:
+  assetBundleName:
+  assetBundleVariant:
