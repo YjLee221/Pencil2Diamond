@@ -129,10 +129,10 @@ TextureImporter:
       name: ImgPlayerNormal_0
       rect:
         serializedVersion: 2
-        x: 185
+        x: 2
         y: 0
-        width: 252
-        height: 370
+        width: 431
+        height: 563
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

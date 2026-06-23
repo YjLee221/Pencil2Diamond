@@ -30,7 +30,7 @@ public class UIManager : MonoBehaviour
     void ShowCanvasFirst()
     {
         backgroundCanvas.SetActive(true);
-        mainCanvas.SetActive(true);
+        mainCanvas.SetActive(false);
         popupCanvas.SetActive(true);
         inworkCanvas.SetActive(false);
         ShowOnlyWorkPanel(null);

@@ -129,10 +129,10 @@ TextureImporter:
       name: ImgPlayerCry_0
       rect:
         serializedVersion: 2
-        x: 209
+        x: 5
         y: 0
-        width: 253
-        height: 370
+        width: 428
+        height: 560
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
