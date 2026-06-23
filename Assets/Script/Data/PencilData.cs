@@ -25,6 +25,7 @@ public class PencilData : ScriptableObject
     [Header("연필 정보")]
     [SerializeField] string pencilName; // 연필 이름
     [SerializeField] PencilType pencilType; // 연필 종류
+    [SerializeField] int sellPriceForPencil; // 연필 가격
     [SerializeField] int maxPencilHp = 100; // 연필의 최대 HP
     [SerializeField] int maxGraphiteHp = 15; // 연필심의 최대 HP
 
@@ -36,6 +37,7 @@ public class PencilData : ScriptableObject
     // 외부에서 읽을 수 있도록 프로퍼티로 공개
     public string PencilName => pencilName;
     public PencilType PencilType { get { return pencilType; } }
+    public int SellPriceForPencil => sellPriceForPencil;
     public int MaxPencilHp => maxPencilHp;
     public int MaxGraphiteHp => maxGraphiteHp;
     public PencilState[] PencilStates { get { return imgPencilStates; } }

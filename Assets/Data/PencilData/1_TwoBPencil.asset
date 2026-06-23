@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 61c436ca27a31564e98225f8528e7125, type: 3}
-  m_Name: 0PencilData
+  m_Name: 1_TwoBPencil
   m_EditorClassIdentifier: Assembly-CSharp::PencilData
-  pencilName: "\uC5F0\uC2B5\uC6A9 \uC5F0\uD544"
-  pencilType: 0
-  maxPencilHp: 30
-  maxGraphiteHp: 15
+  pencilName: "2B\uC5F0\uD544"
+  pencilType: 1
+  sellPriceForPencil: 200
+  maxPencilHp: 80
+  maxGraphiteHp: 45
   imgPencilStates:
   - remainingHpPercent: 100
     pencilSprite: {fileID: 5806247343882902020, guid: 1ceabae795bcfa6438aeac65fa4a01a9, type: 3}

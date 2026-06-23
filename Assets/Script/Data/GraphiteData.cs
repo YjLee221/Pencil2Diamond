@@ -33,6 +33,5 @@ public class GraphiteData : ScriptableObject
     public GraphiteType GraphiteType { get { return graphiteType; } }
     public int MaxGraphiteHp => maxGraphiteHp;
     public GraphiteState[] ImgGraphiteStates { get { return imgGraphiteStates; } }
-
     public int TargetPressTemperature { get { return targetPressTemperature; } }
 }
