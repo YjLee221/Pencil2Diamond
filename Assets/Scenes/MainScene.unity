@@ -1010,7 +1010,7 @@ GameObject:
   - component: {fileID: 278473661}
   - component: {fileID: 278473660}
   m_Layer: 5
-  m_Name: TxtFactoryLevel
+  m_Name: TxtWorkShopLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1352,6 +1352,7 @@ MonoBehaviour:
   graphiteCollector: {fileID: 1264491692}
   factoryImg: {fileID: 1905654753}
   deskImg: {fileID: 1590954972}
+  mainImg: {fileID: 1390268286}
   selectedTool: {fileID: 0}
 --- !u!4 &390131466
 Transform:
@@ -2348,7 +2349,7 @@ GameObject:
   - component: {fileID: 617905947}
   - component: {fileID: 617905946}
   m_Layer: 5
-  m_Name: ImgFactoryLevel
+  m_Name: ImgWorkShopLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2652,7 +2653,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &637994257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2757,7 +2758,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &791387593
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4201,7 +4202,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1390268285
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5119,7 +5120,7 @@ GameObject:
   - component: {fileID: 1870112800}
   - component: {fileID: 1870112799}
   m_Layer: 5
-  m_Name: TxtFactoryName
+  m_Name: TxtWorkShopLevelName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5141,7 +5142,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.5999985, y: -5}
+  m_AnchoredPosition: {x: 8.7, y: -1.9000015}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1870112799
@@ -5230,7 +5231,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -44.901375, y: 9.141723, z: 15.464767, w: -30.869476}
+  m_margin: {x: -88.00329, y: 17.50479, z: -17.344208, w: -30.869476}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -5439,7 +5440,7 @@ GameObject:
   - component: {fileID: 1905654754}
   - component: {fileID: 1905654753}
   m_Layer: 5
-  m_Name: ImgFactory
+  m_Name: ImgWorkShop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -22,10 +22,11 @@ id	type	speaker	content	emotion	next_id	fail_id
 100306	Dialog	Player	뭐야? 정말 다이아몬드가 됐잖아!	Surprised	100307	0
 100307	Dialog	Player	흠...지금은 작고 볼품없지만, 보석상인에게 가서 팔아봐야겠다. 급한 자금은 마련할 수 있을 거야!	Normal	100308	0
 100308	Instruction	System	보석상인을 만나러 가봅시다.	None	100309	0
-100309	Quest	System	메인 화면의 [납품] 버튼을 눌러 다이아몬드를 보석상인에게 납품하세요.	None		0
-100310	Dialog	Merchant	흠, 첫 작품치고는 제법이군. 아직 작지만 충분히 값어치는 있어. 이건 내가 매입하지.	Normal	100311	0
-100311	Instruction	System	다이아몬드를 납품해 200 코인을 획득했습니다!	None	100312	0
-100312	Dialog	Player	좋아! 이 코인으로 더 좋은 연필을 사서 흑연을 많이 모아, 더 많은 다이아몬드를 만들어 보자!	Happy	100313	0
-100313	Instruction	System	다이아몬드의 품질은 연필의 등급과 프레스 온도에 따라 달라집니다.	None	100314	0
-100314	Instruction	System	목표 온도에 가까울수록 더 높은 품질의 다이아몬드를 만들 수 있습니다.	None	100315	0
-100315	Instruction	System	더 좋은 연필과 도구를 마련해 다이아몬드를 납품하고 공방을 부흥시키세요.	None	0	0
+100309	Quest	System	메인 화면의 [납품] 버튼을 눌러 다이아몬드를 보석상인에게 납품하세요.	100310		0
+100310                   100311	0
+100311	Dialog	Merchant	흠, 첫 작품치고는 제법이군. 아직 작지만 충분히 값어치는 있어. 이건 내가 매입하지.	Normal	100312	0
+100312	Instruction	System	다이아몬드를 납품해 200 코인을 획득했습니다!	None	100313	0
+100313	Dialog	Player	좋아! 이 코인으로 더 좋은 연필을 사서 흑연을 많이 모아, 더 많은 다이아몬드를 만들어 보자!	Happy	100314	0
+100314	Instruction	System	다이아몬드의 품질은 연필의 등급과 프레스 온도에 따라 달라집니다.	None	100315	0
+100315	Instruction	System	목표 온도에 가까울수록 더 높은 품질의 다이아몬드를 만들 수 있습니다.	None	100316	0
+100316	Instruction	System	더 좋은 연필과 도구를 마련해 다이아몬드를 납품하고 공방을 부흥시키세요.	None	0	0

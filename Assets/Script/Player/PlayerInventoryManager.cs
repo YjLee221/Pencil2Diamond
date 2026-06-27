@@ -12,4 +12,8 @@ public class PlayerInventoryManager : MonoBehaviour
 
     [Header("Diamond")]
     int diamondCount = 0;
+
+    PencilData pencil;
+    GraphiteData graphite;
+    DiamondData diamond;
 }

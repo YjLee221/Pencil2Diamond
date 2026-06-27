@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,8 +18,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] PencilCollectedGraphite graphiteCollector;
 
     [Header("Background Image")]
-    [SerializeField] Image factoryImg;
+    [SerializeField] Image WorkShopImg;
     [SerializeField] Image deskImg;
+    [SerializeField] Image mainImg;
 
     [SerializeField] BaseTool selectedTool;  // 현재 유저가 장착한 도구 (다형성 활용)
 
@@ -34,6 +36,10 @@ public class UIManager : MonoBehaviour
         popupCanvas.SetActive(true);
         inworkCanvas.SetActive(false);
         ShowOnlyWorkPanel(null);
+
+        WorkShopImg.gameObject.SetActive(false);
+        deskImg.gameObject.SetActive(false);
+        mainImg.gameObject.SetActive(false);
     }
 
     public void StartWorkingCanvas()
@@ -43,6 +49,7 @@ public class UIManager : MonoBehaviour
 
     public void StartWorkingCanvas(string dialogId)
     {
+        Debug.Log($"StartWorkingCanvas called with dialogId: {dialogId}");
         switch (dialogId)
         {
             case "100203":
@@ -53,6 +60,9 @@ public class UIManager : MonoBehaviour
                 break;
             case "100302":
                 PressingCanvas();
+                break;
+            case "100310":
+                ShowMainCanvas();
                 break;
             default:
                 StartSharpeningCanvas();
@@ -73,7 +83,7 @@ public class UIManager : MonoBehaviour
         popupCanvas.SetActive(true);
         ShowOnlyWorkPanel(null);
 
-        factoryImg.gameObject.SetActive(true);
+        WorkShopImg.gameObject.SetActive(true);
         deskImg.gameObject.SetActive(false);
     }
 
@@ -96,13 +106,21 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    private void ShowMainCanvas()
+    {
+        mainImg.gameObject.SetActive(true);
+        mainCanvas.SetActive(true);
+    }
+
     void ShowWorkCanvas()
     {
         inworkCanvas.SetActive(true);
         popupCanvas.SetActive(false);
+        mainCanvas.SetActive(false);
 
-        factoryImg.gameObject.SetActive(false);
+        WorkShopImg.gameObject.SetActive(false);
         deskImg.gameObject.SetActive(true);
+        mainImg.gameObject.SetActive(false);
     }
 
     void ShowOnlyWorkPanel(GameObject activePanel)
