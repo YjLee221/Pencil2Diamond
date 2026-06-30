@@ -23,6 +23,7 @@ public class TalkManager : MonoBehaviour
         SharpeningPencil.OnPencilSharpeningCompleted += HandleCompletedPencilSharpening;
         PencilCollectedGraphite.OnGraphiteExtractionCompleted += HandleCompletedPencilSharpening;
         PressMachine.OnMatchingTemperatureCompleted += HandleCompletedPencilSharpening;
+        MainMenuUI.OnSellingButtonClickedEvent += HandleSellingButtonClicked;
     }
 
     void OnDisable()
@@ -30,20 +31,26 @@ public class TalkManager : MonoBehaviour
         SharpeningPencil.OnPencilSharpeningCompleted -= HandleCompletedPencilSharpening;
         PencilCollectedGraphite.OnGraphiteExtractionCompleted -= HandleCompletedPencilSharpening;
         PressMachine.OnMatchingTemperatureCompleted -= HandleCompletedPencilSharpening;
+        MainMenuUI.OnSellingButtonClickedEvent -= HandleSellingButtonClicked;
     }
 
     void HandleCompletedPencilSharpening(SharpeningPencil pencil)
     {
         ResumeAfterMinigame();
     }
-    private void HandleCompletedPencilSharpening(PencilCollectedGraphite graphite)
+    void HandleCompletedPencilSharpening(PencilCollectedGraphite graphite)
     {
         ResumeAfterMinigame();
     }
 
-    private void HandleCompletedPencilSharpening(bool isSuccess)
+    void HandleCompletedPencilSharpening(bool isSuccess)
     {
         ResumeAfterMinigame_successOrFail(isSuccess);
+    }
+
+    void HandleSellingButtonClicked()
+    {
+        ResumeAfterMinigame();
     }
 
     public void ResumeAfterMinigame()
@@ -91,6 +98,7 @@ public class TalkManager : MonoBehaviour
         }
         else // 타이핑이 끝난 경우, 다음 대사로 이동
         {
+            Debug.Log("다음 대사 ID: " + currentData.nextId);
             if(!string.IsNullOrEmpty(currentData.nextId)) StartDialog(currentData.nextId);
             else
             {

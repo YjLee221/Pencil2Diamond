@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,6 +19,11 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] Button makingButton;
     [SerializeField] Button sellingButton;
 
+    [SerializeField] PlayerData player;
+    [SerializeField] WorkShopData workshop;
+
+    public static event Action OnSellingButtonClickedEvent;
+
     void Start()
     {
         ShowInfo();
@@ -29,10 +35,33 @@ public class MainMenuUI : MonoBehaviour
     }
 
     void ShowInfo()
-    {         
-        WorkShopLevelText.text = $"Level: {PlayerData.Instance.WorkShopLevel}";
-        WorkShopLevelName.text = PlayerData.Instance.WorkShopLevelName;
-        diamondCount.text = PlayerData.Instance.Diamonds.ToString();
-        coinCount.text = PlayerData.Instance.Coins.ToString();
+    {
+        WorkShopLevelText.text = $"Lv.{player.currentWorkshopLevel}";
+        WorkShopLevelName.text = workshop.GetWorkShopLevelName((WorkShopLevelType)player.currentWorkshopLevel);
+        diamondCount.text = player.diamondCount.ToString();
+        coinCount.text = player.coinCount.ToString();
+    }
+
+    void OnGoMainButtonClicked()
+    {
+        // 메인 화면으로 이동하는 로직 구현
+        Debug.Log("Go Main Button Clicked");
+    }
+
+    void OnMissionButtonClicked()
+    {
+        // 미션 화면으로 이동하는 로직 구현
+        Debug.Log("Mission Button Clicked");
+    }
+
+    void OnMakingButtonClicked()
+    {
+        // 제작 화면으로 이동하는 로직 구현
+        Debug.Log("Making Button Clicked");
+    }
+
+    void OnSellingButtonClicked()
+    {
+        OnSellingButtonClickedEvent?.Invoke();
     }
 }

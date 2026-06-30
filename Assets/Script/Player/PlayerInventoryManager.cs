@@ -16,4 +16,9 @@ public class PlayerInventoryManager : MonoBehaviour
     PencilData pencil;
     GraphiteData graphite;
     DiamondData diamond;
+
+    void Start()
+    {
+        
+    }
 }

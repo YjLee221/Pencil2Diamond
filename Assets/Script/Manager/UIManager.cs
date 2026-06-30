@@ -110,6 +110,8 @@ public class UIManager : MonoBehaviour
     {
         mainImg.gameObject.SetActive(true);
         mainCanvas.SetActive(true);
+
+        popupCanvas.SetActive(false);
     }
 
     void ShowWorkCanvas()

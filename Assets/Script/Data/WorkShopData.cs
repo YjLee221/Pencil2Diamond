@@ -2,23 +2,37 @@ using UnityEngine;
 
 public enum WorkShopLevelType
 {
-    TUTORIAL_WorkShop,
-    STARTER_WorkShop,
-    STARTING_WorkShop,
-    ADVANCED_WorkShop,
-    PROFESSIONAL_WorkShop,
-    MASTER_WorkShop,
-    MAX_WorkShop_LEVEL
+    TUTORIAL,
+    STARTER,
+    STARTING,
+    ADVANCED,
+    PROFESSIONAL,
+    MASTER,
+    MAX_LEVEL
 }
 
+[System.Serializable]
 public struct WorkShopLevelInfo
 {
     public WorkShopLevelType levelType;
     public string displayName;
 }
 
-[CreateAssetMenu(fileName = "WorkShopData", menuName = "Scriptable Objects/WorkShop Data")]
+[CreateAssetMenu(fileName = "WorkShopData", menuName = "ScriptableObjects/WorkShopData")]
 public class WorkShopData : ScriptableObject
 {
+    [Header("공방 정보")]
+    [SerializeField] WorkShopLevelInfo[] workshopLevels;
 
+    public string GetWorkShopLevelName(WorkShopLevelType levelType)
+    {
+        foreach (var levelInfo in workshopLevels)
+        {
+            if (levelInfo.levelType == levelType)
+            {
+                return levelInfo.displayName;
+            }
+        }
+        return "Unknown Level";
+    }
 }

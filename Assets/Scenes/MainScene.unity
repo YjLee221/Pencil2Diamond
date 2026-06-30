@@ -1350,7 +1350,7 @@ MonoBehaviour:
   pressingPanel: {fileID: 2017072477}
   pressMachine: {fileID: 310787439}
   graphiteCollector: {fileID: 1264491692}
-  factoryImg: {fileID: 1905654753}
+  WorkShopImg: {fileID: 1905654753}
   deskImg: {fileID: 1590954972}
   mainImg: {fileID: 1390268286}
   selectedTool: {fileID: 0}
@@ -2647,6 +2647,7 @@ GameObject:
   - component: {fileID: 637994259}
   - component: {fileID: 637994258}
   - component: {fileID: 637994257}
+  - component: {fileID: 637994261}
   m_Layer: 5
   m_Name: Canvas_Main
   m_TagString: Untagged
@@ -2741,6 +2742,28 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &637994261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637994256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d647bfbb924b55f43833c0d1042b4bed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MainMenuUI
+  WorkShopLevelText: {fileID: 278473660}
+  WorkShopLevelName: {fileID: 1870112799}
+  diamondCount: {fileID: 973014631}
+  coinCount: {fileID: 1808371004}
+  goMainButton: {fileID: 98177098}
+  missionButton: {fileID: 275529037}
+  makingButton: {fileID: 41609813}
+  sellingButton: {fileID: 105302179}
+  player: {fileID: 11400000, guid: 9394a472009553543a06b9f5ee54351c, type: 2}
+  workshop: {fileID: 11400000, guid: 5d35dcd8c66f6b940966e75302946df9, type: 2}
 --- !u!1 &791387592
 GameObject:
   m_ObjectHideFlags: 0
@@ -3581,6 +3604,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1133477363
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1133477364}
+  - component: {fileID: 1133477365}
+  m_Layer: 0
+  m_Name: 'PlayerInventoryManager '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1133477364
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133477363}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.61571, y: 0.10791, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1615554388}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1133477365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133477363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 300b4acef1591974a9239a48422898d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInventoryManager
 --- !u!1 &1206149311
 GameObject:
   m_ObjectHideFlags: 0
@@ -4650,6 +4717,7 @@ Transform:
   - {fileID: 2132270390}
   - {fileID: 612718843}
   - {fileID: 390131466}
+  - {fileID: 1133477364}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1686091259
@@ -4756,7 +4824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 352c728e69c650a4491696b59338ced1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameMode
-  isTutorialMode: 1
+  isTutorialCompleted: 0
   pencilManager: {fileID: 2132270389}
   talkManager: {fileID: 612718844}
 --- !u!4 &1754813001
@@ -5142,7 +5210,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.7, y: -1.9000015}
+  m_AnchoredPosition: {x: 8.700001, y: -1.9000015}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1870112799
