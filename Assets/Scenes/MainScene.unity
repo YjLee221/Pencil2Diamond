@@ -1032,7 +1032,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 20.900002, y: -2}
+  m_AnchoredPosition: {x: 20.900002, y: 1.7999992}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &278473660
@@ -1055,7 +1055,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lv.1
+  m_text: Lv.0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f3e009156a6893e41b877d02cd3d6b22, type: 2}
   m_sharedMaterial: {fileID: 6180334129571614803, guid: f3e009156a6893e41b877d02cd3d6b22, type: 2}
@@ -1082,8 +1082,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1353,6 +1353,8 @@ MonoBehaviour:
   WorkShopImg: {fileID: 1905654753}
   deskImg: {fileID: 1590954972}
   mainImg: {fileID: 1390268286}
+  jewelShopImg: {fileID: 791387594}
+  openingImg: {fileID: 495891994}
   selectedTool: {fileID: 0}
 --- !u!4 &390131466
 Transform:
@@ -2328,15 +2330,23 @@ MonoBehaviour:
   dialogContents: {fileID: 630234039}
   emotionSprites:
   - emotionType: 0
+    currentSpeaker: Player
     playerSprite: {fileID: 0}
   - emotionType: 1
+    currentSpeaker: Player
     playerSprite: {fileID: 6251965075586726136, guid: 6bb9e1836e0fcca49911698ec8af0d45, type: 3}
   - emotionType: 2
+    currentSpeaker: Player
     playerSprite: {fileID: 5728648934871679902, guid: b693198f45694044eaf51cf4afbfb81c, type: 3}
   - emotionType: 3
+    currentSpeaker: Player
     playerSprite: {fileID: 6057864316098310437, guid: 66cd9d5645ae47a47984bcfe786069e4, type: 3}
   - emotionType: 4
+    currentSpeaker: Player
     playerSprite: {fileID: -2859588001483630195, guid: 37f9eccc9d2be034890cb9a632e6f9f0, type: 3}
+  npcSprites:
+  - currentSpeaker: Merchant
+    npcSprite: {fileID: -1206964636790852805, guid: 6d3d24ba5ee924841ae74993ab9fe5e3, type: 3}
 --- !u!1 &617905944
 GameObject:
   m_ObjectHideFlags: 0
@@ -2764,6 +2774,7 @@ MonoBehaviour:
   sellingButton: {fileID: 105302179}
   player: {fileID: 11400000, guid: 9394a472009553543a06b9f5ee54351c, type: 2}
   workshop: {fileID: 11400000, guid: 5d35dcd8c66f6b940966e75302946df9, type: 2}
+  uiManager: {fileID: 390131465}
 --- !u!1 &791387592
 GameObject:
   m_ObjectHideFlags: 0
@@ -4827,6 +4838,15 @@ MonoBehaviour:
   isTutorialCompleted: 0
   pencilManager: {fileID: 2132270389}
   talkManager: {fileID: 612718844}
+  dialogData:
+    id: 
+    type: 
+    speaker: 
+    speakerType: 
+    content: 
+    emotion: 0
+    nextId: 
+    failId: 
 --- !u!4 &1754813001
 Transform:
   m_ObjectHideFlags: 0
@@ -5210,7 +5230,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.700001, y: -1.9000015}
+  m_AnchoredPosition: {x: 6.799999, y: 1.9000015}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1870112799
@@ -5233,7 +5253,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC791\uC740 \uACF5\uBC29"
+  m_text: "\uB9DD\uD574\uAC00\uB294 \uACF5\uBC29"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f3e009156a6893e41b877d02cd3d6b22, type: 2}
   m_sharedMaterial: {fileID: 6180334129571614803, guid: f3e009156a6893e41b877d02cd3d6b22, type: 2}
@@ -5260,8 +5280,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5299,7 +5319,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -88.00329, y: 17.50479, z: -17.344208, w: -30.869476}
+  m_margin: {x: -88.00329, y: 17.50479, z: -30.671806, w: -30.869476}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

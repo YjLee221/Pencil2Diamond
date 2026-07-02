@@ -21,6 +21,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image WorkShopImg;
     [SerializeField] Image deskImg;
     [SerializeField] Image mainImg;
+    [SerializeField] Image jewelShopImg;
+    [SerializeField] Image openingImg;
 
     [SerializeField] BaseTool selectedTool;  // 현재 유저가 장착한 도구 (다형성 활용)
 
@@ -106,7 +108,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private void ShowMainCanvas()
+    public void ShowMainCanvas()
     {
         mainImg.gameObject.SetActive(true);
         mainCanvas.SetActive(true);
@@ -130,6 +132,11 @@ public class UIManager : MonoBehaviour
         if (sharpeningPanel != null) sharpeningPanel.SetActive(sharpeningPanel == activePanel);
         if (extractingPanel != null) extractingPanel.SetActive(extractingPanel == activePanel);
         if (pressingPanel != null) pressingPanel.SetActive(pressingPanel == activePanel);
+    }
+
+    public void ShowJewelShop()
+    {
+        jewelShopImg.gameObject.SetActive(true);
     }
 
     // TODO: 추후 자동 도구 버튼 클릭 시 호출될 메서드

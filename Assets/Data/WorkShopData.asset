@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WorkShopData
   workshopLevels:
   - levelType: 0
-    displayName: "\uB9DD\uD558\uAE30 \uC9C1\uC804\uC758 \uACF5\uBC29"
+    displayName: "\uBD80\uD765\uC744 \uAFC8\uAFB8\uB294 \uACF5\uBC29"
   - levelType: 1
     displayName: "\uC774\uC81C \uC2DC\uC791\uC778 \uACF5\uBC29"
   - levelType: 2
-    displayName: "\uC5B4\uB290 \uC815\uB3C4 \uC131\uC7A5\uD55C \uACF5\uBC29"
-  - levelType: 3
     displayName: "\uBA39\uACE0 \uC0B4 \uB9CC\uD55C \uACF5\uBC29"
+  - levelType: 3
+    displayName: "\uC775\uC219\uD574\uC9C4 \uACF5\uBC29"
   - levelType: 4
     displayName: "\uB0B4\uAC00 \uC9F1\uC9F1 \uACF5\uBC29"
   - levelType: 5

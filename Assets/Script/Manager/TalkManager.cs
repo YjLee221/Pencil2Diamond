@@ -64,7 +64,8 @@ public class TalkManager : MonoBehaviour
         else
         {
             dialogManager.HideDialog();
-            Debug.Log("대화 끝~!!");
+
+            if(currentData.nextId == "0") uiManager.ShowMainCanvas(); 
             currentData = null;
         }
     }
@@ -124,16 +125,17 @@ public class TalkManager : MonoBehaviour
 
             string[] columns = line.Split('\t'); // TSV 파일이므로 탭으로 구분
 
-            if(columns.Length >= 7)
+            if(columns.Length >= 8)
             {
                 DialogData data = new DialogData();
 
                 data.id = columns[0];
                 data.type = columns[1];
                 data.speaker = columns[2];
-                data.content = columns[3].Replace("\\n", "\n"); // 줄바꿈 처리
+                data.speakerType = columns[3];
+                data.content = columns[4].Replace("\\n", "\n"); // 줄바꿈 처리
 
-                if (Enum.TryParse(columns[4], out PlayerEmotion emotion))
+                if (Enum.TryParse(columns[5], out PlayerEmotion emotion))
                 {
                     data.emotion = emotion;
                 }
@@ -142,8 +144,8 @@ public class TalkManager : MonoBehaviour
                     data.emotion = PlayerEmotion.Normal; // 기본값 설정
                 }
 
-                data.nextId = columns[5].Trim(); 
-                data.failId = columns[6].Trim();
+                data.nextId = columns[6].Trim(); 
+                data.failId = columns[7].Trim();
 
                 if(!dialogDatabase.ContainsKey(data.id))
                 {
@@ -172,7 +174,7 @@ public class TalkManager : MonoBehaviour
                 uiManager.EndWorkCanvas(); 
             }
 
-            dialogManager.ShowDialog(currentData.content, currentData.emotion);
+            dialogManager.ShowDialog(currentData.content, currentData.emotion, currentData.speaker, currentData.speakerType);
         }
     }
 }
