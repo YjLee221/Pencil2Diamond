@@ -7,7 +7,7 @@ public class StartMenuUI: MonoBehaviour
     [SerializeField] GameObject startPanel;
     [SerializeField] GameObject scriptPanel;
 
-    [SerializeField] GameMode gameMode;
+    [SerializeField] GameFlowController gameFlowController;
 
     void Start()
     {
@@ -22,6 +22,6 @@ public class StartMenuUI: MonoBehaviour
         startPanel.SetActive(false);
         scriptPanel.SetActive(true);
 
-        gameMode.GameStart();
+        gameFlowController.GameStart();
     }
 }

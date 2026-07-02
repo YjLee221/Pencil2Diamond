@@ -22,6 +22,8 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] PlayerData player;
     [SerializeField] WorkShopData workshop;
 
+    [SerializeField] UIManager uiManager;
+
     public static event Action OnSellingButtonClickedEvent;
 
     void Start()
@@ -62,6 +64,7 @@ public class MainMenuUI : MonoBehaviour
 
     void OnSellingButtonClicked()
     {
+        uiManager.ShowJewelShop();
         OnSellingButtonClickedEvent?.Invoke();
     }
 }
