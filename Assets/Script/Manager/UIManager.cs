@@ -49,30 +49,6 @@ public class UIManager : MonoBehaviour
         StartSharpeningCanvas();
     }
 
-    public void StartWorkingCanvas(string dialogId)
-    {
-        Debug.Log($"StartWorkingCanvas called with dialogId: {dialogId}");
-        switch (dialogId)
-        {
-            case "100203":
-                StartSharpeningCanvas();
-                break;
-            case "100208":
-                ExtractingGraphiteCanvas();
-                break;
-            case "100302":
-                PressingCanvas();
-                break;
-            case "100310":
-                ShowMainCanvas();
-                break;
-            default:
-                StartSharpeningCanvas();
-                Debug.LogWarning($"No work panel is mapped for dialog id: {dialogId}");
-                break;
-        }
-    }
-
     public void StartSharpeningCanvas()
     {
         ShowWorkCanvas();

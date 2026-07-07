@@ -22,6 +22,6 @@ public class StartMenuUI: MonoBehaviour
         startPanel.SetActive(false);
         scriptPanel.SetActive(true);
 
-        gameFlowController.GameStart();
+        gameFlowController.TutorialStart();
     }
 }

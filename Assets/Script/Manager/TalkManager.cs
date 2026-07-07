@@ -13,27 +13,12 @@ public class TalkManager : MonoBehaviour
 
     [SerializeField] UIManager uiManager;
 
+    public event Action OnDialogFinished;
+
     void Awake()
     {
         LoadDialogData();
     }
-
-    void OnEnable()
-    {
-        SharpeningPencil.OnPencilSharpeningCompleted += HandleCompletedPencilSharpening;
-        PencilCollectedGraphite.OnGraphiteExtractionCompleted += HandleCompletedPencilSharpening;
-        PressMachine.OnMatchingTemperatureCompleted += HandleCompletedPencilSharpening;
-        MainMenuUI.OnSellingButtonClickedEvent += HandleSellingButtonClicked;
-    }
-
-    void OnDisable()
-    {
-        SharpeningPencil.OnPencilSharpeningCompleted -= HandleCompletedPencilSharpening;
-        PencilCollectedGraphite.OnGraphiteExtractionCompleted -= HandleCompletedPencilSharpening;
-        PressMachine.OnMatchingTemperatureCompleted -= HandleCompletedPencilSharpening;
-        MainMenuUI.OnSellingButtonClickedEvent -= HandleSellingButtonClicked;
-    }
-
     void HandleCompletedPencilSharpening(SharpeningPencil pencil)
     {
         ResumeAfterMinigame();
@@ -165,7 +150,7 @@ public class TalkManager : MonoBehaviour
         {
             if (string.IsNullOrEmpty(currentData.type))
             {
-                uiManager.StartWorkingCanvas(currentData.id);
+                OnDialogFinished?.Invoke();
                 return;
             }
 

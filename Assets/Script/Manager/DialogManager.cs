@@ -25,7 +25,7 @@ public enum PlayerEmotion
     Happy,
     Sad,
     Surprised,
-    Max_Emotion
+    Max
 }
 
 // Enum과 Sprite를 매칭하고 Inspector에서 설정할 수 있도록 Serializable 클래스로 감쌉니다.
