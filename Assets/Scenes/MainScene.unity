@@ -4092,7 +4092,7 @@ MonoBehaviour:
   gameStartbutton: {fileID: 1492018551}
   startPanel: {fileID: 1304611888}
   scriptPanel: {fileID: 2010262616}
-  gameMode: {fileID: 1754813000}
+  gameFlowController: {fileID: 1754813000}
 --- !u!1 &1325479351
 GameObject:
   m_ObjectHideFlags: 0
@@ -4817,7 +4817,7 @@ GameObject:
   - component: {fileID: 1754813001}
   - component: {fileID: 1754813000}
   m_Layer: 0
-  m_Name: GameMode
+  m_Name: GameFlowController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4835,18 +4835,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 352c728e69c650a4491696b59338ced1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameMode
-  isTutorialCompleted: 0
+  tutorialStartDialogId: 100101
   pencilManager: {fileID: 2132270389}
   talkManager: {fileID: 612718844}
-  dialogData:
-    id: 
-    type: 
-    speaker: 
-    speakerType: 
-    content: 
-    emotion: 0
-    nextId: 
-    failId: 
+  uiManager: {fileID: 390131465}
 --- !u!4 &1754813001
 Transform:
   m_ObjectHideFlags: 0
