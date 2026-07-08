@@ -3,49 +3,60 @@ using UnityEngine;
 
 public class GameFlowController : MonoBehaviour
 {
-    /*
-     * GamePhase
-     게임 전체에서 현재 플레이어가 위치한 큰 흐름
-    화면과 입력 규칙이 크게 바뀌는 단위로 구분
-     */
-    public enum GamePhase
-    {
-        None,       // 아직 게임 흐름이 시작되지 않음
-        Tutorial,   // 튜토리얼 진행 중
-        Workshop    // 메인 공방 플레이 중
-    }
+#if UNITY_EDITOR
+    [Header("EditorDebug")] 
+    [SerializeField] bool isDebugStarted;
+    [SerializeField] GameProgressData debugProcessData;
+#endif    
+    GameProgressData currentProgressData;
+    
+    public GamePhase currentGamePhase;
+    public TutorialStep currentTutorialStep;
 
-    /*
-     * TutorialStep
-     튜토리얼 진행 단계
-     */
-    public enum TutorialStep
-    {
-        None,
-
-        OpeningDialog,      // 튜토리얼 시작 대화
-        SharpeningPencil,     // 연필 깎기
-
-        GraphiteDialog,       // 흑연 추출 대화
-        ExtractingGraphite,   // 흑연 추출
-
-        TemperatureDialog,    // 온도 조절 대화
-        AdjustingTemperature, // 온도 조절
-
-        SellingDialog,        // 보석 판매 대화
-        SellingDiamond,       // 보석 판매
-
-        EndingDialog,         // 튜토리얼 종료 대화
-        Completed
-    }
-
-    public GamePhase currentGamePhase { get; private set; } = GamePhase.None;
-    public TutorialStep currentTutorialStep { get; private set; } = TutorialStep.None;
-
+    [Header("Dialog")] 
     [SerializeField] string tutorialStartDialogId = "100101";
+    [SerializeField] string graphiteStartDialog = "100204";
+    [SerializeField] string temperatureStartDialog = "100209";
+    [SerializeField] string temperatureRetryDialogId = "100303";
+    [SerializeField] string sellingDiamondDialog = "100307";
+    [SerializeField] string endingDialog = "100314";
+    
     [SerializeField] PencilManager pencilManager;
     [SerializeField] TalkManager talkManager;
     [SerializeField] UIManager uiManager;
+
+    void Start()
+    {
+#if UNITY_EDITOR
+        if (isDebugStarted && debugProcessData != null)
+        {
+            ApplyProcessDebug(debugProcessData);
+            return;
+        }
+#endif
+        TutorialStart();
+    }
+
+    void ApplyProcessDebug(GameProgressData processData)
+    {
+        currentProgressData = processData;
+        currentGamePhase = processData.gamePhase;
+        currentTutorialStep = processData.tutorialStep;
+
+        if (processData.gamePhase == GamePhase.Tutorial)
+        {
+            if (!string.IsNullOrEmpty(processData.currentDialogId))
+            {
+                talkManager.StartDialog(processData.currentDialogId);
+            }
+            
+            EnterTutorialStep(processData.tutorialStep);
+        }
+        else if (processData.gamePhase == GamePhase.Workshop)
+        {
+            StartMainGame();
+        }
+    }
 
     public void TutorialStart()
     {
@@ -57,37 +68,45 @@ public class GameFlowController : MonoBehaviour
     {
         talkManager.OnDialogFinished += HandleDialogFinished;
         SharpeningPencil.OnPencilSharpeningCompleted += HandleCompletedPencilSharpening;
-        PencilCollectedGraphite.OnGraphiteExtractionCompleted += HandleCompletedPencilSharpening;
-        PressMachine.OnMatchingTemperatureCompleted += HandleCompletedPencilSharpening;
+        PencilCollectedGraphite.OnGraphiteExtractionCompleted += HandleCompletedGraphiteExtraction;
+        PressMachine.OnMatchingTemperatureCompleted += HandleCompletedTemperature;
         MainMenuUI.OnSellingButtonClickedEvent += HandleSellingButtonClicked;
     }
 
     private void HandleSellingButtonClicked()
     {
-        throw new NotImplementedException();
+        EnterTutorialStep(TutorialStep.EndingDialog);
     }
 
-    private void HandleCompletedPencilSharpening(bool obj)
+    private void HandleCompletedTemperature(bool isSuccessed)
     {
-        throw new NotImplementedException();
+        if (isSuccessed)
+        {
+            EnterTutorialStep(TutorialStep.SellingDialog);
+            return;
+        }
+
+        SetProgress(GamePhase.Tutorial, TutorialStep.TemperatureDialog, temperatureRetryDialogId);
+        talkManager.StartDialog(temperatureRetryDialogId);
     }
 
-    private void HandleCompletedPencilSharpening(PencilCollectedGraphite graphite)
+    private void HandleCompletedGraphiteExtraction(PencilCollectedGraphite graphite)
     {
-        throw new NotImplementedException();
+        EnterTutorialStep(TutorialStep.TemperatureDialog);
     }
 
-    private void HandleCompletedPencilSharpening(SharpeningPencil pencil)
+    private void HandleCompletedPencilSharpening(SharpeningPencil obj)
     {
-        throw new NotImplementedException();
+        EnterTutorialStep(TutorialStep.GraphiteDialog);
     }
+
 
     void OnDisable()
     {
         talkManager.OnDialogFinished -= HandleDialogFinished;
         SharpeningPencil.OnPencilSharpeningCompleted -= HandleCompletedPencilSharpening;
-        PencilCollectedGraphite.OnGraphiteExtractionCompleted -= HandleCompletedPencilSharpening;
-        PressMachine.OnMatchingTemperatureCompleted -= HandleCompletedPencilSharpening;
+        PencilCollectedGraphite.OnGraphiteExtractionCompleted -= HandleCompletedGraphiteExtraction;
+        PressMachine.OnMatchingTemperatureCompleted -= HandleCompletedTemperature;
         MainMenuUI.OnSellingButtonClickedEvent -= HandleSellingButtonClicked;
     }
 
@@ -127,6 +146,7 @@ public class GameFlowController : MonoBehaviour
         switch (step)
         {
             case TutorialStep.OpeningDialog:
+                SetProgress(GamePhase.Tutorial, currentTutorialStep, tutorialStartDialogId);
                 talkManager.StartDialog(tutorialStartDialogId);
                 break;
             
@@ -136,6 +156,7 @@ public class GameFlowController : MonoBehaviour
                 break;
             
             case TutorialStep.GraphiteDialog:
+                SetProgress(GamePhase.Tutorial, currentTutorialStep, graphiteStartDialog);
                 break;
             
             case TutorialStep.ExtractingGraphite:
@@ -143,6 +164,7 @@ public class GameFlowController : MonoBehaviour
                 break;
             
             case TutorialStep.TemperatureDialog:
+                SetProgress(GamePhase.Tutorial, currentTutorialStep, temperatureStartDialog);
                 break;
             
             case TutorialStep.AdjustingTemperature:
@@ -150,6 +172,7 @@ public class GameFlowController : MonoBehaviour
                 break;
             
             case TutorialStep.SellingDialog:
+                SetProgress(GamePhase.Tutorial, currentTutorialStep, sellingDiamondDialog);
                 break;
             
             case TutorialStep.SellingDiamond:
@@ -157,6 +180,7 @@ public class GameFlowController : MonoBehaviour
                 break;
 
             case TutorialStep.EndingDialog:
+                SetProgress(GamePhase.Tutorial, currentTutorialStep, endingDialog);
                 break;
 
             case TutorialStep.Completed:
@@ -168,9 +192,28 @@ public class GameFlowController : MonoBehaviour
         }
     }
 
-    public void TutorialEnd()
+    void TutorialEnd()
     {
         currentTutorialStep = TutorialStep.Completed;
         currentGamePhase = GamePhase.Workshop;
+    }
+    
+    void StartMainGame()
+    {
+        SetProgress(GamePhase.Workshop, TutorialStep.Completed);
+        uiManager.ShowMainCanvas();
+    }
+
+    void SetProgress(GamePhase gamePhase, TutorialStep step, string dialogId = "")
+    {
+        currentProgressData ??= new GameProgressData();
+        
+        currentGamePhase = gamePhase;
+        currentTutorialStep = step;
+        
+        currentProgressData.gamePhase =  gamePhase;
+        currentProgressData.tutorialStep = step;
+        currentProgressData.currentDialogId =  dialogId;
+
     }
 }

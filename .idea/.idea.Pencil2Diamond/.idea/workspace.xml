@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="CMakeProjectFlavorService">
+    <option name="flavorId" value="CMakePlainProjectFlavor" />
+  </component>
+  <component name="CMakeSettings">
+    <configurations />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7e2a47c7-421e-4e70-9c84-bada73407d26" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.Pencil2Diamond/.idea/projectSettingsUpdater.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.Pencil2Diamond/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/Flow.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/Flow/GamePhase.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/Flow/GamePhase.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/Flow/TutorialStep.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/Flow/TutorialStep.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GameFlowController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/GameFlowController.cs" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="5" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Data/GameProgressData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Flow/GamePhase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/GameFlowController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Manager/DialogManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Manager/TalkManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Manager/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/.jetbrains/acp.json" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0000000010772498" />
+      <entry key="MS500" value="1.0160865638057985" />
+      <entry key="S2" value="1.3573457810026475" />
+      <entry key="S5" value="1.731522741362106" />
+      <entry key="S10" value="2.1702892186239913" />
+      <entry key="S30" value="4.961492553793871" />
+      <entry key="S60" value="11.438555717470214" />
+      <entry key="M2" value="23.45551816585803" />
+      <entry key="M5" value="56.19427496435589" />
+      <entry key="M10" value="109.92929411584947" />
+      <entry key="M15" value="153.75038141139987" />
+      <entry key="M30" value="251.8706080522835" />
+      <entry key="H1" value="380.6595935437484" />
+      <entry key="H2" value="508.0205506410761" />
+      <entry key="H4" value="602.4541449128932" />
+      <entry key="D1" value="704.4560170341351" />
+      <entry key="W1" value="724.5653727503274" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="8.567779926883353E-15" />
+      <entry key="MS500" value="0.0015366458919686735" />
+      <entry key="S2" value="0.20313828132581735" />
+      <entry key="S5" value="0.6859300717997696" />
+      <entry key="S10" value="1.282224410860857" />
+      <entry key="S30" value="2.3502364324249845" />
+      <entry key="S60" value="3.1315036634847098" />
+      <entry key="M2" value="4.9206513437520885" />
+      <entry key="M5" value="13.927053215964804" />
+      <entry key="M10" value="29.66476184972384" />
+      <entry key="M15" value="43.07933609167335" />
+      <entry key="M30" value="72.18164080360835" />
+      <entry key="H1" value="103.65590997764049" />
+      <entry key="H2" value="129.76845815046167" />
+      <entry key="H4" value="147.28227429724" />
+      <entry key="D1" value="165.0365806481488" />
+      <entry key="W1" value="168.4245923460518" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="2.0756987982959575E-7" />
+      <entry key="MS500" value="0.05348673937696262" />
+      <entry key="S2" value="0.9110866810805833" />
+      <entry key="S5" value="1.9863059282880235" />
+      <entry key="S10" value="3.1093624346502717" />
+      <entry key="S30" value="7.0981355773368335" />
+      <entry key="S60" value="14.42556923989656" />
+      <entry key="M2" value="28.26783311390724" />
+      <entry key="M5" value="70.01071988590557" />
+      <entry key="M10" value="139.48041902098123" />
+      <entry key="M15" value="196.7216732463406" />
+      <entry key="M30" value="323.9633156284393" />
+      <entry key="H1" value="484.25146405580637" />
+      <entry key="H2" value="637.748519568006" />
+      <entry key="H4" value="749.7132532389362" />
+      <entry key="D1" value="869.4882333515599" />
+      <entry key="W1" value="892.9893277527443" />
+    </decayedShown>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="3G2092UaOL7jU3yxL9DO04JCZ5k" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Device#class com.jetbrains.rider.plugins.unity.run.devices.UnityEditorDeviceKind#com.jetbrains.rider.plugins.unity.run.devices.UnityDevicesProvider#Unity Attach To: Attach to": "Unity Editor",
+    "DeviceKind#com.jetbrains.rider.plugins.unity.run.devices.UnityDevicesProvider": "Unity Editor",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "Unity Attach To.Attach to.executor": "Debug",
+    "cidr.known.project.marker": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "feature/saveProgress",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "RiderCSharpFileTemplatesSettingsId",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="Unity 에디터에 연결.Unity 에디터에 연결">
+    <configuration name="유닛 테스트(배치 모드)" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.4.0f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Pencil2Diamond -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\Pencil2Diamond" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="ENV_FILE_PATHS" value="" />
+      <option name="REDIRECT_INPUT_PATH" value="" />
+      <option name="MIXED_MODE_DEBUG" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.4.0f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Pencil2Diamond -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\Pencil2Diamond" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="ENV_FILE_PATHS" value="" />
+      <option name="REDIRECT_INPUT_PATH" value="" />
+      <option name="MIXED_MODE_DEBUG" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.4.0f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Pencil2Diamond -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\Pencil2Diamond" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="ENV_FILE_PATHS" value="" />
+      <option name="REDIRECT_INPUT_PATH" value="" />
+      <option name="MIXED_MODE_DEBUG" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unity 시작" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.4.0f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Pencil2Diamond -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\Pencil2Diamond" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="ENV_FILE_PATHS" value="" />
+      <option name="REDIRECT_INPUT_PATH" value="" />
+      <option name="MIXED_MODE_DEBUG" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" useMixedMode="false">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="runtimes">
+        <list />
+      </option>
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Unity 에디터에 연결" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" useMixedMode="false">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="runtimes">
+        <list />
+      </option>
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to" type="UnityDevicePlayer" factoryName="UnityAttachToDevicePlayer">
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7e2a47c7-421e-4e70-9c84-bada73407d26" name="Changes" comment="" />
+      <created>1783154073892</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1783154073892</updated>
+      <workItem from="1783154075539" duration="100000" />
+      <workItem from="1783154210632" duration="1321000" />
+      <workItem from="1783417600203" duration="131000" />
+      <workItem from="1783503548123" duration="2777000" />
+      <workItem from="1783506700351" duration="7902000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityProjectDiscoverer">
+    <option name="hasUnityReference" value="true" />
+    <option name="unityProject" value="true" />
+    <option name="unityProjectFolder" value="true" />
+  </component>
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="DotNet_Exception_Breakpoints">
+          <properties exception="System.OperationCanceledException" breakIfHandledByOtherCode="false" displayValue="System.OperationCanceledException" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <breakpoint enabled="true" type="DotNet_Exception_Breakpoints">
+          <properties exception="System.Threading.Tasks.TaskCanceledException" breakIfHandledByOtherCode="false" displayValue="System.Threading.Tasks.TaskCanceledException" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+        <breakpoint enabled="true" type="DotNet_Exception_Breakpoints">
+          <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
+          <option name="timeStamp" value="3" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
