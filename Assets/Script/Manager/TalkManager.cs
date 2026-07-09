@@ -8,7 +8,7 @@ public class TalkManager : MonoBehaviour
     public TextAsset tutorialDialogTsv;
     public DialogManager dialogManager;
 
-    Dictionary<string, DialogData> dialogDatabase = new Dictionary<string, DialogData>();
+    readonly Dictionary<string, DialogData> dialogDatabase = new Dictionary<string, DialogData>();
     DialogData currentData;
 
     [SerializeField] UIManager uiManager;
@@ -18,24 +18,6 @@ public class TalkManager : MonoBehaviour
     void Awake()
     {
         LoadDialogData();
-    }
-    void HandleCompletedPencilSharpening(SharpeningPencil pencil)
-    {
-        ResumeAfterMinigame();
-    }
-    void HandleCompletedPencilSharpening(PencilCollectedGraphite graphite)
-    {
-        ResumeAfterMinigame();
-    }
-
-    void HandleCompletedPencilSharpening(bool isSuccess)
-    {
-        ResumeAfterMinigame_successOrFail(isSuccess);
-    }
-
-    void HandleSellingButtonClicked()
-    {
-        ResumeAfterMinigame();
     }
 
     public void ResumeAfterMinigame()
@@ -50,12 +32,12 @@ public class TalkManager : MonoBehaviour
         {
             dialogManager.HideDialog();
 
-            if(currentData.nextId == "0") uiManager.ShowMainCanvas(); 
+            if(currentData is { nextId: "0" }) uiManager.ShowMainCanvas(); 
             currentData = null;
         }
     }
 
-    private void ResumeAfterMinigame_successOrFail(bool isSuccess)
+    public void ResumeAfterMinigame_successOrFail(bool isSuccess)
     {
         Debug.Log($"미니게임 클리어 여부: {isSuccess}. 대화 재개~");
         string nextDialogId = isSuccess ? currentData.nextId : currentData.failId;
