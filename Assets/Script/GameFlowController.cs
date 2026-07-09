@@ -62,6 +62,7 @@ public class GameFlowController : MonoBehaviour
         MainMenuUI.OnSellingButtonClickedEvent += HandleSellingButtonClicked;
     }
 
+<<<<<<< Updated upstream
     private void HandleSellingButtonClicked()
     {
         throw new NotImplementedException();
@@ -92,9 +93,13 @@ public class GameFlowController : MonoBehaviour
     }
 
     void HandleDialogFinished()
+=======
+    void HandleDialogFinished(string gameType)
+>>>>>>> Stashed changes
     {
-        switch (currentTutorialStep)
+        switch (gameType)
         {
+<<<<<<< Updated upstream
             case TutorialStep.OpeningDialog:
                 EnterTutorialStep(TutorialStep.SharpeningPencil);
                 break;
@@ -172,5 +177,75 @@ public class GameFlowController : MonoBehaviour
     {
         currentTutorialStep = TutorialStep.Completed;
         currentGamePhase = GamePhase.Workshop;
+=======
+            case "SharpeningPencil":
+                StartSharpeningPencil();
+                break;
+            
+            case "ExtractingGraphite" :
+                ExtractingGraphite();
+                break;
+            
+            case "SettingTemperature":
+                SettingTemperature();
+                break;
+            
+            case "SellingDiamond":
+                SellingDiamond();
+                break;
+        }
+    }
+
+    void StartSharpeningPencil()
+    {
+        currentTutorialStep = TutorialStep.SharpeningPencil;
+        uiManager.StartSharpeningCanvas();
+    }
+    
+    void ExtractingGraphite()
+    {
+        currentTutorialStep = TutorialStep.ExtractingGraphite;
+        uiManager.ExtractingGraphiteCanvas();
+    }
+    
+    void SettingTemperature()
+    {
+        currentTutorialStep = TutorialStep.SettingTemperature;
+        uiManager.SettingTemperatureCanvas();
+    }
+    void SellingDiamond()
+    {
+        currentTutorialStep = TutorialStep.SellingDiamond;
+        uiManager.ShowJewelShop();
+    }
+
+    void HandleCompletedPencilSharpening(SharpeningPencil sharpeningPencil)
+    {
+        talkManager.ResumeAfterMinigame();
+    }
+    
+    void HandleCompletedGraphiteExtraction(PencilCollectedGraphite collectedGraphite)
+    {
+        talkManager.ResumeAfterMinigame();
+    }
+
+    void HandleCompletedTemperature(bool isSuccess)
+    {
+        talkManager.ResumeAfterMinigame_successOrFail(isSuccess);
+    }
+
+    void HandleSellingButtonClicked()
+    {
+        talkManager.ResumeAfterMinigame();
+    }
+
+    private void OnDisable()
+    {
+        talkManager.OnDialogFinished -= HandleDialogFinished;
+        SharpeningPencil.OnPencilSharpeningCompleted -= HandleCompletedPencilSharpening;
+        PencilCollectedGraphite.OnGraphiteExtractionCompleted -= HandleCompletedGraphiteExtraction;
+        PressMachine.OnMatchingTemperatureCompleted -= HandleCompletedTemperature;
+        MainMenuUI.OnSellingButtonClickedEvent -= HandleSellingButtonClicked;
+>>>>>>> Stashed changes
     }
 }

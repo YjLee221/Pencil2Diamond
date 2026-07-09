@@ -71,7 +71,7 @@ public class UIManager : MonoBehaviour
         ShowOnlyWorkPanel(extractingPanel);
     }
 
-    public void PressingCanvas()
+    public void SettingTemperatureCanvas()
     {
         ShowWorkCanvas();
         ShowOnlyWorkPanel(pressingPanel);
