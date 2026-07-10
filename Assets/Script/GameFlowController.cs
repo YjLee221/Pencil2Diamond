@@ -5,14 +5,9 @@ public class GameFlowController : MonoBehaviour
 {
     public GamePhase currentGamePhase;
     public TutorialStep currentTutorialStep;
-
-    [Header("Dialog")] 
+    
+    [Header("DialogId")]
     [SerializeField] string tutorialStartDialogId = "100101";
-    [SerializeField] string graphiteStartDialog = "100204";
-    [SerializeField] string temperatureStartDialog = "100209";
-    [SerializeField] string temperatureRetryDialogId = "100303";
-    [SerializeField] string sellingDiamondDialog = "100307";
-    [SerializeField] string endingDialog = "100314";
     
     [SerializeField] TalkManager talkManager;
     [SerializeField] PencilManager pencilManager;
@@ -36,34 +31,41 @@ public class GameFlowController : MonoBehaviour
         MainMenuUI.OnSellingButtonClickedEvent += HandleSellingButtonClicked;
     }
 
-    void HandleDialogFinished()
+    void HandleDialogFinished(string speakerType)
     {
-        switch (currentTutorialStep)
+        switch (speakerType)
         {
-            case TutorialStep.None:
-            case TutorialStep.OpeningDialog:
+            case "SharpeningPencil":
                 currentTutorialStep = TutorialStep.SharpeningPencil;
+                uiManager.StartSharpeningCanvas();
                 break;
-            case TutorialStep.SharpeningPencil:
+            
+            case "ExtractingGraphite":
+                currentTutorialStep = TutorialStep.ExtractingGraphite;
+                uiManager.ExtractingGraphiteCanvas();
                 break;
-            case TutorialStep.GraphiteDialog:
+            
+            case "AdjustingTemperature":
+                currentTutorialStep = TutorialStep.AdjustingTemperature;
+                uiManager.AdjustingTemperatureCanvas();
                 break;
-            case TutorialStep.ExtractingGraphite:
+            
+            case "SellingDialog":
+                currentTutorialStep = TutorialStep.SellingDialog;
+                uiManager.ShowMainCanvas();
                 break;
-            case TutorialStep.TemperatureDialog:
+            
+            case "Merchant":
+                currentTutorialStep = TutorialStep.SellingDiamond;
+                uiManager.ShowJewelShop();
                 break;
-            case TutorialStep.AdjustingTemperature:
+            
+            case "End":
+                Debug.Log("튜토리얼 마지막 대사!!!!");
+                currentTutorialStep = TutorialStep.EndingDialog;
+                currentGamePhase = GamePhase.Workshop;
+                uiManager.ShowMainCanvas();
                 break;
-            case TutorialStep.SellingDialog:
-                break;
-            case TutorialStep.SellingDiamond:
-                break;
-            case TutorialStep.EndingDialog:
-                break;
-            case TutorialStep.Completed:
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
         }
     }
 
@@ -77,14 +79,23 @@ public class GameFlowController : MonoBehaviour
         talkManager.ResumeAfterMinigame();
     }
 
-    void HandleCompletedTemperature(bool isSuccessed)
+    void HandleCompletedTemperature(bool isSuccess)
     {
-        talkManager.ResumeAfterMinigame_successOrFail(isSuccessed);
+        talkManager.ResumeAfterMinigame_successOrFail(isSuccess);
     }
 
     void HandleSellingButtonClicked()
     {
-        talkManager.ResumeAfterMinigame();
+        if(currentGamePhase == GamePhase.Tutorial)
+        {
+            currentTutorialStep = TutorialStep.SellingDiamond;
+            uiManager.ShowJewelShop();
+            talkManager.ResumeAfterMinigame();
+        }
+        else
+        {
+            Debug.Log("Selling Button Clicked");
+        }
     }
 
     private void OnDisable()

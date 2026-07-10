@@ -71,7 +71,7 @@ public class UIManager : MonoBehaviour
         ShowOnlyWorkPanel(extractingPanel);
     }
 
-    public void PressingCanvas()
+    public void AdjustingTemperatureCanvas()
     {
         ShowWorkCanvas();
         ShowOnlyWorkPanel(pressingPanel);
@@ -87,6 +87,10 @@ public class UIManager : MonoBehaviour
     public void ShowMainCanvas()
     {
         mainImg.gameObject.SetActive(true);
+        if (jewelShopImg)
+        {
+            jewelShopImg.gameObject.SetActive(false);
+        }
         mainCanvas.SetActive(true);
 
         popupCanvas.SetActive(false);

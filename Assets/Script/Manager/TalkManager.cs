@@ -13,7 +13,7 @@ public class TalkManager : MonoBehaviour
 
     [SerializeField] UIManager uiManager;
 
-    public event Action OnDialogFinished;
+    public event Action<string> OnDialogFinished;
 
     void Awake()
     {
@@ -22,8 +22,6 @@ public class TalkManager : MonoBehaviour
 
     public void ResumeAfterMinigame()
     {
-        Debug.Log("미니게임 클리어! 대화 재개~");
-
         if(currentData != null && !string.IsNullOrEmpty(currentData.nextId))
         {
             StartDialog(currentData.nextId);
@@ -39,7 +37,6 @@ public class TalkManager : MonoBehaviour
 
     public void ResumeAfterMinigame_successOrFail(bool isSuccess)
     {
-        Debug.Log($"미니게임 클리어 여부: {isSuccess}. 대화 재개~");
         string nextDialogId = isSuccess ? currentData.nextId : currentData.failId;
 
         if(!string.IsNullOrEmpty(nextDialogId))
@@ -130,9 +127,9 @@ public class TalkManager : MonoBehaviour
     {
         if (dialogDatabase.TryGetValue(startId, out currentData))
         {
-            if (string.IsNullOrEmpty(currentData.type))
+            if (currentData.type == "miniGameStart")
             {
-                OnDialogFinished?.Invoke();
+                OnDialogFinished?.Invoke(currentData.speakerType);
                 return;
             }
 

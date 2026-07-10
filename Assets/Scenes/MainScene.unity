@@ -2774,7 +2774,6 @@ MonoBehaviour:
   sellingButton: {fileID: 105302179}
   player: {fileID: 11400000, guid: 9394a472009553543a06b9f5ee54351c, type: 2}
   workshop: {fileID: 11400000, guid: 5d35dcd8c66f6b940966e75302946df9, type: 2}
-  uiManager: {fileID: 390131465}
 --- !u!1 &791387592
 GameObject:
   m_ObjectHideFlags: 0
@@ -4838,11 +4837,6 @@ MonoBehaviour:
   currentGamePhase: 0
   currentTutorialStep: 0
   tutorialStartDialogId: 100101
-  graphiteStartDialog: 100204
-  temperatureStartDialog: 100209
-  temperatureRetryDialogId: 100303
-  sellingDiamondDialog: 100307
-  endingDialog: 100314
   talkManager: {fileID: 612718844}
   pencilManager: {fileID: 2132270389}
   uiManager: {fileID: 390131465}
@@ -5252,7 +5246,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uB9DD\uD574\uAC00\uB294 \uACF5\uBC29"
+  m_text: "\uBD80\uD765\uC744 \uAFC8\uAFB8\uB294 \uACF5\uBC29"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f3e009156a6893e41b877d02cd3d6b22, type: 2}
   m_sharedMaterial: {fileID: 6180334129571614803, guid: f3e009156a6893e41b877d02cd3d6b22, type: 2}
@@ -5279,8 +5273,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

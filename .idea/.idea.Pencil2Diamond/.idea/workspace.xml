@@ -12,11 +12,16 @@
   <component name="ChangeListManager">
     <list default="true" id="7e2a47c7-421e-4e70-9c84-bada73407d26" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Pencil2Diamond/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Pencil2Diamond/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Asset/Dialog/TutorialDialog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Asset/Dialog/TutorialDialog.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Asset/Font/Hakgyoansim_NalgaeOTFR SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Asset/Font/Hakgyoansim_NalgaeOTFR SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Asset/Font/MonaS12TextKR SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Asset/Font/MonaS12TextKR SDF.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Asset/Font/NanumBarunGothicBold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Asset/Font/NanumBarunGothicBold SDF.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/GameFlowController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/GameFlowController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/TalkManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/TalkManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/UIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/MainMenuUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/MainMenuUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Unity.VisualScripting.Generated/VisualScripting.Flow/UnitOptions.db" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Unity.VisualScripting.Generated/VisualScripting.Flow/UnitOptions.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +32,7 @@
     <option name="firstShow" value="false" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="6" />
+    <option name="cachedIndexableFilesCount" value="7" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -49,61 +54,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="5.085553295951738E-50" />
-      <entry key="MS500" value="1.3844192901192248E-10" />
-      <entry key="S2" value="0.0034301800007291005" />
-      <entry key="S5" value="0.10330628976927647" />
-      <entry key="S10" value="0.3214129583095188" />
-      <entry key="S30" value="0.6849956195771415" />
-      <entry key="S60" value="0.8277136566635171" />
-      <entry key="M2" value="0.9398790422935452" />
-      <entry key="M5" value="2.52778315336702" />
-      <entry key="M10" value="12.797625921524784" />
-      <entry key="M15" value="32.558618736345686" />
-      <entry key="M30" value="116.04539707059823" />
-      <entry key="H1" value="274.7205076395822" />
-      <entry key="H2" value="467.6228176352748" />
-      <entry key="H4" value="630.5236172694053" />
-      <entry key="D1" value="823.9151764340554" />
-      <entry key="W1" value="864.0755023609283" />
+      <entry key="MS100" value="1.0010760792147233" />
+      <entry key="MS500" value="1.2548994213313642" />
+      <entry key="S2" value="1.7163071099970337" />
+      <entry key="S5" value="2.0912065399177067" />
+      <entry key="S10" value="3.7207642337991027" />
+      <entry key="S30" value="17.83576641248088" />
+      <entry key="S60" value="33.04846464384671" />
+      <entry key="M2" value="46.59223322553961" />
+      <entry key="M5" value="59.421586585840316" />
+      <entry key="M10" value="67.76496706081997" />
+      <entry key="M15" value="73.79172336384936" />
+      <entry key="M30" value="99.97658944533451" />
+      <entry key="H1" value="195.5396411918464" />
+      <entry key="H2" value="392.08181298851326" />
+      <entry key="H4" value="619.0651329955022" />
+      <entry key="D1" value="953.5694828902213" />
+      <entry key="W1" value="1031.3169758872243" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0000000608571125" />
-      <entry key="S2" value="1.0161732098627698" />
-      <entry key="S5" value="1.236382451143625" />
-      <entry key="S10" value="1.6537262620676345" />
-      <entry key="S30" value="2.58213926975243" />
-      <entry key="S60" value="3.4838277378970934" />
-      <entry key="M2" value="4.588659673834361" />
-      <entry key="M5" value="6.350019913675829" />
-      <entry key="M10" value="10.07441308544186" />
-      <entry key="M15" value="16.066106241029868" />
-      <entry key="M30" value="40.49392400538157" />
-      <entry key="H1" value="83.61429039928578" />
-      <entry key="H2" value="130.69182140231098" />
-      <entry key="H4" value="167.34866766558093" />
-      <entry key="D1" value="208.34464468120186" />
-      <entry key="W1" value="216.5870960308076" />
+      <entry key="MS100" value="2.8629119910776346E-35" />
+      <entry key="MS500" value="1.234131960679741E-7" />
+      <entry key="S2" value="0.018743055875639156" />
+      <entry key="S5" value="0.20376842855538602" />
+      <entry key="S10" value="0.4519945362639672" />
+      <entry key="S30" value="0.8508726494823688" />
+      <entry key="S60" value="1.165470125076402" />
+      <entry key="M2" value="1.5142147058006252" />
+      <entry key="M5" value="2.8708980208797428" />
+      <entry key="M10" value="5.819912213474716" />
+      <entry key="M15" value="8.869934123453628" />
+      <entry key="M30" value="20.500701643125975" />
+      <entry key="H1" value="52.62498237966851" />
+      <entry key="H2" value="108.6776773948075" />
+      <entry key="H4" value="167.53419519376138" />
+      <entry key="D1" value="248.62088945510885" />
+      <entry key="W1" value="266.8180302482893" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.363999248000731E-30" />
-      <entry key="MS500" value="1.0826574074199238E-6" />
-      <entry key="S2" value="0.045443782889451334" />
-      <entry key="S5" value="0.5295115978344214" />
-      <entry key="S10" value="1.372706681017089" />
-      <entry key="S30" value="2.941172547769978" />
-      <entry key="S60" value="4.076688072199059" />
-      <entry key="M2" value="5.364402515068172" />
-      <entry key="M5" value="8.787321522245847" />
-      <entry key="M10" value="22.809796996490945" />
-      <entry key="M15" value="48.56722777533514" />
-      <entry key="M30" value="156.47956002894725" />
-      <entry key="H1" value="358.2778621295606" />
-      <entry key="H2" value="598.2712164191615" />
-      <entry key="H4" value="797.8446650407585" />
-      <entry key="D1" value="1032.254102273415" />
-      <entry key="W1" value="1080.6617491320017" />
+      <entry key="MS100" value="0.014003947235180133" />
+      <entry key="MS500" value="0.5396395592438662" />
+      <entry key="S2" value="1.407227769625573" />
+      <entry key="S5" value="2.1012603058748303" />
+      <entry key="S10" value="4.013386373098374" />
+      <entry key="S30" value="18.512217084309935" />
+      <entry key="S60" value="34.05759170526501" />
+      <entry key="M2" value="47.99556078077321" />
+      <entry key="M5" value="62.23261093724467" />
+      <entry key="M10" value="73.54680964429807" />
+      <entry key="M15" value="82.63076996424975" />
+      <entry key="M30" value="120.44847725039305" />
+      <entry key="H1" value="248.1295177397902" />
+      <entry key="H2" value="500.72364261415356" />
+      <entry key="H4" value="786.5717627347254" />
+      <entry key="D1" value="1202.1835541650541" />
+      <entry key="W1" value="1298.1339605856888" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -121,7 +126,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Device#class com.jetbrains.rider.plugins.unity.run.devices.UnityEditorDeviceKind#com.jetbrains.rider.plugins.unity.run.devices.UnityDevicesProvider#Unity Attach To: Attach to": "Unity Editor",
-    "DeviceKind#com.jetbrains.rider.plugins.unity.run.devices.UnityDevicesProvider": "Unity Editor",
+    "Device#class com.jetbrains.rider.plugins.unity.run.devices.UnityEditorDeviceKind#com.jetbrains.rider.plugins.unity.run.devices.UnityDevicesProvider#Unity 연결 대상: 연결 대상": "Unity 에디터 및 재생",
+    "DeviceKind#com.jetbrains.rider.plugins.unity.run.devices.UnityDevicesProvider": "Unity 에디터",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -131,6 +137,7 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "Unity Attach To.Attach to.executor": "Debug",
     "Unity 에디터에 연결.Unity 에디터에 연결.executor": "Debug",
+    "Unity 연결 대상.연결 대상.executor": "Debug",
     "cidr.known.project.marker": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "feature/saveProgress",
@@ -145,7 +152,7 @@
     "독립실행형 플레이어.Start Unity.executor": "Run"
   }
 }]]></component>
-  <component name="RunManager" selected="독립실행형 플레이어.Start Unity">
+  <component name="RunManager" selected="Unity 연결 대상.연결 대상">
     <configuration name="유닛 테스트(배치 모드)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.4.0f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Pencil2Diamond -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
@@ -199,19 +206,20 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Unity 에디터에 연결" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" useMixedMode="false" ignored-value-for-modified-check="32168">
+    <configuration name="Unity 에디터에 연결" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" useMixedMode="false">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="32168" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="runtimes">
-        <list>
-          <MonoRuntime />
-        </list>
+        <list />
       </option>
       <option name="selectedOptions">
         <list />
       </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="연결 대상" type="UnityDevicePlayer" factoryName="UnityAttachToDevicePlayer">
       <method v="2" />
     </configuration>
     <configuration name="Attach to" type="UnityDevicePlayer" factoryName="UnityAttachToDevicePlayer">
@@ -231,6 +239,8 @@
       <workItem from="1783503548123" duration="2777000" />
       <workItem from="1783506700351" duration="7902000" />
       <workItem from="1783589341724" duration="6500000" />
+      <workItem from="1783600621964" duration="47000" />
+      <workItem from="1783676137417" duration="5838000" />
     </task>
     <servers />
   </component>
