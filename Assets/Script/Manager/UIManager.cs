@@ -87,10 +87,7 @@ public class UIManager : MonoBehaviour
     public void ShowMainCanvas()
     {
         mainImg.gameObject.SetActive(true);
-        if (jewelShopImg)
-        {
-            jewelShopImg.gameObject.SetActive(false);
-        }
+        jewelShopImg.gameObject.SetActive(false);
         mainCanvas.SetActive(true);
 
         popupCanvas.SetActive(false);

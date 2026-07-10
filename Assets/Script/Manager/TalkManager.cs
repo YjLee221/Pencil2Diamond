@@ -30,7 +30,7 @@ public class TalkManager : MonoBehaviour
         {
             dialogManager.HideDialog();
 
-            if(currentData is { nextId: "0" }) uiManager.ShowMainCanvas();
+            if (currentData != null) OnDialogFinished?.Invoke(currentData.speakerType);
             currentData = null;
         }
     }
@@ -63,7 +63,6 @@ public class TalkManager : MonoBehaviour
         }
         else // 타이핑이 끝났으면 다음 대사로 이동
         {
-            Debug.Log("다음 대사 ID: " + currentData.nextId);
             if(!string.IsNullOrEmpty(currentData.nextId)) StartDialog(currentData.nextId);
             else
             {
