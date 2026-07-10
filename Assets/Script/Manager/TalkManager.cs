@@ -2,13 +2,13 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-// 대화의 데이터 및 Controller 역할을 하는 클래스
+// 대화 데이터와 진행 흐름을 제어하는 클래스
 public class TalkManager : MonoBehaviour
 {
     public TextAsset tutorialDialogTsv;
     public DialogManager dialogManager;
 
-    Dictionary<string, DialogData> dialogDatabase = new Dictionary<string, DialogData>();
+    readonly Dictionary<string, DialogData> dialogDatabase = new Dictionary<string, DialogData>();
     DialogData currentData;
 
     [SerializeField] UIManager uiManager;
@@ -19,29 +19,9 @@ public class TalkManager : MonoBehaviour
     {
         LoadDialogData();
     }
-    void HandleCompletedPencilSharpening(SharpeningPencil pencil)
-    {
-        ResumeAfterMinigame();
-    }
-    void HandleCompletedPencilSharpening(PencilCollectedGraphite graphite)
-    {
-        ResumeAfterMinigame();
-    }
-
-    void HandleCompletedPencilSharpening(bool isSuccess)
-    {
-        ResumeAfterMinigame_successOrFail(isSuccess);
-    }
-
-    void HandleSellingButtonClicked()
-    {
-        ResumeAfterMinigame();
-    }
 
     public void ResumeAfterMinigame()
     {
-        Debug.Log("미니게임 클리어! 대화 재개~");
-
         if(currentData != null && !string.IsNullOrEmpty(currentData.nextId))
         {
             StartDialog(currentData.nextId);
@@ -50,12 +30,12 @@ public class TalkManager : MonoBehaviour
         {
             dialogManager.HideDialog();
 
-            if(currentData.nextId == "0") uiManager.ShowMainCanvas(); 
+            if(currentData is { nextId: "0" }) uiManager.ShowMainCanvas();
             currentData = null;
         }
     }
 
-    private void ResumeAfterMinigame_successOrFail(bool isSuccess)
+    public void ResumeAfterMinigame_successOrFail(bool isSuccess)
     {
         string nextDialogId = isSuccess ? currentData.nextId : currentData.failId;
 
@@ -75,14 +55,15 @@ public class TalkManager : MonoBehaviour
     {
         if (currentData == null) return;
 
-        // 현재 대사 진행중인 경우, 타이핑 스킵 및 전체 대사 표시
+        // 현재 대사가 진행 중이면 타이핑을 건너뛰고 전체 대사를 표시
         if(dialogManager.isTyping)
         {
             dialogManager.SkipTyping(currentData.content);
             return;
         }
-        else // 타이핑이 끝난 경우, 다음 대사로 이동
+        else // 타이핑이 끝났으면 다음 대사로 이동
         {
+            Debug.Log("다음 대사 ID: " + currentData.nextId);
             if(!string.IsNullOrEmpty(currentData.nextId)) StartDialog(currentData.nextId);
             else
             {
@@ -127,7 +108,7 @@ public class TalkManager : MonoBehaviour
                     data.emotion = PlayerEmotion.Normal; // 기본값 설정
                 }
 
-                data.nextId = columns[6].Trim(); 
+                data.nextId = columns[6].Trim();
                 data.failId = columns[7].Trim();
 
                 if(!dialogDatabase.ContainsKey(data.id))
@@ -151,13 +132,13 @@ public class TalkManager : MonoBehaviour
                 OnDialogFinished?.Invoke(currentData.speakerType);
                 return;
             }
-            
-            uiManager.EndWorkCanvas();
-            
-            dialogManager.ShowDialog(currentData.content
-                    , currentData.emotion
-                    , currentData.speaker
-                    , currentData.speakerType);
+
+            else
+            {
+                uiManager.EndWorkCanvas();
+            }
+
+            dialogManager.ShowDialog(currentData.content, currentData.emotion, currentData.speaker, currentData.speakerType);
         }
     }
 }

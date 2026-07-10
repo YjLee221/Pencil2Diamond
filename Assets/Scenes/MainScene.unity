@@ -2774,7 +2774,6 @@ MonoBehaviour:
   sellingButton: {fileID: 105302179}
   player: {fileID: 11400000, guid: 9394a472009553543a06b9f5ee54351c, type: 2}
   workshop: {fileID: 11400000, guid: 5d35dcd8c66f6b940966e75302946df9, type: 2}
-  uiManager: {fileID: 390131465}
 --- !u!1 &791387592
 GameObject:
   m_ObjectHideFlags: 0
@@ -4835,9 +4834,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 352c728e69c650a4491696b59338ced1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameMode
+  currentGamePhase: 0
+  currentTutorialStep: 0
   tutorialStartDialogId: 100101
-  pencilManager: {fileID: 2132270389}
   talkManager: {fileID: 612718844}
+  pencilManager: {fileID: 2132270389}
   uiManager: {fileID: 390131465}
 --- !u!4 &1754813001
 Transform:

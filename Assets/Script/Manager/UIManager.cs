@@ -24,7 +24,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image jewelShopImg;
     [SerializeField] Image openingImg;
 
-    [SerializeField] BaseTool selectedTool;  // 현재 유저가 장착한 도구 (다형성 활용)
+    [SerializeField] BaseTool selectedTool; // 현재 유저가 장착한 도구(다형성 활용)
 
     void Start()
     {
@@ -71,7 +71,7 @@ public class UIManager : MonoBehaviour
         ShowOnlyWorkPanel(extractingPanel);
     }
 
-    public void SettingTemperatureCanvas()
+    public void AdjustingTemperatureCanvas()
     {
         ShowWorkCanvas();
         ShowOnlyWorkPanel(pressingPanel);
@@ -87,6 +87,10 @@ public class UIManager : MonoBehaviour
     public void ShowMainCanvas()
     {
         mainImg.gameObject.SetActive(true);
+        if (jewelShopImg)
+        {
+            jewelShopImg.gameObject.SetActive(false);
+        }
         mainCanvas.SetActive(true);
 
         popupCanvas.SetActive(false);
@@ -120,5 +124,4 @@ public class UIManager : MonoBehaviour
     {
 
     }
-
 }

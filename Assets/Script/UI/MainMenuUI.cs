@@ -22,8 +22,9 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] PlayerData player;
     [SerializeField] WorkShopData workshop;
 
-    [SerializeField] UIManager uiManager;
-
+    public static event Action OnGoMainButtonClickedEvent;
+    public static event Action OnMissionButtonClickedEvent;
+    public static event Action OnMakingButtonClickedEvent;
     public static event Action OnSellingButtonClickedEvent;
 
     void Start()
@@ -46,25 +47,21 @@ public class MainMenuUI : MonoBehaviour
 
     void OnGoMainButtonClicked()
     {
-        // 메인 화면으로 이동하는 로직 구현
-        Debug.Log("Go Main Button Clicked");
+        OnGoMainButtonClickedEvent?.Invoke();
     }
 
     void OnMissionButtonClicked()
     {
-        // 미션 화면으로 이동하는 로직 구현
-        Debug.Log("Mission Button Clicked");
+        OnMissionButtonClickedEvent?.Invoke();
     }
 
     void OnMakingButtonClicked()
     {
-        // 제작 화면으로 이동하는 로직 구현
-        Debug.Log("Making Button Clicked");
+        OnMakingButtonClickedEvent?.Invoke();
     }
 
     void OnSellingButtonClicked()
     {
-        uiManager.ShowJewelShop();
         OnSellingButtonClickedEvent?.Invoke();
     }
 }
