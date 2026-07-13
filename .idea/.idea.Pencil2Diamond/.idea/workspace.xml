@@ -12,10 +12,14 @@
   <component name="ChangeListManager">
     <list default="true" id="7e2a47c7-421e-4e70-9c84-bada73407d26" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Pencil2Diamond/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Pencil2Diamond/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Asset/Dialog/TutorialDialog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Asset/Dialog/TutorialDialog.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Asset/Font/Hakgyoansim_NalgaeOTFR SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Asset/Font/Hakgyoansim_NalgaeOTFR SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Asset/Font/MonaS12TextKR SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Asset/Font/MonaS12TextKR SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Asset/Font/NanumBarunGothicBold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Asset/Font/NanumBarunGothicBold SDF.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GameFlowController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/GameFlowController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/TalkManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/TalkManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/UIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Unity.VisualScripting.Generated/VisualScripting.Flow/UnitOptions.db" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Unity.VisualScripting.Generated/VisualScripting.Flow/UnitOptions.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Player/PlayerInventoryManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Player/PlayerInventoryManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,8 +43,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/Script/Manager/TalkManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Manager/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualscripting@eb6004dcc707/Editor/VisualScripting.Flow/Options/UnitBase.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/.jetbrains/acp.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2904cf86599341ef8db444fb2883be308d000/90/5def74e0/Command.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="McpProjectServerCommands">
     <commands />
@@ -48,61 +50,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="5.370532842014335E-13" />
-      <entry key="MS500" value="0.003515632605907807" />
-      <entry key="S2" value="0.2472087370887777" />
-      <entry key="S5" value="0.7234137676861385" />
-      <entry key="S10" value="1.3067451979469662" />
-      <entry key="S30" value="2.2137243793355155" />
-      <entry key="S60" value="2.7679038272541594" />
-      <entry key="M2" value="6.068329000012259" />
-      <entry key="M5" value="32.011251294319464" />
-      <entry key="M10" value="71.20416783561508" />
-      <entry key="M15" value="96.37504744289583" />
-      <entry key="M30" value="150.41157480846528" />
-      <entry key="H1" value="268.29920216890645" />
-      <entry key="H2" value="469.10753129063335" />
-      <entry key="H4" value="680.3475899856787" />
-      <entry key="D1" value="972.6942624415763" />
-      <entry key="W1" value="1038.4887858355146" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0" />
+      <entry key="S10" value="1.0" />
+      <entry key="S30" value="1.0000018017720629" />
+      <entry key="S60" value="1.0053103262396144" />
+      <entry key="M2" value="1.3649590528055464" />
+      <entry key="M5" value="8.2821947404953" />
+      <entry key="M10" value="33.08656327046946" />
+      <entry key="M15" value="60.8990084096203" />
+      <entry key="M30" value="133.49857154534536" />
+      <entry key="H1" value="258.37495507650465" />
+      <entry key="H2" value="476.1295128801973" />
+      <entry key="H4" value="744.1840120452528" />
+      <entry key="D1" value="1177.5245106829332" />
+      <entry key="W1" value="1284.0454751495477" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.0000000470901318" />
-      <entry key="MS500" value="1.0342441190977045" />
-      <entry key="S2" value="1.436923447908376" />
-      <entry key="S5" value="1.8963697156077357" />
-      <entry key="S10" value="2.4348806937362255" />
-      <entry key="S30" value="3.269797641011107" />
-      <entry key="S60" value="3.6314460495076863" />
-      <entry key="M2" value="4.3086802795388275" />
-      <entry key="M5" value="8.060870117656659" />
-      <entry key="M10" value="13.291292087192495" />
-      <entry key="M15" value="16.869511589820412" />
-      <entry key="M30" value="27.988098443890852" />
-      <entry key="H1" value="58.97105283261693" />
-      <entry key="H2" value="110.23768376495693" />
-      <entry key="H4" value="161.06682239911632" />
-      <entry key="D1" value="227.8577528139972" />
-      <entry key="W1" value="242.45924596201598" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="9.213884343587818E-100" />
+      <entry key="S5" value="2.431123099539152E-40" />
+      <entry key="S10" value="1.578614629169949E-20" />
+      <entry key="S30" value="4.0082912007711235E-7" />
+      <entry key="S60" value="0.0015830628708687565" />
+      <entry key="M2" value="0.13412623001000532" />
+      <entry key="M5" value="2.6823593141042865" />
+      <entry key="M10" value="10.077428495349194" />
+      <entry key="M15" value="17.520351711739654" />
+      <entry key="M30" value="35.16796834271946" />
+      <entry key="H1" value="64.64553870038579" />
+      <entry key="H2" value="117.39540280758979" />
+      <entry key="H4" value="181.34031402745265" />
+      <entry key="D1" value="281.57825705888564" />
+      <entry key="W1" value="305.72172761934627" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="4.834950142636287E-7" />
-      <entry key="MS500" value="0.05961061892821678" />
-      <entry key="S2" value="0.9119737617476227" />
-      <entry key="S5" value="2.101032306635482" />
-      <entry key="S10" value="3.3763101573804533" />
-      <entry key="S30" value="5.309097566742746" />
-      <entry key="S60" value="6.298849327308858" />
-      <entry key="M2" value="10.308444158757405" />
-      <entry key="M5" value="40.00648547057591" />
-      <entry key="M10" value="84.43727441858115" />
-      <entry key="M15" value="113.19439965320305" />
-      <entry key="M30" value="178.3581125182879" />
-      <entry key="H1" value="327.228594124585" />
-      <entry key="H2" value="579.30757888042" />
-      <entry key="H4" value="841.3872803343613" />
-      <entry key="D1" value="1200.5456653742117" />
-      <entry key="W1" value="1280.9470673941971" />
+      <entry key="MS100" value="0.9659363289248456" />
+      <entry key="MS500" value="0.9930924954370359" />
+      <entry key="S2" value="0.9982686325973925" />
+      <entry key="S5" value="0.9993070929904525" />
+      <entry key="S10" value="0.9996534864594093" />
+      <entry key="S30" value="0.9998865883860993" />
+      <entry key="S60" value="1.0067078163046248" />
+      <entry key="M2" value="1.4950381775955879" />
+      <entry key="M5" value="10.939406560531355" />
+      <entry key="M10" value="43.121421840452626" />
+      <entry key="M15" value="78.3715944033201" />
+      <entry key="M30" value="168.61961009549202" />
+      <entry key="H1" value="322.97733597099017" />
+      <entry key="H2" value="593.4858124096141" />
+      <entry key="H4" value="925.4942095244484" />
+      <entry key="D1" value="1459.09498913977" />
+      <entry key="W1" value="1589.7659964987342" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -143,7 +145,7 @@
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "RiderCSharpFileTemplatesSettingsId",
     "vue.rearranger.settings.migration": "true",
-    "독립실행형 플레이어.Start Unity.executor": "Run"
+    "독립실행형 플레이어.Start Unity.executor": "Debug"
   }
 }]]></component>
   <component name="RunManager" selected="독립실행형 플레이어.Start Unity">
@@ -158,9 +160,9 @@
       <method v="2" />
     </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.4.0f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:/Program Files/Unity/Hub/Editor/6000.4.0f1/Editor/Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Pencil2Diamond -debugCodeOptimization" />
-      <option name="WORKING_DIRECTORY" value="C:\Pencil2Diamond" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="ENV_FILE_PATHS" value="" />
       <option name="REDIRECT_INPUT_PATH" value="" />
@@ -239,6 +241,7 @@
       <workItem from="1783683990542" duration="44000" />
       <workItem from="1783684609873" duration="95000" />
       <workItem from="1783684786188" duration="1366000" />
+      <workItem from="1783939730827" duration="5579000" />
     </task>
     <servers />
   </component>

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+// ReSharper disable All
 
 // 대화 데이터와 진행 흐름을 제어하는 클래스
 public class TalkManager : MonoBehaviour
@@ -63,11 +64,13 @@ public class TalkManager : MonoBehaviour
         }
         else // 타이핑이 끝났으면 다음 대사로 이동
         {
-            if(!string.IsNullOrEmpty(currentData.nextId)) StartDialog(currentData.nextId);
+            if(!currentData.nextId.Equals("End")) StartDialog(currentData.nextId);
             else
             {
                 dialogManager.HideDialog();
                 Debug.Log("대화 끝~!!");
+                OnDialogFinished?.Invoke(currentData.speakerType);
+                
                 currentData = null;
             }
         }

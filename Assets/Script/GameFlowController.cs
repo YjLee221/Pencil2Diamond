@@ -9,9 +9,16 @@ public class GameFlowController : MonoBehaviour
     [Header("DialogId")]
     [SerializeField] string tutorialStartDialogId = "100101";
 
+    [Header("Manager")]
     [SerializeField] TalkManager talkManager;
     [SerializeField] PencilManager pencilManager;
     [SerializeField] UIManager uiManager;
+    
+    [Header("Player")]
+    [SerializeField] PlayerInventoryManager playerInventoryManager;
+
+    [Header("Diamond")] 
+    [SerializeField] DiamondData tutorialDiamond;
 
     public void TutorialStart()
     {
@@ -60,6 +67,10 @@ public class GameFlowController : MonoBehaviour
                 uiManager.ShowJewelShop();
                 break;
             
+            case "AddCoin":
+                playerInventoryManager.SellDiamond(tutorialDiamond);
+                break;
+            
             case "End":
                 Debug.Log("튜토리얼 마지막 대사!!!!");
                 currentTutorialStep = TutorialStep.EndingDialog;
@@ -96,6 +107,7 @@ public class GameFlowController : MonoBehaviour
         {
             Debug.Log("Selling Button Clicked");
         }
+        
     }
 
     private void OnDisable()
