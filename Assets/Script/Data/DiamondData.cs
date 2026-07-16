@@ -7,12 +7,12 @@ public struct DiamondState
 
 public enum DiamondType
 {
-    INTRO_DIAMOND,
-    TWOB_DIAMOND,
-    FOURB_DIAMOND,
-    GOLDEN_DIAMOND,
-    DIAMOND_DIAMOND,
-    MAX_DIAMOND_TYPE
+    IntroDiamond,
+    TwoBDiamond,
+    FourBDiamond,
+    GoldenDiamond,
+    DiamondDiamond,
+    MaxDiamondType
 }
 
 [CreateAssetMenu(fileName = "NewDiamondData", menuName = "ScriptableObjects/DiamondData")]
@@ -27,7 +27,7 @@ public class DiamondData : ScriptableObject
     //[SerializeField] DiamondData diamondData;
 
     public string DiamondName => diamondName;
-    public DiamondType DiamondType { get { return diamondType; } }
+    public DiamondType DiamondType => diamondType;
     public int SellPriceForDiamond => sellPriceForDiamond;
-    public Sprite DiamondSprite { get { return diamondSprite; } }
+    public Sprite DiamondSprite => diamondSprite;
 }

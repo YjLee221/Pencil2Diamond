@@ -22,6 +22,8 @@ public class GameFlowController : MonoBehaviour
 
     public void TutorialStart()
     {
+        playerInventoryManager.ResetInventory();
+        
         currentGamePhase = GamePhase.Tutorial;
         currentTutorialStep = TutorialStep.OpeningDialog;
 
@@ -52,9 +54,19 @@ public class GameFlowController : MonoBehaviour
                 uiManager.ExtractingGraphiteCanvas();
                 break;
             
+            case "AddGraphite":
+                playerInventoryManager.AddGraphite();
+                talkManager.ResumeAfterMinigame();
+                break;
+            
             case "AdjustingTemperature":
                 currentTutorialStep = TutorialStep.AdjustingTemperature;
                 uiManager.AdjustingTemperatureCanvas();
+                break;
+            
+            case "AddDiamond":
+                playerInventoryManager.AddDiamond();
+                talkManager.ResumeAfterMinigame();
                 break;
             
             case "SellingDialog":
@@ -68,7 +80,9 @@ public class GameFlowController : MonoBehaviour
                 break;
             
             case "AddCoin":
-                playerInventoryManager.SellDiamond(tutorialDiamond);
+                playerInventoryManager.SellDiamond();
+                playerInventoryManager.AddCoin();
+                talkManager.ResumeAfterMinigame();
                 break;
             
             case "End":
@@ -82,6 +96,7 @@ public class GameFlowController : MonoBehaviour
 
     void HandleCompletedPencilSharpening(SharpeningPencil sharpeningPencil)
     {
+        Debug.Log("HandleCompletedPencilSharpening!!!!!!!!!");
         talkManager.ResumeAfterMinigame();
     }
     

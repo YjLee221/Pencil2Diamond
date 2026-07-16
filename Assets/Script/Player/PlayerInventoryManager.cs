@@ -1,40 +1,57 @@
+using System;
 using UnityEngine;
 
 public class PlayerInventoryManager : MonoBehaviour
 {
-    private int playerCoinCount;
-    private int playerDiamondCount;
-    
     [SerializeField] PlayerData playerData;
     [SerializeField] DiamondData diamondData;
+    
+    public event Action OnInventoryChangedEvent;
 
-    void Start()
+    public void ResetInventory()
     {
-        playerCoinCount = playerData.coinCount;
-        playerDiamondCount = playerData.diamondCount;
+        playerData.graphiteCount = 0;
+        playerData.diamondCount = 0;
+        playerData.coinCount = 0;
+    }
+
+    public int AddGraphite()
+    {
+        playerData.graphiteCount++;
+        OnInventoryChangedEvent?.Invoke();
+        
+        return playerData.graphiteCount;
     }
 
     public int AddCoin()
     {
-        playerDiamondCount += diamondData.SellPriceForDiamond;
-        return playerDiamondCount;
+        playerData.coinCount++;
+        OnInventoryChangedEvent?.Invoke();
+        
+        return playerData.coinCount;
     }
 
     public int AddDiamond()
     {
-        return playerDiamondCount++;
+        playerData.diamondCount++;
+        OnInventoryChangedEvent?.Invoke();
+        
+        return playerData.diamondCount;
     }
 
-    public int SellDiamond(DiamondData targetDiamond)
+    public int SellDiamond()
     {
-        if(playerDiamondCount > 0 && playerDiamondCount >= diamondData.SellPriceForDiamond)
+        if (playerData.diamondCount > 0)
         {
-            playerData.diamondCount -= targetDiamond.SellPriceForDiamond;
-            AddCoin();
+            playerData.diamondCount--;
+            
+            OnInventoryChangedEvent?.Invoke();
         }
-        
-        else if(playerDiamondCount == 0) Debug.Log("No Diamond");
-        
+        else if (playerData.diamondCount <= 0)
+        {
+            playerData.diamondCount = 0;
+        }
+
         return playerData.diamondCount;
     }
 }

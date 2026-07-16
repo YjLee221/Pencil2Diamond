@@ -1,13 +1,16 @@
 using System;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class MainMenuUI : MonoBehaviour
 {
+    [FormerlySerializedAs("WorkShopLevelText")]
     [Header("WorkShop Level")]
-    [SerializeField] TextMeshProUGUI WorkShopLevelText;
-    [SerializeField] TextMeshProUGUI WorkShopLevelName;
+    [SerializeField] TextMeshProUGUI workShopLevelText;
+    [SerializeField] TextMeshProUGUI workShopLevelName;
 
     [Header("Currency")]
     [SerializeField] TextMeshProUGUI diamondCount;
@@ -21,6 +24,7 @@ public class MainMenuUI : MonoBehaviour
 
     [SerializeField] PlayerData player;
     [SerializeField] WorkShopData workshop;
+    [SerializeField] PlayerInventoryManager inventoryManager;
 
     public static event Action OnGoMainButtonClickedEvent;
     public static event Action OnMissionButtonClickedEvent;
@@ -37,10 +41,21 @@ public class MainMenuUI : MonoBehaviour
         sellingButton.onClick.AddListener(OnSellingButtonClicked);
     }
 
+    void OnEnable()
+    {
+        inventoryManager.OnInventoryChangedEvent += ShowInfo;
+        ShowInfo();
+    }
+
+    void OnDisable()
+    {
+        inventoryManager.OnInventoryChangedEvent -= ShowInfo;
+    }
+
     void ShowInfo()
     {
-        WorkShopLevelText.text = $"Lv.{player.currentWorkshopLevel}";
-        WorkShopLevelName.text = workshop.GetWorkShopLevelName((WorkShopLevelType)player.currentWorkshopLevel);
+        workShopLevelText.text = $"Lv.{player.currentWorkshopLevel}";
+        workShopLevelName.text = workshop.GetWorkShopLevelName((WorkShopLevelType)player.currentWorkshopLevel);
         diamondCount.text = player.diamondCount.ToString();
         coinCount.text = player.coinCount.ToString();
     }

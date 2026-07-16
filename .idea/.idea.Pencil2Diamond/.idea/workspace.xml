@@ -13,13 +13,15 @@
     <list default="true" id="7e2a47c7-421e-4e70-9c84-bada73407d26" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Pencil2Diamond/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Pencil2Diamond/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Asset/Dialog/TutorialDialog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Asset/Dialog/TutorialDialog.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Asset/Dialog/TutorialDialog.txt.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Asset/Dialog/TutorialDialog.txt.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Asset/Font/Hakgyoansim_NalgaeOTFR SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Asset/Font/Hakgyoansim_NalgaeOTFR SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Asset/Font/MonaS12TextKR SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Asset/Font/MonaS12TextKR SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Asset/Font/NanumBarunGothicBold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Asset/Font/NanumBarunGothicBold SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/PlayerData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/PlayerData.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Data/DiamondData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Data/DiamondData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/GameFlowController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/GameFlowController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/TalkManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/TalkManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Player/PlayerInventoryManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Player/PlayerInventoryManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/MainMenuUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/MainMenuUI.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,61 +52,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0" />
-      <entry key="S5" value="1.0" />
-      <entry key="S10" value="1.0" />
-      <entry key="S30" value="1.0000018017720629" />
-      <entry key="S60" value="1.0053103262396144" />
-      <entry key="M2" value="1.3649590528055464" />
-      <entry key="M5" value="8.2821947404953" />
-      <entry key="M10" value="33.08656327046946" />
-      <entry key="M15" value="60.8990084096203" />
-      <entry key="M30" value="133.49857154534536" />
-      <entry key="H1" value="258.37495507650465" />
-      <entry key="H2" value="476.1295128801973" />
-      <entry key="H4" value="744.1840120452528" />
-      <entry key="D1" value="1177.5245106829332" />
-      <entry key="W1" value="1284.0454751495477" />
+      <entry key="MS100" value="3.798486671803179E-8" />
+      <entry key="MS500" value="0.03281030157918989" />
+      <entry key="S2" value="0.5413195203794565" />
+      <entry key="S5" value="1.5288973588184753" />
+      <entry key="S10" value="2.46009569030941" />
+      <entry key="S30" value="4.849796058998571" />
+      <entry key="S60" value="12.414235159459759" />
+      <entry key="M2" value="30.747443986614385" />
+      <entry key="M5" value="65.52149932738529" />
+      <entry key="M10" value="97.53972862393903" />
+      <entry key="M15" value="119.99513738116626" />
+      <entry key="M30" value="172.1769024616521" />
+      <entry key="H1" value="270.0985663238673" />
+      <entry key="H2" value="474.80089169805547" />
+      <entry key="H4" value="793.3224931314174" />
+      <entry key="D1" value="1448.5682049801603" />
+      <entry key="W1" value="1633.2349180099736" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="0.0" />
-      <entry key="S2" value="9.213884343587818E-100" />
-      <entry key="S5" value="2.431123099539152E-40" />
-      <entry key="S10" value="1.578614629169949E-20" />
-      <entry key="S30" value="4.0082912007711235E-7" />
-      <entry key="S60" value="0.0015830628708687565" />
-      <entry key="M2" value="0.13412623001000532" />
-      <entry key="M5" value="2.6823593141042865" />
-      <entry key="M10" value="10.077428495349194" />
-      <entry key="M15" value="17.520351711739654" />
-      <entry key="M30" value="35.16796834271946" />
-      <entry key="H1" value="64.64553870038579" />
-      <entry key="H2" value="117.39540280758979" />
-      <entry key="H4" value="181.34031402745265" />
-      <entry key="D1" value="281.57825705888564" />
-      <entry key="W1" value="305.72172761934627" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0000000047811342" />
+      <entry key="S2" value="1.0083159296528281" />
+      <entry key="S5" value="1.1512084877980766" />
+      <entry key="S10" value="1.4774049776798783" />
+      <entry key="S30" value="3.0009390517473706" />
+      <entry key="S60" value="5.248065546168756" />
+      <entry key="M2" value="8.42656100832139" />
+      <entry key="M5" value="12.57921092071394" />
+      <entry key="M10" value="15.583723786639853" />
+      <entry key="M15" value="18.185620666281864" />
+      <entry key="M30" value="27.588039222456636" />
+      <entry key="H1" value="50.99376075238064" />
+      <entry key="H2" value="101.98785960884842" />
+      <entry key="H4" value="180.0387740434365" />
+      <entry key="D1" value="335.99893777737947" />
+      <entry key="W1" value="379.14258528653414" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9659363289248456" />
-      <entry key="MS500" value="0.9930924954370359" />
-      <entry key="S2" value="0.9982686325973925" />
-      <entry key="S5" value="0.9993070929904525" />
-      <entry key="S10" value="0.9996534864594093" />
-      <entry key="S30" value="0.9998865883860993" />
-      <entry key="S60" value="1.0067078163046248" />
-      <entry key="M2" value="1.4950381775955879" />
-      <entry key="M5" value="10.939406560531355" />
-      <entry key="M10" value="43.121421840452626" />
-      <entry key="M15" value="78.3715944033201" />
-      <entry key="M30" value="168.61961009549202" />
-      <entry key="H1" value="322.97733597099017" />
-      <entry key="H2" value="593.4858124096141" />
-      <entry key="H4" value="925.4942095244484" />
-      <entry key="D1" value="1459.09498913977" />
-      <entry key="W1" value="1589.7659964987342" />
+      <entry key="MS100" value="0.0031291793179537963" />
+      <entry key="MS500" value="0.3257342499825813" />
+      <entry key="S2" value="1.160660239203515" />
+      <entry key="S5" value="2.36296707059323" />
+      <entry key="S10" value="3.683209509224352" />
+      <entry key="S30" value="7.689803322342193" />
+      <entry key="S60" value="17.519798160095675" />
+      <entry key="M2" value="39.0488417546156" />
+      <entry key="M5" value="78.01746833419101" />
+      <entry key="M10" value="113.06773203133847" />
+      <entry key="M15" value="138.1358312397411" />
+      <entry key="M30" value="199.73015404263472" />
+      <entry key="H1" value="321.06017092407416" />
+      <entry key="H2" value="576.7562246756729" />
+      <entry key="H4" value="973.3322648363838" />
+      <entry key="D1" value="1784.558042926114" />
+      <entry key="W1" value="2012.3760343070282" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -119,35 +121,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Device#class com.jetbrains.rider.plugins.unity.run.devices.UnityEditorDeviceKind#com.jetbrains.rider.plugins.unity.run.devices.UnityDevicesProvider#Unity Attach To: Attach to": "Unity Editor",
-    "Device#class com.jetbrains.rider.plugins.unity.run.devices.UnityEditorDeviceKind#com.jetbrains.rider.plugins.unity.run.devices.UnityDevicesProvider#Unity 연결 대상: 연결 대상": "Unity 에디터 및 재생",
-    "DeviceKind#com.jetbrains.rider.plugins.unity.run.devices.UnityDevicesProvider": "Unity 에디터",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "Unity Attach To.Attach to.executor": "Debug",
-    "Unity 에디터에 연결.Unity 에디터에 연결.executor": "Debug",
-    "Unity 연결 대상.연결 대상.executor": "Debug",
-    "cidr.known.project.marker": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "feature/tutorial-flow",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "RiderCSharpFileTemplatesSettingsId",
-    "vue.rearranger.settings.migration": "true",
-    "독립실행형 플레이어.Start Unity.executor": "Debug"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Device#class com.jetbrains.rider.plugins.unity.run.devices.UnityEditorDeviceKind#com.jetbrains.rider.plugins.unity.run.devices.UnityDevicesProvider#Unity Attach To: Attach to&quot;: &quot;Unity Editor&quot;,
+    &quot;Device#class com.jetbrains.rider.plugins.unity.run.devices.UnityEditorDeviceKind#com.jetbrains.rider.plugins.unity.run.devices.UnityDevicesProvider#Unity 연결 대상: 연결 대상&quot;: &quot;Unity 에디터 및 재생&quot;,
+    &quot;DeviceKind#com.jetbrains.rider.plugins.unity.run.devices.UnityDevicesProvider&quot;: &quot;Unity 에디터&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;Unity Attach To.Attach to.executor&quot;: &quot;Debug&quot;,
+    &quot;Unity 에디터에 연결.Unity 에디터에 연결.executor&quot;: &quot;Debug&quot;,
+    &quot;Unity 연결 대상.연결 대상.executor&quot;: &quot;Debug&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/tutorial-flow&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;RiderCSharpFileTemplatesSettingsId&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;,
+    &quot;독립실행형 플레이어.Start Unity.executor&quot;: &quot;Run&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="독립실행형 플레이어.Start Unity">
     <configuration name="유닛 테스트(배치 모드)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.4.0f1\Editor\Unity.exe" />
@@ -241,7 +243,10 @@
       <workItem from="1783683990542" duration="44000" />
       <workItem from="1783684609873" duration="95000" />
       <workItem from="1783684786188" duration="1366000" />
-      <workItem from="1783939730827" duration="5579000" />
+      <workItem from="1783939730827" duration="5639000" />
+      <workItem from="1784026690070" duration="7599000" />
+      <workItem from="1784109201842" duration="1705000" />
+      <workItem from="1784199666496" duration="3663000" />
     </task>
     <servers />
   </component>

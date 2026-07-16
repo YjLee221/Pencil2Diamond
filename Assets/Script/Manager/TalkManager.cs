@@ -129,7 +129,8 @@ public class TalkManager : MonoBehaviour
     {
         if (dialogDatabase.TryGetValue(startId, out currentData))
         {
-            if (currentData.type == "miniGameStart")
+            bool isDisplayable = (currentData.type == "Dialog" || currentData.type == "Quest");
+            if(!isDisplayable)
             {
                 OnDialogFinished?.Invoke(currentData.speakerType);
                 return;

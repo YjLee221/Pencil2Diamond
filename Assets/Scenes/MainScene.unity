@@ -2764,8 +2764,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d647bfbb924b55f43833c0d1042b4bed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuUI
-  WorkShopLevelText: {fileID: 278473660}
-  WorkShopLevelName: {fileID: 1870112799}
+  workShopLevelText: {fileID: 278473660}
+  workShopLevelName: {fileID: 1870112799}
   diamondCount: {fileID: 973014631}
   coinCount: {fileID: 1808371004}
   goMainButton: {fileID: 98177098}
@@ -2774,6 +2774,7 @@ MonoBehaviour:
   sellingButton: {fileID: 105302179}
   player: {fileID: 11400000, guid: 9394a472009553543a06b9f5ee54351c, type: 2}
   workshop: {fileID: 11400000, guid: 5d35dcd8c66f6b940966e75302946df9, type: 2}
+  inventoryManager: {fileID: 1133477365}
 --- !u!1 &791387592
 GameObject:
   m_ObjectHideFlags: 0
@@ -3658,6 +3659,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300b4acef1591974a9239a48422898d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInventoryManager
+  playerData: {fileID: 11400000, guid: 9394a472009553543a06b9f5ee54351c, type: 2}
+  diamondData: {fileID: 11400000, guid: aca751ca6c9cca7498869818e01f20f3, type: 2}
 --- !u!1 &1206149311
 GameObject:
   m_ObjectHideFlags: 0
@@ -4834,12 +4837,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 352c728e69c650a4491696b59338ced1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameMode
-  currentGamePhase: 0
-  currentTutorialStep: 0
+  currentGamePhase: 1
+  currentTutorialStep: 1
   tutorialStartDialogId: 100101
   talkManager: {fileID: 612718844}
   pencilManager: {fileID: 2132270389}
   uiManager: {fileID: 390131465}
+  playerInventoryManager: {fileID: 1133477365}
+  tutorialDiamond: {fileID: 11400000, guid: aca751ca6c9cca7498869818e01f20f3, type: 2}
 --- !u!4 &1754813001
 Transform:
   m_ObjectHideFlags: 0
