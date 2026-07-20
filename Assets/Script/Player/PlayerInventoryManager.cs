@@ -25,7 +25,7 @@ public class PlayerInventoryManager : MonoBehaviour
 
     public int AddCoin()
     {
-        playerData.coinCount++;
+        playerData.coinCount += diamondData.SellPriceForDiamond;
         OnInventoryChangedEvent?.Invoke();
         
         return playerData.coinCount;
