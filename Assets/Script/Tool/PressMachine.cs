@@ -67,7 +67,6 @@ public class PressMachine : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     {
         if (graphiteData == null)
         {
-            Debug.LogWarning("PressMachine.StartPressing was called without GraphiteData.");
             targetTemperature = minTemperature;
         }
         else
@@ -135,8 +134,8 @@ public class PressMachine : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     void ResetTemperature()
     {
-        currentTemperature = minTemperature;
-        currentDialDegree = minDialDegree;
+        // currentTemperature = minTemperature;
+        // currentDialDegree = minDialDegree;
     }
 
     void UpdateTemperatureUI()

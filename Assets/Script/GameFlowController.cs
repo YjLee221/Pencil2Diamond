@@ -34,47 +34,46 @@ public class GameFlowController : MonoBehaviour
     void OnEnable()
     {
         talkManager.OnDialogFinished += HandleDialogFinished;
+        talkManager.OnDialogSequenceFinished += HandleTutorialFinished;
         SharpeningPencil.OnPencilSharpeningCompleted += HandleCompletedPencilSharpening;
         PencilCollectedGraphite.OnGraphiteExtractionCompleted += HandleCompletedGraphiteExtraction;
         PressMachine.OnMatchingTemperatureCompleted += HandleCompletedTemperature;
         MainMenuUI.OnSellingButtonClickedEvent += HandleSellingButtonClicked;
     }
 
-    void HandleDialogFinished(string speakerType)
-    {
-        switch (speakerType)
+    void HandleDialogFinished(string command)
+    { 
+        switch (command)
         {
-            case "SharpeningPencil":
+            case "SharpenPencil":
                 currentTutorialStep = TutorialStep.SharpeningPencil;
                 uiManager.StartSharpeningCanvas();
                 break;
             
-            case "ExtractingGraphite":
+            case "ExtractGraphite":
                 currentTutorialStep = TutorialStep.ExtractingGraphite;
                 uiManager.ExtractingGraphiteCanvas();
                 break;
             
             case "AddGraphite":
                 playerInventoryManager.AddGraphite();
-                talkManager.ResumeAfterMinigame();
                 break;
             
-            case "AdjustingTemperature":
+            case "AdjustTemperature":
                 currentTutorialStep = TutorialStep.AdjustingTemperature;
                 uiManager.AdjustingTemperatureCanvas();
                 break;
             
             case "AddDiamond":
                 playerInventoryManager.AddDiamond();
-                talkManager.ResumeAfterMinigame();
                 break;
             
-            case "SellingDialog":
+            case "SellDialog":
                 currentTutorialStep = TutorialStep.SellingDialog;
                 uiManager.ShowMainCanvas();
                 break;
             
-            case "Merchant":
+            case "OpenJewelShop":
                 currentTutorialStep = TutorialStep.SellingDiamond;
                 uiManager.ShowJewelShop();
                 break;
@@ -86,17 +85,24 @@ public class GameFlowController : MonoBehaviour
                 break;
             
             case "End":
-                Debug.Log("튜토리얼 마지막 대사!!!!");
                 currentTutorialStep = TutorialStep.EndingDialog;
                 currentGamePhase = GamePhase.Workshop;
                 uiManager.ShowMainCanvas();
                 break;
         }
     }
+    
+    private void HandleTutorialFinished()
+    {
+        if (currentGamePhase != GamePhase.Tutorial) return;
+        
+        currentTutorialStep =  TutorialStep.Completed;
+        currentGamePhase = GamePhase.Workshop;
+        uiManager.ShowMainCanvas();
+    }
 
     void HandleCompletedPencilSharpening(SharpeningPencil sharpeningPencil)
     {
-        Debug.Log("HandleCompletedPencilSharpening!!!!!!!!!");
         talkManager.ResumeAfterMinigame();
     }
     
@@ -128,9 +134,16 @@ public class GameFlowController : MonoBehaviour
     private void OnDisable()
     {
         talkManager.OnDialogFinished -= HandleDialogFinished;
+        talkManager.OnDialogSequenceFinished -= HandleTutorialFinished;
         SharpeningPencil.OnPencilSharpeningCompleted -= HandleCompletedPencilSharpening;
         PencilCollectedGraphite.OnGraphiteExtractionCompleted -= HandleCompletedGraphiteExtraction;
         PressMachine.OnMatchingTemperatureCompleted -= HandleCompletedTemperature;
         MainMenuUI.OnSellingButtonClickedEvent -= HandleSellingButtonClicked;
+    }
+
+    void ChangeGamePhase()
+    {
+        currentGamePhase = GamePhase.Workshop;
+        currentTutorialStep = TutorialStep.Completed;
     }
 }

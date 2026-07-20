@@ -81,3 +81,7 @@ crashlytics-build.properties
 /Assets/Resources/PerformanceTestRunInfo.json.meta
 /Assets/Resources/PerformanceTestRunSettings.json
 /Assets/Resources/PerformanceTestRunSettings.json.meta
+
+# _Recovery 폴더 제외
+/Assets/_Recovery/*
+/Assets/_Recovery.meta

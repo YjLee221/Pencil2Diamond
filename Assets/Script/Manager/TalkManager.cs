@@ -15,6 +15,7 @@ public class TalkManager : MonoBehaviour
     [SerializeField] UIManager uiManager;
 
     public event Action<string> OnDialogFinished;
+    public event Action OnDialogSequenceFinished;
 
     void Awake()
     {
@@ -69,7 +70,7 @@ public class TalkManager : MonoBehaviour
             {
                 dialogManager.HideDialog();
                 Debug.Log("대화 끝~!!");
-                OnDialogFinished?.Invoke(currentData.speakerType);
+                OnDialogSequenceFinished?.Invoke();
                 
                 currentData = null;
             }
@@ -99,9 +100,10 @@ public class TalkManager : MonoBehaviour
                 data.type = columns[1];
                 data.speaker = columns[2];
                 data.speakerType = columns[3];
-                data.content = columns[4].Replace("\\n", "\n"); // 줄바꿈 처리
+                data.command = columns[4];
+                data.content = columns[5].Replace("\\n", "\n"); // 줄바꿈 처리
 
-                if (Enum.TryParse(columns[5], out PlayerEmotion emotion))
+                if (Enum.TryParse(columns[6], out PlayerEmotion emotion))
                 {
                     data.emotion = emotion;
                 }
@@ -110,8 +112,8 @@ public class TalkManager : MonoBehaviour
                     data.emotion = PlayerEmotion.Normal; // 기본값 설정
                 }
 
-                data.nextId = columns[6].Trim();
-                data.failId = columns[7].Trim();
+                data.nextId = columns[7].Trim();
+                data.failId = columns[8].Trim();
 
                 if(!dialogDatabase.ContainsKey(data.id))
                 {
@@ -127,21 +129,23 @@ public class TalkManager : MonoBehaviour
 
     public void StartDialog(string startId)
     {
-        if (dialogDatabase.TryGetValue(startId, out currentData))
+        if (!dialogDatabase.TryGetValue(startId, out currentData)) return;
+        
+        if (currentData.type == "MiniGameStart")
         {
-            bool isDisplayable = (currentData.type == "Dialog" || currentData.type == "Quest");
-            if(!isDisplayable)
-            {
-                OnDialogFinished?.Invoke(currentData.speakerType);
-                return;
-            }
-
-            else
-            {
-                uiManager.EndWorkCanvas();
-            }
-
-            dialogManager.ShowDialog(currentData.content, currentData.emotion, currentData.speaker, currentData.speakerType);
+            OnDialogFinished?.Invoke(currentData.command);
+            return;
         }
+        
+        uiManager.EndWorkCanvas();
+        
+        if(!string.IsNullOrWhiteSpace(currentData.command)) OnDialogFinished?.Invoke(currentData.command);
+        
+        dialogManager.ShowDialog(
+            currentData.content,
+            currentData.emotion,
+            currentData.speaker,
+            currentData.speakerType
+            );
     }
 }

@@ -12,6 +12,7 @@ public class DialogData
     public string type;
     public string speaker;
     public string speakerType;
+    public string command;
     public string content;
     public PlayerEmotion emotion;
     public string nextId;
