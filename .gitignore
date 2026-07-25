@@ -85,5 +85,7 @@ crashlytics-build.properties
 # _Recovery 폴더 제외
 /Assets/_Recovery/*
 /Assets/_Recovery.meta
-.idea/
+
+#라이더 개인 설정 파일 제외
 *.sln.DotSettings.user
+/.idea
