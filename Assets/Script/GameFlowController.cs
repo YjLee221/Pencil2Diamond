@@ -108,7 +108,6 @@ public class GameFlowController : MonoBehaviour
             
             case "AddCoin":
                 playerInventoryManager.SellDiamond();
-                playerInventoryManager.AddCoin();
                 talkManager.ResumeAfterMinigame();
                 break;
             

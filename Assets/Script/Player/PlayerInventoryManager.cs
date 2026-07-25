@@ -23,7 +23,7 @@ public class PlayerInventoryManager : MonoBehaviour
         return playerData.graphiteCount;
     }
 
-    public int AddCoin()
+    int AddCoin()
     {
         playerData.coinCount += diamondData.SellPriceForDiamond;
         OnInventoryChangedEvent?.Invoke();
@@ -44,10 +44,9 @@ public class PlayerInventoryManager : MonoBehaviour
         if (playerData.diamondCount > 0)
         {
             playerData.diamondCount--;
-            
-            OnInventoryChangedEvent?.Invoke();
+            AddCoin();
         }
-        else if (playerData.diamondCount <= 0)
+        else
         {
             playerData.diamondCount = 0;
         }

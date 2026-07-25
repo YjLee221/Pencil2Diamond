@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 // ReSharper disable All
 
@@ -39,17 +40,21 @@ public class TalkManager : MonoBehaviour
 
     public void ResumeAfterMinigame_successOrFail(bool isSuccess)
     {
-        string nextDialogId = isSuccess ? currentData.nextId : currentData.failId;
-
-        if(!string.IsNullOrEmpty(nextDialogId))
-        {
-            StartDialog(nextDialogId);
-        }
+        if (currentData == null) return;
         else
         {
-            dialogManager.HideDialog();
-            Debug.Log("대화 끝~!!");
-            currentData = null;
+            string nextDialogId = isSuccess ? currentData.nextId : currentData.failId;
+
+            if(!string.IsNullOrEmpty(nextDialogId))
+            {
+                StartDialog(nextDialogId);
+            }
+            else
+            {
+                dialogManager.HideDialog();
+                Debug.Log("대화 끝~!!");
+                currentData = null;
+            }
         }
     }
 
@@ -91,8 +96,9 @@ public class TalkManager : MonoBehaviour
             if(string.IsNullOrWhiteSpace(line)) continue; // 빈 줄 건너뛰기
 
             string[] columns = line.Split('\t'); // TSV 파일이므로 탭으로 구분
-
-            if(columns.Length < 10 )
+            string[] headers = lines[0].TrimEnd('\r').Split(new[] { '\t' }, StringSplitOptions.None);
+            
+            if(columns.Length == headers.Length)
             {
                 DialogData data = new DialogData();
 
