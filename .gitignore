@@ -85,3 +85,5 @@ crashlytics-build.properties
 # _Recovery 폴더 제외
 /Assets/_Recovery/*
 /Assets/_Recovery.meta
+.idea/
+*.sln.DotSettings.user

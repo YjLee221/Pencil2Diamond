@@ -11,14 +11,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e2a47c7-421e-4e70-9c84-bada73407d26" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Pencil2Diamond/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Pencil2Diamond/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Asset/Font/Hakgyoansim_NalgaeOTFR SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Asset/Font/Hakgyoansim_NalgaeOTFR SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Asset/Font/MonaS12TextKR SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Asset/Font/MonaS12TextKR SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Asset/Font/NanumBarunGothicBold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Asset/Font/NanumBarunGothicBold SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/GameFlowController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/GameFlowController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/TalkManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/TalkManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/StartMenuUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/StartMenuUI.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,36 +119,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Device#class com.jetbrains.rider.plugins.unity.run.devices.UnityEditorDeviceKind#com.jetbrains.rider.plugins.unity.run.devices.UnityDevicesProvider#Unity Attach To: Attach to": "Unity Editor",
-    "Device#class com.jetbrains.rider.plugins.unity.run.devices.UnityEditorDeviceKind#com.jetbrains.rider.plugins.unity.run.devices.UnityDevicesProvider#Unity 연결 대상: 연결 대상": "Unity 에디터 및 재생",
-    "DeviceKind#com.jetbrains.rider.plugins.unity.run.devices.UnityDevicesProvider": "Unity 에디터",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "Unity Attach To.Attach to.executor": "Debug",
-    "Unity 에디터에 연결.Unity 에디터에 연결.executor": "Debug",
-    "Unity 연결 대상.연결 대상.executor": "Debug",
-    "XThreadsFramesViewSplitterKey": "0.40967742",
-    "cidr.known.project.marker": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "feature/tutorial-flow",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "RiderCSharpFileTemplatesSettingsId",
-    "vue.rearranger.settings.migration": "true",
-    "독립실행형 플레이어.Start Unity.executor": "Run"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Device#class com.jetbrains.rider.plugins.unity.run.devices.UnityEditorDeviceKind#com.jetbrains.rider.plugins.unity.run.devices.UnityDevicesProvider#Unity Attach To: Attach to&quot;: &quot;Unity Editor&quot;,
+    &quot;Device#class com.jetbrains.rider.plugins.unity.run.devices.UnityEditorDeviceKind#com.jetbrains.rider.plugins.unity.run.devices.UnityDevicesProvider#Unity 연결 대상: 연결 대상&quot;: &quot;Unity 에디터 및 재생&quot;,
+    &quot;DeviceKind#com.jetbrains.rider.plugins.unity.run.devices.UnityDevicesProvider&quot;: &quot;Unity 에디터&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;Unity Attach To.Attach to.executor&quot;: &quot;Debug&quot;,
+    &quot;Unity 에디터에 연결.Unity 에디터에 연결.executor&quot;: &quot;Debug&quot;,
+    &quot;Unity 연결 대상.연결 대상.executor&quot;: &quot;Debug&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.40967742&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/tutorial-flow&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;RiderCSharpFileTemplatesSettingsId&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;,
+    &quot;독립실행형 플레이어.Start Unity.executor&quot;: &quot;Run&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="독립실행형 플레이어.Start Unity">
     <configuration name="유닛 테스트(배치 모드)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.4.0f1\Editor\Unity.exe" />
@@ -255,6 +249,7 @@
       <workItem from="1784540671830" duration="1134000" />
       <workItem from="1784542619988" duration="6356000" />
       <workItem from="1784800235613" duration="7555000" />
+      <workItem from="1784951180775" duration="624000" />
     </task>
     <servers />
   </component>
