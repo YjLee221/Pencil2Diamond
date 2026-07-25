@@ -92,7 +92,7 @@ public class TalkManager : MonoBehaviour
 
             string[] columns = line.Split('\t'); // TSV 파일이므로 탭으로 구분
 
-            if(columns.Length >= 8)
+            if(columns.Length < 10 )
             {
                 DialogData data = new DialogData();
 

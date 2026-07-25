@@ -292,7 +292,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 100, y: -5.8}
+  m_AnchoredPosition: {x: 100, y: -5.799999}
   m_SizeDelta: {x: 103, y: 88}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &41609813
@@ -610,7 +610,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 285, y: -5.3}
+  m_AnchoredPosition: {x: 285, y: -5.299999}
   m_SizeDelta: {x: 103, y: 88}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &105302179
@@ -4095,6 +4095,7 @@ MonoBehaviour:
   startPanel: {fileID: 1304611888}
   scriptPanel: {fileID: 2010262616}
   gameFlowController: {fileID: 1754813000}
+  startFromWorkshopForDev: 1
 --- !u!1 &1325479351
 GameObject:
   m_ObjectHideFlags: 0
@@ -4844,6 +4845,7 @@ MonoBehaviour:
   pencilManager: {fileID: 2132270389}
   uiManager: {fileID: 390131465}
   playerInventoryManager: {fileID: 1133477365}
+  playerData: {fileID: 11400000, guid: 9394a472009553543a06b9f5ee54351c, type: 2}
   tutorialDiamond: {fileID: 11400000, guid: aca751ca6c9cca7498869818e01f20f3, type: 2}
 --- !u!4 &1754813001
 Transform:

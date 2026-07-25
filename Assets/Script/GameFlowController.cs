@@ -17,6 +17,14 @@ public class GameFlowController : MonoBehaviour
     [Header("Player")]
     [SerializeField] PlayerInventoryManager playerInventoryManager;
 
+#if UNITY_EDITOR
+    [Header("개발용 재화")]
+    [SerializeField] PlayerData playerData;
+
+    public int CoinCount => playerData != null ? playerData.coinCount : 0;
+    public int DiamondCount => playerData != null ? playerData.diamondCount : 0;
+#endif
+
     [Header("Diamond")] 
     [SerializeField] DiamondData tutorialDiamond;
 
@@ -30,6 +38,26 @@ public class GameFlowController : MonoBehaviour
         talkManager.StartDialog(tutorialStartDialogId);
         pencilManager.StartTutorialMode();
     }
+#if UNITY_EDITOR
+    public void MainGameStartForDev()
+    {
+        currentGamePhase = GamePhase.Workshop;
+        currentTutorialStep = TutorialStep.None;
+
+        if (playerData == null)
+        {
+            Debug.Log("PlayerData is null!!!!!!!!");
+            return;
+        }
+        
+        playerData.coinCount = 200;
+        playerData.diamondCount = 0;
+        
+        uiManager.ShowMainCanvas();
+        
+        Debug.Log($"현재 게임 단계: {currentGamePhase} / 현재 튜토리얼 단계: {currentTutorialStep}");
+    }
+#endif
 
     void OnEnable()
     {
@@ -86,8 +114,6 @@ public class GameFlowController : MonoBehaviour
             
             case "End":
                 currentTutorialStep = TutorialStep.EndingDialog;
-                currentGamePhase = GamePhase.Workshop;
-                uiManager.ShowMainCanvas();
                 break;
         }
     }
