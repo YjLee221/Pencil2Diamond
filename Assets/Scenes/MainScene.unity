@@ -713,7 +713,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &180317482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2161,7 +2161,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -31, y: 305}
+  m_AnchoredPosition: {x: -31, y: 331}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &593546039
@@ -2347,6 +2347,7 @@ MonoBehaviour:
   npcSprites:
   - currentSpeaker: Merchant
     npcSprite: {fileID: -1206964636790852805, guid: 6d3d24ba5ee924841ae74993ab9fe5e3, type: 3}
+  typingTime: 0.08
 --- !u!1 &617905944
 GameObject:
   m_ObjectHideFlags: 0
@@ -2959,7 +2960,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -31, y: 593}
+  m_AnchoredPosition: {x: -25, y: 608}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &947954289
@@ -4095,7 +4096,7 @@ MonoBehaviour:
   startPanel: {fileID: 1304611888}
   scriptPanel: {fileID: 2010262616}
   gameFlowController: {fileID: 1754813000}
-  startFromWorkshopForDev: 1
+  startFromWorkshopForDev: 0
 --- !u!1 &1325479351
 GameObject:
   m_ObjectHideFlags: 0
@@ -5104,14 +5105,14 @@ RectTransform:
   m_GameObject: {fileID: 1862732641}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6790625, y: 4.4315624, z: 1}
+  m_LocalScale: {x: 0.7537594, y: 6.337134, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 310787436}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 233, y: -466}
+  m_AnchoredPosition: {x: 233, y: -431}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1862732643

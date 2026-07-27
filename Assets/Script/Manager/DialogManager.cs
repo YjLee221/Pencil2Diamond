@@ -58,6 +58,7 @@ public class DialogManager : MonoBehaviour
 
     Coroutine typingCoroutine; // 현재 진행 중인 타이핑 코루틴을 저장하는 변수
     public bool isTyping { get; private set; } // 타이핑 중인지 여부를 나타내는 프로퍼티
+    [SerializeField] private float typingTime;
 
     void Start()
     {
@@ -122,7 +123,7 @@ public class DialogManager : MonoBehaviour
         {
             dialogContents.text += letter;
 
-            yield return new WaitForSeconds(0.1f); // 글자 간격 조절
+            yield return new WaitForSeconds(typingTime); // 글자 간격 조절
         }
 
         isTyping = false;
