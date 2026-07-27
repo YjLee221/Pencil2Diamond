@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+// ReSharper disable All
 
 public class GameFlowController : MonoBehaviour
 {
@@ -38,7 +39,8 @@ public class GameFlowController : MonoBehaviour
         talkManager.StartDialog(tutorialStartDialogId);
         pencilManager.StartTutorialMode();
     }
-#if UNITY_EDITOR
+    
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
     public void MainGameStartForDev()
     {
         currentGamePhase = GamePhase.Workshop;

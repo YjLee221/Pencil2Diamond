@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+//Resharper disable all
 
 public class StartMenuUI: MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class StartMenuUI: MonoBehaviour
 
     [SerializeField] GameFlowController gameFlowController;
     
-#if UNITY_EDITOR
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
     [Header("개발용 옵션")]
     [SerializeField] private bool startFromWorkshopForDev;
 #endif
@@ -25,14 +26,15 @@ public class StartMenuUI: MonoBehaviour
     void OnClickStartBtn()
     {
         startPanel.SetActive(false);
-        
-#if UNITY_EDITOR
+
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
         if (startFromWorkshopForDev)
         {
             gameFlowController.MainGameStartForDev();
             return;
         }
 #endif
+        
         scriptPanel.SetActive(true);
         
         if(gameFlowController.currentGamePhase == GamePhase.Tutorial) gameFlowController.TutorialStart();
