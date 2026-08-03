@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 // ReSharper disable All
 
-public class GameFlowController : MonoBehaviour
+public class TutorialFlowController : MonoBehaviour
 {
     public GamePhase currentGamePhase;
     public TutorialStep currentTutorialStep;

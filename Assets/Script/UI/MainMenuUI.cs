@@ -1,6 +1,5 @@
 using System;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -21,6 +20,7 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] Button missionButton;
     [SerializeField] Button makingButton;
     [SerializeField] Button sellingButton;
+    [SerializeField] Button pressButton;
 
     [SerializeField] PlayerData player;
     [SerializeField] WorkShopData workshop;
@@ -30,6 +30,7 @@ public class MainMenuUI : MonoBehaviour
     public static event Action OnMissionButtonClickedEvent;
     public static event Action OnMakingButtonClickedEvent;
     public static event Action OnSellingButtonClickedEvent;
+    public static event Action OnPressingButtonClickedEvent;
 
     void Start()
     {
@@ -39,6 +40,7 @@ public class MainMenuUI : MonoBehaviour
         missionButton.onClick.AddListener(OnMissionButtonClicked);
         makingButton.onClick.AddListener(OnMakingButtonClicked);
         sellingButton.onClick.AddListener(OnSellingButtonClicked);
+        pressButton.onClick.AddListener(OnPressingButtonClicked);
     }
 
     void OnEnable()
@@ -78,5 +80,10 @@ public class MainMenuUI : MonoBehaviour
     void OnSellingButtonClicked()
     {
         OnSellingButtonClickedEvent?.Invoke();
+    }
+    
+    private void OnPressingButtonClicked()
+    {
+        OnPressingButtonClickedEvent?.Invoke();
     }
 }
