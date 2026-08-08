@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class PressMachine : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class SettingTemperature : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [Header("Dial")]
     [SerializeField] RectTransform dialTouchArea;
@@ -28,6 +28,8 @@ public class PressMachine : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     int activePointerId = int.MinValue;
     float previousPointerAngle;
+
+    public int machineLevel = 1;
 
     public static event Action<bool> OnMatchingTemperatureCompleted;
 
