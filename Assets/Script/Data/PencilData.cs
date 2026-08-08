@@ -10,12 +10,12 @@ public struct PencilState
 
 public enum PencilType
 {
-    INTRO_PENCIL,        // 게임 시작 시 연습용 연필
-    TWOB_PENCIL,    
-    FOURB_PENCIL,
-    GOLDEN_PENCIL,       
-    DIAMOND_PENCIL,     // 과금용 연필
-    MAX_PENCIL_TYPE     // 연필 종류의 최대값 (새로운 연필 추가 시 이 값도 업데이트 필요)
+    IntroPencil,        // 게임 시작 시 연습용 연필
+    TwoBPencil,    
+    FourBPencil,
+    GoldenPencil,       
+    DiamondPencil,     // 과금용 연필
+    MaxPencilType     // 연필 종류의 최대값 (새로운 연필 추가 시 이 값도 업데이트 필요)
 }
 
 // 유니티 프로젝트에서 연필의 상태를 설정할 수 있도록 팝업메뉴 만들기

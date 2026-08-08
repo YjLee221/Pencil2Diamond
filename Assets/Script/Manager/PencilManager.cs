@@ -24,7 +24,7 @@ public class PencilManager : MonoBehaviour
 
     public void StartTutorialMode()
     {
-        PencilData introPencil = GetPencilData(PencilType.INTRO_PENCIL);
+        PencilData introPencil = GetPencilData(PencilType.IntroPencil);
         sharpeningPencil.LoadPencil(introPencil);
     }
 

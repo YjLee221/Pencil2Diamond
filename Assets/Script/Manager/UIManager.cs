@@ -14,7 +14,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject sharpeningPanel;
     [SerializeField] GameObject extractingPanel;
     [SerializeField] GameObject pressingPanel;
-    [SerializeField] PressMachine pressMachine;
+    [SerializeField] SettingTemperature settingTemperature;
     [SerializeField] PencilCollectedGraphite graphiteCollector;
 
     [Header("Background Image")]
@@ -25,8 +25,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image openingImg;
 
     [SerializeField] BaseTool selectedTool; // 현재 유저가 장착한 도구(다형성 활용)
+    [SerializeField] GameObject startPanel;
 
-    void Start()
+    public void Start()
     {
         ShowCanvasFirst();
     }
@@ -42,6 +43,8 @@ public class UIManager : MonoBehaviour
         WorkShopImg.gameObject.SetActive(false);
         deskImg.gameObject.SetActive(false);
         mainImg.gameObject.SetActive(false);
+        
+        startPanel.gameObject.SetActive(true);
     }
 
     public void StartWorkingCanvas()
@@ -76,11 +79,11 @@ public class UIManager : MonoBehaviour
         ShowWorkCanvas();
         ShowOnlyWorkPanel(pressingPanel);
 
-        if (pressMachine != null)
+        if (settingTemperature != null)
         {
             GraphiteData graphiteData = graphiteCollector != null ? graphiteCollector.currentGraphiteData : null;
 
-            pressMachine.StartPressing(graphiteData);
+            settingTemperature.StartPressing(graphiteData);
         }
     }
 

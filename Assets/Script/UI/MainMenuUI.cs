@@ -1,46 +1,58 @@
 using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class MainMenuUI : MonoBehaviour
 {
-    [FormerlySerializedAs("WorkShopLevelText")]
-    [Header("WorkShop Level")]
+    [Header("WorkShop Level")] 
     [SerializeField] TextMeshProUGUI workShopLevelText;
     [SerializeField] TextMeshProUGUI workShopLevelName;
 
-    [Header("Currency")]
+    [Header("Currency")] 
     [SerializeField] TextMeshProUGUI diamondCount;
     [SerializeField] TextMeshProUGUI coinCount;
 
-    [Header("Buttons")]
-    [SerializeField] Button goMainButton;
+    [Header("Buttons")] 
+    [SerializeField] Button marketButton;
     [SerializeField] Button missionButton;
-    [SerializeField] Button makingButton;
+    [SerializeField] Button upgradeButton;
     [SerializeField] Button sellingButton;
     [SerializeField] Button pressButton;
+    [SerializeField] Button sharpeningButton;
+
+    [SerializeField] Button plusButton;
+    [SerializeField] Button minusButton;
+    [SerializeField] Button maxButton;
+
+    [SerializeField] GameObject workingPanel;
+    [SerializeField] TextMeshProUGUI workingPanelContents;
+    bool isWorkingPanelClosed;
 
     [SerializeField] PlayerData player;
     [SerializeField] WorkShopData workshop;
     [SerializeField] PlayerInventoryManager inventoryManager;
+    [SerializeField] SettingTemperature pressMachine;
+    
+    WorkingStep checkWorkStep = WorkingStep.None;
 
-    public static event Action OnGoMainButtonClickedEvent;
-    public static event Action OnMissionButtonClickedEvent;
-    public static event Action OnMakingButtonClickedEvent;
-    public static event Action OnSellingButtonClickedEvent;
-    public static event Action OnPressingButtonClickedEvent;
+    public event Action OnMarketButtonClickedEvent;
+    public event Action OnMissionButtonClickedEvent;
+    public event Action OnUpgradeButtonClickedEvent;
+    public event Action OnSellingButtonClickedEvent;
+    public event Action OnPressingButtonClickedEvent;
+    public event Action OnSharpeningButtonClickedEvent;
 
     void Start()
     {
         ShowInfo();
 
-        goMainButton.onClick.AddListener(OnGoMainButtonClicked);
+        marketButton.onClick.AddListener(OnMarketButtonClicked);
         missionButton.onClick.AddListener(OnMissionButtonClicked);
-        makingButton.onClick.AddListener(OnMakingButtonClicked);
+        upgradeButton.onClick.AddListener(OnUpgradeButtonClicked);
         sellingButton.onClick.AddListener(OnSellingButtonClicked);
         pressButton.onClick.AddListener(OnPressingButtonClicked);
+        sharpeningButton.onClick.AddListener(OnSharpeningButtonClicked);
     }
 
     void OnEnable()
@@ -62,9 +74,9 @@ public class MainMenuUI : MonoBehaviour
         coinCount.text = player.coinCount.ToString();
     }
 
-    void OnGoMainButtonClicked()
+    void OnMarketButtonClicked()
     {
-        OnGoMainButtonClickedEvent?.Invoke();
+        OnMarketButtonClickedEvent?.Invoke();
     }
 
     void OnMissionButtonClicked()
@@ -72,18 +84,60 @@ public class MainMenuUI : MonoBehaviour
         OnMissionButtonClickedEvent?.Invoke();
     }
 
-    void OnMakingButtonClicked()
+    void OnUpgradeButtonClicked()
     {
-        OnMakingButtonClickedEvent?.Invoke();
+        OnUpgradeButtonClickedEvent?.Invoke();
     }
 
     void OnSellingButtonClicked()
     {
         OnSellingButtonClickedEvent?.Invoke();
     }
-    
-    private void OnPressingButtonClicked()
+
+    void OnPressingButtonClicked()
     {
         OnPressingButtonClickedEvent?.Invoke();
+    }
+
+    void OnSharpeningButtonClicked()
+    {
+        OnSharpeningButtonClickedEvent?.Invoke();
+    }
+
+    public void ShowWorkAbleList(WorkingStep workingStep)
+    {
+        if (workingPanel.activeSelf && checkWorkStep == workingStep)
+        {
+            CloseWorkAbleList();
+            return;
+        }
+
+        checkWorkStep = workingStep;
+        workingPanel.SetActive(true);
+
+        switch (workingStep)
+        {
+            case WorkingStep.Sharpening:
+                workingPanelContents.text = $"보유한 연필: {player.unSharpenedPencilCount}\n " +
+                                            $"[ 가공할 수량 ]\n" +
+                                            
+                                            $"예상 획득: 흑연 {player.unSharpenedPencilCount} 개";
+                break;
+            
+            case WorkingStep.CollectingGraphite:
+                workingPanelContents.text = $"보유한 흑연: {player.graphiteCount}";
+                break;
+            
+            case WorkingStep.Pressing:
+                workingPanelContents.text = $"현재 압축기 레벨 {pressMachine.machineLevel}\n" +
+                                            $"필요한 흑연: 3 / {player.graphiteCount}";
+                break;
+        }
+    }
+
+    void CloseWorkAbleList()
+    {
+        workingPanel.SetActive(false);
+        checkWorkStep = WorkingStep.None;
     }
 }

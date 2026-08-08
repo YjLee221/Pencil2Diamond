@@ -17,6 +17,9 @@ public class TutorialFlowController : MonoBehaviour
     
     [Header("Player")]
     [SerializeField] PlayerInventoryManager playerInventoryManager;
+    
+    [Header("UI")]
+    [SerializeField] MainMenuUI mainMenuUI;
 
 #if UNITY_EDITOR
     [Header("개발용 재화")]
@@ -67,8 +70,8 @@ public class TutorialFlowController : MonoBehaviour
         talkManager.OnDialogSequenceFinished += HandleTutorialFinished;
         SharpeningPencil.OnPencilSharpeningCompleted += HandleCompletedPencilSharpening;
         PencilCollectedGraphite.OnGraphiteExtractionCompleted += HandleCompletedGraphiteExtraction;
-        PressMachine.OnMatchingTemperatureCompleted += HandleCompletedTemperature;
-        MainMenuUI.OnSellingButtonClickedEvent += HandleSellingButtonClicked;
+        SettingTemperature.OnMatchingTemperatureCompleted += HandleCompletedTemperature;
+        mainMenuUI.OnSellingButtonClickedEvent += HandleSellingButtonClicked;
     }
 
     void HandleDialogFinished(string command)
@@ -164,8 +167,8 @@ public class TutorialFlowController : MonoBehaviour
         talkManager.OnDialogSequenceFinished -= HandleTutorialFinished;
         SharpeningPencil.OnPencilSharpeningCompleted -= HandleCompletedPencilSharpening;
         PencilCollectedGraphite.OnGraphiteExtractionCompleted -= HandleCompletedGraphiteExtraction;
-        PressMachine.OnMatchingTemperatureCompleted -= HandleCompletedTemperature;
-        MainMenuUI.OnSellingButtonClickedEvent -= HandleSellingButtonClicked;
+        SettingTemperature.OnMatchingTemperatureCompleted -= HandleCompletedTemperature;
+        mainMenuUI.OnSellingButtonClickedEvent -= HandleSellingButtonClicked;
     }
 
     void ChangeGamePhase()
