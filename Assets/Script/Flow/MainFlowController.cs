@@ -5,6 +5,7 @@ using UnityEngine;
 public class MainFlowController : MonoBehaviour
 {
     [SerializeField] MainMenuUI mainMenuUI;
+    [SerializeField] UIManager uiManager;
     void Start()
     {
         Debug.Log("Starting Main Flow Controller");
@@ -14,23 +15,41 @@ public class MainFlowController : MonoBehaviour
     {
         mainMenuUI.OnPressingButtonClickedEvent += HandlePressingButtonClickedEvent;
         mainMenuUI.OnSharpeningButtonClickedEvent += HandleSharpeningButtonClickedEvent;
+        mainMenuUI.OnStartWorkButtonClickedEvent += HandleStartWorkButtonClickedEvent;
     }
 
     void HandlePressingButtonClickedEvent()
     {
-        Debug.Log("Pressing Button Clicked");
         mainMenuUI.ShowWorkAbleList(WorkingStep.Pressing);
     }
 
     void HandleSharpeningButtonClickedEvent()
     {
-        Debug.Log("Sharpening Button Clicked");
         mainMenuUI.ShowWorkAbleList(WorkingStep.Sharpening);
+    }
+    
+    private void HandleStartWorkButtonClickedEvent(WorkingStep workingStep, int amount)
+    {
+        switch (workingStep)
+        {
+            case WorkingStep.Sharpening:
+                uiManager.StartSharpeningCanvas();
+                break;
+            
+            case WorkingStep.CollectingGraphite:
+                
+                break;
+            
+            case WorkingStep.Pressing:
+                uiManager.AdjustingTemperatureCanvas();
+                break;
+        }
     }
 
     void OnDisable()
     {
         mainMenuUI.OnPressingButtonClickedEvent -= HandlePressingButtonClickedEvent;
         mainMenuUI.OnSharpeningButtonClickedEvent -= HandleSharpeningButtonClickedEvent;
+        mainMenuUI.OnStartWorkButtonClickedEvent -= HandleStartWorkButtonClickedEvent;
     }
 }

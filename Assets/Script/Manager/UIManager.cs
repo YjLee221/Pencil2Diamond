@@ -122,6 +122,6 @@ public class UIManager : MonoBehaviour
     // TODO: 추후 자동 도구 버튼 클릭 시 호출될 메서드
     public void OnAutoToolClicked()
     {
-
+        
     }
 }
