@@ -1,11 +1,17 @@
 using System;
+using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Serialization;
+
 // ReSharper disable All
 
 public class MainFlowController : MonoBehaviour
 {
     [SerializeField] MainMenuUI mainMenuUI;
     [SerializeField] UIManager uiManager;
+    [SerializeField] MainWorkshopUI mainWorkshopUI;
+    [SerializeField] PlayerInventoryManager playerInventory;
+    [SerializeField] WorkListUI workListUI;
     void Start()
     {
         Debug.Log("Starting Main Flow Controller");
@@ -13,19 +19,30 @@ public class MainFlowController : MonoBehaviour
 
     void OnEnable()
     {
-        mainMenuUI.OnPressingButtonClickedEvent += HandlePressingButtonClickedEvent;
-        mainMenuUI.OnSharpeningButtonClickedEvent += HandleSharpeningButtonClickedEvent;
-        mainMenuUI.OnStartWorkButtonClickedEvent += HandleStartWorkButtonClickedEvent;
+        mainWorkshopUI.OnPressingButtonClickedEvent += HandlePressingButtonClickedEvent;
+        mainWorkshopUI.OnSharpeningButtonClickedEvent += HandleSharpeningButtonClickedEvent;
+        workListUI.OnStartWorkButtonClickedEvent += HandleStartWorkButtonClickedEvent;
     }
 
     void HandlePressingButtonClickedEvent()
     {
-        mainMenuUI.ShowWorkAbleList(WorkingStep.Pressing);
+        int availableAmount = playerInventory.GraphiteCount;
+        var viewData = new WorkListViewData(WorkingStep.Pressing
+                                        , availableAmount
+                                        , Math.Min(availableAmount, playerInventory.GraphiteCount)
+                                        , 1);
+        workListUI.ShowWorkAbleList(viewData);
     }
 
     void HandleSharpeningButtonClickedEvent()
     {
-        mainMenuUI.ShowWorkAbleList(WorkingStep.Sharpening);
+        int availableAmount = playerInventory.UnsharpenedPencilCount;
+        var viewData = new WorkListViewData(WorkingStep.Sharpening
+                                        , availableAmount
+                                        , Math.Min(availableAmount, 10)
+                                        , 1);
+        
+        workListUI.ShowWorkAbleList(viewData);
     }
     
     private void HandleStartWorkButtonClickedEvent(WorkingStep workingStep, int amount)
@@ -48,8 +65,8 @@ public class MainFlowController : MonoBehaviour
 
     void OnDisable()
     {
-        mainMenuUI.OnPressingButtonClickedEvent -= HandlePressingButtonClickedEvent;
-        mainMenuUI.OnSharpeningButtonClickedEvent -= HandleSharpeningButtonClickedEvent;
-        mainMenuUI.OnStartWorkButtonClickedEvent -= HandleStartWorkButtonClickedEvent;
+        mainWorkshopUI.OnPressingButtonClickedEvent -= HandlePressingButtonClickedEvent;
+        mainWorkshopUI.OnSharpeningButtonClickedEvent -= HandleSharpeningButtonClickedEvent;
+        workListUI.OnStartWorkButtonClickedEvent -= HandleStartWorkButtonClickedEvent;
     }
 }

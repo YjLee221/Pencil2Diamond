@@ -29,8 +29,6 @@ public class SettingTemperature : MonoBehaviour, IBeginDragHandler, IDragHandler
     int activePointerId = int.MinValue;
     float previousPointerAngle;
 
-    public int machineLevel = 1;
-
     public static event Action<bool> OnMatchingTemperatureCompleted;
 
     void Awake()

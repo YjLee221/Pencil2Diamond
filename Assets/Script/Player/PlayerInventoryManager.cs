@@ -5,6 +5,9 @@ public class PlayerInventoryManager : MonoBehaviour
 {
     [SerializeField] PlayerData playerData;
     [SerializeField] DiamondData diamondData;
+
+    public int UnsharpenedPencilCount => playerData.unSharpenedPencilCount;
+    public int GraphiteCount => playerData.graphiteCount;
     
     public event Action OnInventoryChangedEvent;
 
