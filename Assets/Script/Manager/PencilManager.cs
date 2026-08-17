@@ -46,7 +46,7 @@ public class PencilManager : MonoBehaviour
     void HandleSharpeningCompleted(SharpeningPencil sharpenedPencil)
     {
         graphiteCollector.gameObject.SetActive(true);
-        graphiteCollector.StartExtractingPhase(sharpenedPencil.currentPencilData, sharpenedPencil.currentPencilData.graphiteData, sharpenedPencil.currentGraphiteHp);
+        graphiteCollector.StartExtractingPhase(sharpenedPencil.CurrentPencilData, sharpenedPencil.CurrentPencilData.graphiteData, sharpenedPencil.CurrentGraphiteHp);
         
         sharpenedPencil.gameObject.SetActive(false);
 

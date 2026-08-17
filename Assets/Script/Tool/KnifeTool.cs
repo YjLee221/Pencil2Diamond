@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 public class KnifeTool : BaseTool, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [Header("드래그 세팅")]
-    Vector2 knifeOriginPosition;
+    Vector2 _knifeOriginPosition;
     [SerializeField] RectTransform knifeTransform;
     [SerializeField] RectTransform knifeHitArea;
 
@@ -13,44 +13,44 @@ public class KnifeTool : BaseTool, IBeginDragHandler, IDragHandler, IEndDragHand
     [SerializeField] float distanceToShave = 30f;
 
     // 드래그 상태 관리 변수
-    float accumulatedDistance = 0f;
-    Vector2 lastPointerPosition;
-    int activePointId = -999;
+    float _accumulatedDistance = 0f;
+    Vector2 _lastPointerPosition;
+    int _activePointId = -999;
 
     [SerializeField] GameObject pencilObject;
 
-    IPencil targetPencil;
+    IPencil _targetPencil;
 
     void Awake()
     {
-        knifeOriginPosition = knifeTransform.anchoredPosition;
+        _knifeOriginPosition = knifeTransform.anchoredPosition;
 
-        if(pencilObject != null)  targetPencil = pencilObject.GetComponent<IPencil>();
+        if(pencilObject != null)  _targetPencil = pencilObject.GetComponent<IPencil>();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (activePointId != -999) return;
+        if (_activePointId != -999) return;
 
-        activePointId = eventData.pointerId;
-        lastPointerPosition = eventData.position;
-        accumulatedDistance = 0f;
+        _activePointId = eventData.pointerId;
+        _lastPointerPosition = eventData.position;
+        _accumulatedDistance = 0f;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (eventData.pointerId != activePointId) return;
+        if (eventData.pointerId != _activePointId) return;
 
-        if (targetPencil == null || targetPencil.CurrentHP <= 0) return;
+        if (_targetPencil == null || _targetPencil.CurrentHp <= 0) return;
         
         CalculateKnifePosition(eventData);
 
-        while(accumulatedDistance >= distanceToShave)
+        while(_accumulatedDistance >= distanceToShave)
         {
-            TryUseTool(targetPencil);
-            accumulatedDistance -= distanceToShave;
+            TryUseTool(_targetPencil);
+            _accumulatedDistance -= distanceToShave;
 
-            if(targetPencil.CurrentHP <= 0)
+            if(_targetPencil.CurrentHp <= 0)
             {
                 OnEndDrag(eventData);
                 break;
@@ -69,9 +69,9 @@ public class KnifeTool : BaseTool, IBeginDragHandler, IDragHandler, IEndDragHand
         }
 
         // 2. 거리 누적 계산
-        float moveDelta = Vector2.Distance(eventData.position, lastPointerPosition);
-        accumulatedDistance += moveDelta;
-        lastPointerPosition = eventData.position;
+        float moveDelta = Vector2.Distance(eventData.position, _lastPointerPosition);
+        _accumulatedDistance += moveDelta;
+        _lastPointerPosition = eventData.position;
 
         // 안전장치: Inspector에서 distanceToShave를 0 이하로 설정했을 때 무한 루프 도는 것 방지
         if (distanceToShave <= 0f) distanceToShave = 30f;
@@ -79,8 +79,8 @@ public class KnifeTool : BaseTool, IBeginDragHandler, IDragHandler, IEndDragHand
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        knifeTransform.anchoredPosition = knifeOriginPosition;
-        activePointId = -999;
+        knifeTransform.anchoredPosition = _knifeOriginPosition;
+        _activePointId = -999;
     }
 
     public override void TryUseTool(IPencil targetPencil)
@@ -92,7 +92,7 @@ public class KnifeTool : BaseTool, IBeginDragHandler, IDragHandler, IEndDragHand
             targetPencil.TakeShaveDamage(shavePower);
         }
 
-        if (targetPencil.CurrentHP <= 0)
+        if (targetPencil.CurrentHp <= 0)
         {
             OnEndDrag(null);
         }

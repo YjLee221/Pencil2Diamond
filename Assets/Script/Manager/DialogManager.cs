@@ -39,7 +39,7 @@ public struct PlayerEmotionSprite
 }
 
 [Serializable]
-public struct  NPCSprite
+public struct  NpcSprite
 {
     public string currentSpeaker;
     public Sprite npcSprite;
@@ -54,10 +54,10 @@ public class DialogManager : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI dialogContents;
     [SerializeField] List<PlayerEmotionSprite> emotionSprites; // Emotion과 Sprite를 매칭하는 리스트
-    [SerializeField] List<NPCSprite> npcSprites; // NPC와 Sprite를 매칭하는 리스트
+    [SerializeField] List<NpcSprite> npcSprites; // NPC와 Sprite를 매칭하는 리스트
 
-    Coroutine typingCoroutine; // 현재 진행 중인 타이핑 코루틴을 저장하는 변수
-    public bool isTyping { get; private set; } // 타이핑 중인지 여부를 나타내는 프로퍼티
+    Coroutine _typingCoroutine; // 현재 진행 중인 타이핑 코루틴을 저장하는 변수
+    public bool IsTyping { get; private set; } // 타이핑 중인지 여부를 나타내는 프로퍼티
     [SerializeField] private float typingTime;
 
     void Start()
@@ -67,12 +67,12 @@ public class DialogManager : MonoBehaviour
 
     public void ShowDialog(string message, PlayerEmotion currentEmotion, string currentSpeaker, string speakerType)
     {
-        if(currentSpeaker == "NPC") ShowNPCImage(speakerType);
+        if(currentSpeaker == "NPC") ShowNpcImage(speakerType);
         else ChangePlayerEmotion(currentEmotion);
 
-        if (typingCoroutine != null) StopCoroutine(typingCoroutine);
+        if (_typingCoroutine != null) StopCoroutine(_typingCoroutine);
 
-        typingCoroutine = StartCoroutine(TypeSentence(message));
+        _typingCoroutine = StartCoroutine(TypeSentence(message));
     }
 
     void ChangePlayerEmotion(PlayerEmotion emotion)
@@ -98,7 +98,7 @@ public class DialogManager : MonoBehaviour
         }
     }
 
-    void ShowNPCImage(string speakerType)
+    void ShowNpcImage(string speakerType)
     {
         foreach (var item in npcSprites)
         {
@@ -116,7 +116,7 @@ public class DialogManager : MonoBehaviour
 
     IEnumerator TypeSentence(string sentence)
     {
-        isTyping = true;
+        IsTyping = true;
         dialogContents.text = "";
 
         foreach (char letter in sentence.ToCharArray())
@@ -126,16 +126,16 @@ public class DialogManager : MonoBehaviour
             yield return new WaitForSeconds(typingTime); // 글자 간격 조절
         }
 
-        isTyping = false;
-        typingCoroutine = null;
+        IsTyping = false;
+        _typingCoroutine = null;
     }
 
     public void SkipTyping(string fullSentence)
     {
-        if (typingCoroutine != null) StopCoroutine(typingCoroutine);
+        if (_typingCoroutine != null) StopCoroutine(_typingCoroutine);
 
         dialogContents.text = fullSentence;
-        isTyping = false;
+        IsTyping = false;
     }
 
     public void HideDialog()

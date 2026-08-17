@@ -9,12 +9,12 @@ public struct GraphiteState
 
 public enum GraphiteType
 {
-    INTRO_GRAPHITE,        // 게임 시작 시 연습용 흑연
-    TWOB_GRAPHITE,
-    FOURB_GRAPHITE,
-    GOLDEN_GRAPHITE,
-    DIAMOND_GRAPHITE,     // 과금용 흑연
-    MAX_GRAPHITE_TYPE     // 흑연 종류의 최대값 (새로운 흑연 추가 시 이 값도 업데이트 필요)
+    IntroGraphite,        // 게임 시작 시 연습용 흑연
+    TwobGraphite,
+    FourbGraphite,
+    GoldenGraphite,
+    DiamondGraphite,     // 과금용 흑연
+    MaxGraphiteType     // 흑연 종류의 최대값 (새로운 흑연 추가 시 이 값도 업데이트 필요)
 }
 
 [CreateAssetMenu(fileName = "NewGraphiteData", menuName = "ScriptableObjects/GraphiteData")]

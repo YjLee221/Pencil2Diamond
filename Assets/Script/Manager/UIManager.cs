@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -17,14 +18,15 @@ public class UIManager : MonoBehaviour
     [SerializeField] SettingTemperature settingTemperature;
     [SerializeField] PencilCollectedGraphite graphiteCollector;
 
+    [FormerlySerializedAs("WorkShopImg")]
     [Header("Background Image")]
-    [SerializeField] Image WorkShopImg;
+    [SerializeField] Image workShopImg;
     [SerializeField] Image deskImg;
     [SerializeField] Image mainImg;
     [SerializeField] Image jewelShopImg;
     [SerializeField] Image openingImg;
 
-    [SerializeField] BaseTool selectedTool; // 현재 유저가 장착한 도구(다형성 활용)
+    [SerializeField] BaseTool selectedTool; // 현재 유저가 장착한 도구
     [SerializeField] GameObject startPanel;
 
     public void Start()
@@ -40,7 +42,7 @@ public class UIManager : MonoBehaviour
         inworkCanvas.SetActive(false);
         ShowOnlyWorkPanel(null);
 
-        WorkShopImg.gameObject.SetActive(false);
+        workShopImg.gameObject.SetActive(false);
         deskImg.gameObject.SetActive(false);
         mainImg.gameObject.SetActive(false);
         
@@ -64,7 +66,7 @@ public class UIManager : MonoBehaviour
         popupCanvas.SetActive(true);
         ShowOnlyWorkPanel(null);
 
-        WorkShopImg.gameObject.SetActive(true);
+        workShopImg.gameObject.SetActive(true);
         deskImg.gameObject.SetActive(false);
     }
 
@@ -81,7 +83,7 @@ public class UIManager : MonoBehaviour
 
         if (settingTemperature != null)
         {
-            GraphiteData graphiteData = graphiteCollector != null ? graphiteCollector.currentGraphiteData : null;
+            GraphiteData graphiteData = graphiteCollector != null ? graphiteCollector.CurrentGraphiteData : null;
 
             settingTemperature.StartPressing(graphiteData);
         }
@@ -102,7 +104,7 @@ public class UIManager : MonoBehaviour
         popupCanvas.SetActive(false);
         mainCanvas.SetActive(false);
 
-        WorkShopImg.gameObject.SetActive(false);
+        workShopImg.gameObject.SetActive(false);
         deskImg.gameObject.SetActive(true);
         mainImg.gameObject.SetActive(false);
     }

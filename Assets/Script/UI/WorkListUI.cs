@@ -14,7 +14,7 @@ public class WorkListUI : MonoBehaviour
     [SerializeField] Button startWorkingBtn;
     
     [SerializeField] TextMeshProUGUI workingAbleAmountText;
-    int workingAbleAmount = 1;
+    int _workingAbleAmount = 1;
     [SerializeField] int workingAbleAmountMax;
     
     [SerializeField] Button plusButton;
@@ -24,10 +24,10 @@ public class WorkListUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI warningText;
     [SerializeField] float displayDuration = 1.5f;
 
-    bool isWorkingPanelClosed;
-    Coroutine hideCoroutine;
+    bool _isWorkingPanelClosed;
+    Coroutine _hideCoroutine;
     
-    WorkingStep checkWorkStep = WorkingStep.None;
+    WorkingStep _checkWorkStep = WorkingStep.None;
     
     public event Action<WorkingStep, int> OnStartWorkButtonClickedEvent;
 
@@ -38,7 +38,7 @@ public class WorkListUI : MonoBehaviour
 
     void Start()
     {
-        workingAbleAmountText.text = workingAbleAmount.ToString();
+        workingAbleAmountText.text = _workingAbleAmount.ToString();
         
         startWorkingBtn.onClick.AddListener(OnStartWorkButtonClicked);
         plusButton.onClick.AddListener(OnAbleWorkingAmountPlusButtonClicked);
@@ -47,10 +47,10 @@ public class WorkListUI : MonoBehaviour
 
     void OnDisable()
     {
-        if (hideCoroutine != null)
+        if (_hideCoroutine != null)
         {
-            StopCoroutine(hideCoroutine);
-            hideCoroutine = null;
+            StopCoroutine(_hideCoroutine);
+            _hideCoroutine = null;
         }
 
         warningText.gameObject.SetActive(false);
@@ -59,35 +59,35 @@ public class WorkListUI : MonoBehaviour
     
     void OnStartWorkButtonClicked()
     {
-        OnStartWorkButtonClickedEvent?.Invoke(checkWorkStep, workingAbleAmount);
+        OnStartWorkButtonClickedEvent?.Invoke(_checkWorkStep, _workingAbleAmount);
     }
 
     void OnAbleWorkingAmountMinusButtonClicked()
     {
-        workingAbleAmount = Mathf.Clamp(workingAbleAmount - 1, 1, workingAbleAmountMax);
-        workingAbleAmountText.text = workingAbleAmount.ToString();
+        _workingAbleAmount = Mathf.Clamp(_workingAbleAmount - 1, 1, workingAbleAmountMax);
+        workingAbleAmountText.text = _workingAbleAmount.ToString();
     }
 
     void OnAbleWorkingAmountPlusButtonClicked()
     {
-        workingAbleAmount = Mathf.Clamp(workingAbleAmount + 1, 1, workingAbleAmountMax);
-        workingAbleAmountText.text = workingAbleAmount.ToString();
+        _workingAbleAmount = Mathf.Clamp(_workingAbleAmount + 1, 1, workingAbleAmountMax);
+        workingAbleAmountText.text = _workingAbleAmount.ToString();
     }
     
     public void ShowWorkAbleList(WorkListViewData workData)
     {
-        if (workingPanel.activeSelf && checkWorkStep == workData.WorkingStep)
+        if (workingPanel.activeSelf && _checkWorkStep == workData.WorkingStep)
         {
             CloseWorkAbleList();
             return;
         }
 
-        checkWorkStep = workData.WorkingStep;
+        _checkWorkStep = workData.WorkingStep;
         workingPanel.SetActive(true);
 
         startWorkingBtn.interactable = workData.AvailableAmount > 0;
         
-        switch (checkWorkStep)
+        switch (_checkWorkStep)
         {
             case WorkingStep.Sharpening:
                 workingPanelContents.text = $"작업할 연필 종류: 2B \n" +
@@ -110,21 +110,21 @@ public class WorkListUI : MonoBehaviour
     void CloseWorkAbleList()
     {
         workingPanel.SetActive(false);
-        checkWorkStep = WorkingStep.None;
+        _checkWorkStep = WorkingStep.None;
     }
 
     void ShowWarningMessage(string warningMessage)
     {
-        if (hideCoroutine != null)
+        if (_hideCoroutine != null)
         {
-            StopCoroutine(hideCoroutine);
+            StopCoroutine(_hideCoroutine);
         }
 
         warningText.text = warningMessage;
         warningText.gameObject.SetActive(true);
         startWorkingBtn.interactable = false;
 
-        hideCoroutine = StartCoroutine(HideAfterDelay());
+        _hideCoroutine = StartCoroutine(HideAfterDelay());
     }
 
     IEnumerator HideAfterDelay()
@@ -133,6 +133,6 @@ public class WorkListUI : MonoBehaviour
 
         startWorkingBtn.interactable = true;
         warningText.gameObject.SetActive(false);
-        hideCoroutine = null;
+        _hideCoroutine = null;
     }
 }

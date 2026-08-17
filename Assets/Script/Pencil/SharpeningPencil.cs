@@ -16,57 +16,57 @@ public enum PencilPhase
 public class SharpeningPencil : MonoBehaviour, IPencil
 {
     [SerializeField] public RectTransform pencilHitArea; // 연필이 깎일 영역
-    public int currentPencilHp { get; private set; } // 외부에서의 수정이 불가능하도록 private set으로 설정
-    public int currentGraphiteHp { get; private set; } // 연필심의 HP (추출 단계에서 사용)
-    public PencilPhase currentPencilPhase { get; private set; } // 연필의 현재 진행 단계
+    public int CurrentPencilHp { get; private set; } // 외부에서의 수정이 불가능하도록 private set으로 설정
+    public int CurrentGraphiteHp { get; private set; } // 연필심의 HP (추출 단계에서 사용)
+    public PencilPhase CurrentPencilPhase { get; private set; } // 연필의 현재 진행 단계
 
-    public int CurrentHP => currentPencilHp;
+    public int CurrentHp => CurrentPencilHp;
 
     public RectTransform HitArea => pencilHitArea;
 
-    Image pencilImageForHealth; // 연필의 HP에 따라 변경될 이미지 (Sprite Swap)
-    public PencilData currentPencilData { get; private set; } // 현재 작업 중인 연필 (ScriptableObject)
+    Image _pencilImageForHealth; // 연필의 HP에 따라 변경될 이미지 (Sprite Swap)
+    public PencilData CurrentPencilData { get; private set; } // 현재 작업 중인 연필 (ScriptableObject)
 
     // 이벤트 발생 시 Manager가 어떤 슬롯인지 알 수 있도록 자신을 인자로 전달
     public static event Action<SharpeningPencil> OnPencilSharpeningCompleted; // 연필의 나무부분이 완전히 깎였을 때
     
     void Awake()
     {
-        pencilImageForHealth = GetComponent<Image>();
+        _pencilImageForHealth = GetComponent<Image>();
     }
 
     // 작업대의 빈 슬롯에 연필 데이터를 로드하는 매서드
     public void LoadPencil(PencilData newPencil)
     {
-        currentPencilData = newPencil;
-        currentPencilHp = newPencil.MaxPencilHp; // 연필의 최대 HP로 초기화
-        currentGraphiteHp = newPencil.MaxGraphiteHp; // 연필심의 최대 HP로 초기화
-        currentPencilPhase = PencilPhase.ReadyToSharpen; // 연필이 깎일 준비가 된 상태로 설정
+        CurrentPencilData = newPencil;
+        CurrentPencilHp = newPencil.MaxPencilHp; // 연필의 최대 HP로 초기화
+        CurrentGraphiteHp = newPencil.MaxGraphiteHp; // 연필심의 최대 HP로 초기화
+        CurrentPencilPhase = PencilPhase.ReadyToSharpen; // 연필이 깎일 준비가 된 상태로 설정
 
-        if (pencilImageForHealth == null) pencilImageForHealth = GetComponent<Image>();
+        if (_pencilImageForHealth == null) _pencilImageForHealth = GetComponent<Image>();
 
-        pencilImageForHealth.enabled = true; // 연필 이미지 활성화
+        _pencilImageForHealth.enabled = true; // 연필 이미지 활성화
 
         UpdatePencilSprite();
     }
 
     public void UnlockSharpening()
     {
-        if(currentPencilPhase == PencilPhase.ReadyToSharpen) currentPencilPhase = PencilPhase.Sharpening;
+        if(CurrentPencilPhase == PencilPhase.ReadyToSharpen) CurrentPencilPhase = PencilPhase.Sharpening;
     }
 
     // 연필 깎는 매서드
     public void TakeShaveDamage(int damage)
     {
         // 연필이 없는 상태이거나 이미 연필의 나무 부분이 완전히 깎인 상태라면 더 이상 데미지를 입힐 수 없음
-        if (currentPencilData == null || currentPencilHp <= 0) return;
+        if (CurrentPencilData == null || CurrentPencilHp <= 0) return;
 
-        currentPencilHp -= damage;
+        CurrentPencilHp -= damage;
 
-        if (currentPencilHp <= 0)
+        if (CurrentPencilHp <= 0)
         {
-            currentPencilHp = 0;
-            currentPencilPhase = PencilPhase.ReadyToExtract;
+            CurrentPencilHp = 0;
+            CurrentPencilPhase = PencilPhase.ReadyToExtract;
 
             // 연필이 완전히 깎였을 때 이벤트 발생: 자기 자신에 대한 정보도 같이 넘겨줌
             OnPencilSharpeningCompleted?.Invoke(this); 
@@ -83,14 +83,14 @@ public class SharpeningPencil : MonoBehaviour, IPencil
 
     public void UpdatePencilSprite()
     {
-        if (currentPencilData == null) return;
+        if (CurrentPencilData == null) return;
 
-        float currentHPRatio = (float)currentPencilHp / currentPencilData.MaxPencilHp;
-        if (currentHPRatio <= 0.5f)
+        float currentHpRatio = (float)CurrentPencilHp / CurrentPencilData.MaxPencilHp;
+        if (currentHpRatio <= 0.5f)
         {
-            pencilImageForHealth.sprite = currentPencilData.PencilStates[1].pencilSprite; // HP 50% 이하일 때 이미지 변경
+            _pencilImageForHealth.sprite = CurrentPencilData.PencilStates[1].pencilSprite; // HP 50% 이하일 때 이미지 변경
 
-            if (currentHPRatio <= 0) pencilImageForHealth.sprite = currentPencilData.PencilStates[2].pencilSprite; // HP 0% 이하일 때 이미지 변경
+            if (currentHpRatio <= 0) _pencilImageForHealth.sprite = CurrentPencilData.PencilStates[2].pencilSprite; // HP 0% 이하일 때 이미지 변경
         }
     }
 }

@@ -22,12 +22,12 @@ public class SettingTemperature : MonoBehaviour, IBeginDragHandler, IDragHandler
     [Header("Confirm")]
     [SerializeField] Button confirmBtn;
 
-    int currentTemperature;
-    int targetTemperature;
-    float currentDialDegree;
+    int _currentTemperature;
+    int _targetTemperature;
+    float _currentDialDegree;
 
-    int activePointerId = int.MinValue;
-    float previousPointerAngle;
+    int _activePointerId = int.MinValue;
+    float _previousPointerAngle;
 
     public static event Action<bool> OnMatchingTemperatureCompleted;
 
@@ -50,7 +50,7 @@ public class SettingTemperature : MonoBehaviour, IBeginDragHandler, IDragHandler
 
     private void OnConfirmButtonClicked()
     {
-        bool checkTemperature = Mathf.Abs(currentTemperature - targetTemperature) <= successTolerance;
+        bool checkTemperature = Mathf.Abs(_currentTemperature - _targetTemperature) <= successTolerance;
         if (checkTemperature)
         {
             Debug.Log("성공! 온도 맞추기 성공~");
@@ -67,11 +67,11 @@ public class SettingTemperature : MonoBehaviour, IBeginDragHandler, IDragHandler
     {
         if (graphiteData == null)
         {
-            targetTemperature = minTemperature;
+            _targetTemperature = minTemperature;
         }
         else
         {
-            targetTemperature = graphiteData.TargetPressTemperature;
+            _targetTemperature = graphiteData.TargetPressTemperature;
         }
 
         ResetTemperature();
@@ -81,30 +81,30 @@ public class SettingTemperature : MonoBehaviour, IBeginDragHandler, IDragHandler
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (activePointerId != int.MinValue) return;
+        if (_activePointerId != int.MinValue) return;
         if (dialTouchArea == null) return;
 
-        activePointerId = eventData.pointerId;
-        previousPointerAngle = GetPointerAngle(eventData);
+        _activePointerId = eventData.pointerId;
+        _previousPointerAngle = GetPointerAngle(eventData);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (eventData.pointerId != activePointerId) return;
+        if (eventData.pointerId != _activePointerId) return;
         if (dialTouchArea == null) return;
 
         float pointerAngle = GetPointerAngle(eventData);
-        float deltaAngle = Mathf.DeltaAngle(previousPointerAngle, pointerAngle);
+        float deltaAngle = Mathf.DeltaAngle(_previousPointerAngle, pointerAngle);
 
-        SetDialDegree(currentDialDegree + deltaAngle);
-        previousPointerAngle = pointerAngle;
+        SetDialDegree(_currentDialDegree + deltaAngle);
+        _previousPointerAngle = pointerAngle;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (eventData != null && eventData.pointerId != activePointerId) return;
+        if (eventData != null && eventData.pointerId != _activePointerId) return;
 
-        activePointerId = int.MinValue;
+        _activePointerId = int.MinValue;
     }
 
     float GetPointerAngle(PointerEventData eventData)
@@ -112,21 +112,21 @@ public class SettingTemperature : MonoBehaviour, IBeginDragHandler, IDragHandler
         Vector2 centerPoint = RectTransformUtility.WorldToScreenPoint(eventData.pressEventCamera, dialTouchArea.position);
         Vector2 pointerDirection = eventData.position - centerPoint;
 
-        if (pointerDirection.sqrMagnitude <= Mathf.Epsilon) return previousPointerAngle;
+        if (pointerDirection.sqrMagnitude <= Mathf.Epsilon) return _previousPointerAngle;
 
         return Mathf.Atan2(pointerDirection.y, pointerDirection.x) * -Mathf.Rad2Deg;
     }
 
     void SetDialDegree(float degree)
     {
-        currentDialDegree = Mathf.Clamp(degree, minDialDegree, maxDialDegree);
+        _currentDialDegree = Mathf.Clamp(degree, minDialDegree, maxDialDegree);
 
-        float ratio = Mathf.InverseLerp(minDialDegree, maxDialDegree, currentDialDegree);
+        float ratio = Mathf.InverseLerp(minDialDegree, maxDialDegree, _currentDialDegree);
         int temperature = Mathf.RoundToInt(Mathf.Lerp(minTemperature, maxTemperature, ratio));
 
         if (temperatureStep > 1) temperature = Mathf.RoundToInt(temperature / (float)temperatureStep) * temperatureStep;
 
-        currentTemperature = Mathf.Clamp(temperature, minTemperature, maxTemperature);
+        _currentTemperature = Mathf.Clamp(temperature, minTemperature, maxTemperature);
 
         UpdateTemperatureUI();
         UpdateDialVisual();
@@ -142,17 +142,17 @@ public class SettingTemperature : MonoBehaviour, IBeginDragHandler, IDragHandler
     {
         if (userSettingTemperature != null)
         {
-            userSettingTemperature.text = currentTemperature.ToString();
+            userSettingTemperature.text = _currentTemperature.ToString();
         }
 
         if (goalTemperature != null)
         {
-            goalTemperature.text = targetTemperature.ToString();
+            goalTemperature.text = _targetTemperature.ToString();
         }
     }
 
     void UpdateDialVisual()
     {
-        dialTouchArea.localRotation = Quaternion.Euler(0f, 0f, currentDialDegree);
+        dialTouchArea.localRotation = Quaternion.Euler(0f, 0f, _currentDialDegree);
     }
 }
