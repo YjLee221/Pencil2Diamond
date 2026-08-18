@@ -20,8 +20,8 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] Button upgradeButton;
     [SerializeField] Button sellingButton;
 
-    bool _isWorkingPanelClosed;
-    Coroutine _hideCoroutine;
+    bool isWorkingPanelClosed;
+    Coroutine hideCoroutine;
     
     [Header("Data")]
     [SerializeField] PlayerData player;
@@ -53,10 +53,10 @@ public class MainMenuUI : MonoBehaviour
     {
         inventoryManager.OnInventoryChangedEvent -= ShowInfo;
 
-        if (_hideCoroutine != null)
+        if (hideCoroutine != null)
         {
-            StopCoroutine(_hideCoroutine);
-            _hideCoroutine = null;
+            StopCoroutine(hideCoroutine);
+            hideCoroutine = null;
         }
     }
 
