@@ -8,7 +8,7 @@ public class MainMarketController : MonoBehaviour
     void OnEnable()
     {
         mainMarketUI.OnItemButtonClickedEvent += HandleItemButtonClickedEvent;
-        mainMarketUI.OnPurchaseButtonClickedEvent += HandlePurchaseButtonClickedEvent;
+        itemDetailInfoUI.OnPurchaseButtonClickedEvent += HandlePurchaseButtonClickedEvent;
     }
 
     void HandleItemButtonClickedEvent()
@@ -24,6 +24,6 @@ public class MainMarketController : MonoBehaviour
     void OnDisable()
     {
         mainMarketUI.OnItemButtonClickedEvent -= HandleItemButtonClickedEvent;
-        mainMarketUI.OnPurchaseButtonClickedEvent -= HandlePurchaseButtonClickedEvent;
+        itemDetailInfoUI.OnPurchaseButtonClickedEvent -= HandlePurchaseButtonClickedEvent;
     }
 }

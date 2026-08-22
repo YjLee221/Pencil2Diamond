@@ -1,7 +1,5 @@
 using System;
-using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 // ReSharper disable All
 
@@ -12,6 +10,7 @@ public class MainFlowController : MonoBehaviour
     [SerializeField] MainWorkshopUI mainWorkshopUI;
     [SerializeField] PlayerInventoryManager playerInventory;
     [SerializeField] WorkListUI workListUI;
+    [SerializeField] GameObject mainMarketUI;
     void Start()
     {
         Debug.Log("Starting Main Flow Controller");
@@ -19,9 +18,16 @@ public class MainFlowController : MonoBehaviour
 
     void OnEnable()
     {
+        mainMenuUI.OnMarketButtonClickedEvent += HandleMarketButtonClickedEvent;
+        
         mainWorkshopUI.OnPressingButtonClickedEvent += HandlePressingButtonClickedEvent;
         mainWorkshopUI.OnSharpeningButtonClickedEvent += HandleSharpeningButtonClickedEvent;
-        workListUI.OnStartWorkButtonClickedEvent += HandleStartWorkButtonClickedEvent;
+        workListUI.OnStartWorkingButtonClickedEvent += HandleStartWorkButtonClickedEvent;
+    }
+
+    void HandleMarketButtonClickedEvent()
+    {
+        mainMarketUI.SetActive(true);
     }
 
     void HandlePressingButtonClickedEvent()
@@ -29,7 +35,7 @@ public class MainFlowController : MonoBehaviour
         int availableAmount = playerInventory.GraphiteCount;
         var viewData = new WorkListViewData(WorkingStep.Pressing
                                         , availableAmount
-                                        , Math.Min(availableAmount, playerInventory.GraphiteCount)
+                                        , availableAmount > 0 ? availableAmount : 0
                                         , 1);
         workListUI.ShowWorkAbleList(viewData);
     }
@@ -39,7 +45,7 @@ public class MainFlowController : MonoBehaviour
         int availableAmount = playerInventory.UnsharpenedPencilCount;
         var viewData = new WorkListViewData(WorkingStep.Sharpening
                                         , availableAmount
-                                        , Math.Min(availableAmount, 10)
+                                        , availableAmount > 0 ? availableAmount : 0
                                         , 1);
         
         workListUI.ShowWorkAbleList(viewData);
@@ -65,8 +71,10 @@ public class MainFlowController : MonoBehaviour
 
     void OnDisable()
     {
+        mainMenuUI.OnMarketButtonClickedEvent -= HandleMarketButtonClickedEvent;
+        
         mainWorkshopUI.OnPressingButtonClickedEvent -= HandlePressingButtonClickedEvent;
         mainWorkshopUI.OnSharpeningButtonClickedEvent -= HandleSharpeningButtonClickedEvent;
-        workListUI.OnStartWorkButtonClickedEvent -= HandleStartWorkButtonClickedEvent;
+        workListUI.OnStartWorkingButtonClickedEvent -= HandleStartWorkButtonClickedEvent;
     }
 }

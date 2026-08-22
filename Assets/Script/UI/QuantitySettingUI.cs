@@ -9,23 +9,16 @@ public class QuantitySettingUI : MonoBehaviour
     [SerializeField] Button minusButton;
     [SerializeField] TextMeshProUGUI quantityText;
     [SerializeField] Button plusButton;
-    [SerializeField, Min(0)] int maximumQuantity = 10;
+    [SerializeField, Min(0)] public int maximumQuantity = 10;
     [SerializeField, Min(0)] int initialQuantity = 1;
 
-    [Header("Action")]
-    [SerializeField] Button actionButton;
-    [SerializeField] TextMeshProUGUI actionButtonText;
-
     public int CurrentQuantity { get; private set; }
-
-    public event Action<int> OnActionButtonClickedEvent;
 
     void Awake()
     {
         minusButton.onClick.AddListener(OnMinusButtonClicked);
         plusButton.onClick.AddListener(OnPlusButtonClicked);
-        actionButton.onClick.AddListener(OnActionButtonClicked);
-
+        
         Configure(maximumQuantity, initialQuantity);
     }
 
@@ -33,32 +26,17 @@ public class QuantitySettingUI : MonoBehaviour
     {
         minusButton.onClick.RemoveListener(OnMinusButtonClicked);
         plusButton.onClick.RemoveListener(OnPlusButtonClicked);
-        actionButton.onClick.RemoveListener(OnActionButtonClicked);
     }
 
     public void Configure(
         int maxQuantity,
-        int startQuantity = 1,
-        string actionText = null,
-        bool actionInteractable = true)
+        int startQuantity = 1)
     {
         maximumQuantity = Mathf.Max(0, maxQuantity);
         CurrentQuantity = maximumQuantity == 0
             ? 0
             : Mathf.Clamp(startQuantity, 1, maximumQuantity);
-
-        if (!string.IsNullOrEmpty(actionText))
-        {
-            actionButtonText.text = actionText;
-        }
-
-        SetActionInteractable(actionInteractable);
         Refresh();
-    }
-
-    public void SetActionInteractable(bool interactable)
-    {
-        actionButton.interactable = interactable && maximumQuantity > 0;
     }
 
     void OnMinusButtonClicked()
@@ -70,22 +48,10 @@ public class QuantitySettingUI : MonoBehaviour
     {
         SetQuantity(CurrentQuantity + 1);
     }
-
-    void OnActionButtonClicked()
-    {
-        if (!actionButton.interactable)
-        {
-            return;
-        }
-
-        OnActionButtonClickedEvent?.Invoke(CurrentQuantity);
-    }
-
+    
     void SetQuantity(int quantity)
     {
-        CurrentQuantity = maximumQuantity == 0
-            ? 0
-            : Mathf.Clamp(quantity, 1, maximumQuantity);
+        CurrentQuantity = maximumQuantity == 0 ? 0 : Mathf.Clamp(quantity, 1, maximumQuantity);
 
         Refresh();
     }

@@ -27,6 +27,8 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] PlayerData player;
     [SerializeField] WorkShopData workshop;
     [SerializeField] PlayerInventoryManager inventoryManager;
+    
+    [SerializeField] MainWorkshopUI mainWorkshopUI;
 
     public event Action OnMarketButtonClickedEvent;
     public event Action OnMissionButtonClickedEvent;
@@ -36,7 +38,7 @@ public class MainMenuUI : MonoBehaviour
     void Start()
     {
         ShowInfo();
-
+ 
         marketButton.onClick.AddListener(OnMarketButtonClicked);
         missionButton.onClick.AddListener(OnMissionButtonClicked);
         upgradeButton.onClick.AddListener(OnUpgradeButtonClicked);
@@ -53,11 +55,9 @@ public class MainMenuUI : MonoBehaviour
     {
         inventoryManager.OnInventoryChangedEvent -= ShowInfo;
 
-        if (hideCoroutine != null)
-        {
-            StopCoroutine(hideCoroutine);
-            hideCoroutine = null;
-        }
+        if (hideCoroutine == null) return;
+        StopCoroutine(hideCoroutine);
+        hideCoroutine = null;
     }
 
     void ShowInfo()

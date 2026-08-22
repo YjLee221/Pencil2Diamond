@@ -2,12 +2,14 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WorkListUI : MonoBehaviour
 {
     [Header("AbleWorkingList")]
     [SerializeField] GameObject workingPanel;
     [SerializeField] TextMeshProUGUI workingPanelContents;
+    [SerializeField] Button startWorkingBtn;
     [SerializeField] QuantitySettingUI quantitySettingUI;
 
     [SerializeField] TextMeshProUGUI warningText;
@@ -16,22 +18,22 @@ public class WorkListUI : MonoBehaviour
     Coroutine hideCoroutine;
     WorkingStep checkWorkStep = WorkingStep.None;
 
-    public event Action<WorkingStep, int> OnStartWorkButtonClickedEvent;
+    public event Action<WorkingStep, int> OnStartWorkingButtonClickedEvent;
 
     void Awake()
     {
+        startWorkingBtn.onClick.AddListener(OnStartWorkingButtonClicked);
         warningText.gameObject.SetActive(false);
     }
 
-    void OnEnable()
+    void OnStartWorkingButtonClicked()
     {
-        quantitySettingUI.OnActionButtonClickedEvent += HandleQuantityConfirmed;
+        if(startWorkingBtn.interactable)
+            OnStartWorkingButtonClickedEvent?.Invoke(checkWorkStep, quantitySettingUI.CurrentQuantity);
     }
 
     void OnDisable()
     {
-        quantitySettingUI.OnActionButtonClickedEvent -= HandleQuantityConfirmed;
-
         if (hideCoroutine != null)
         {
             StopCoroutine(hideCoroutine);
@@ -39,11 +41,6 @@ public class WorkListUI : MonoBehaviour
         }
 
         warningText.gameObject.SetActive(false);
-    }
-
-    void HandleQuantityConfirmed(int amount)
-    {
-        OnStartWorkButtonClickedEvent?.Invoke(checkWorkStep, amount);
     }
 
     public void ShowWorkAbleList(WorkListViewData workData)
@@ -59,9 +56,9 @@ public class WorkListUI : MonoBehaviour
 
         quantitySettingUI.Configure(
             workData.MaxSelectableAmount,
-            1,
-            "작업하기",
-            workData.AvailableAmount > 0);
+            1);
+        
+        startWorkingBtn.interactable = workData.MaxSelectableAmount > 0;
 
         switch (checkWorkStep)
         {
@@ -98,7 +95,8 @@ public class WorkListUI : MonoBehaviour
 
         warningText.text = warningMessage;
         warningText.gameObject.SetActive(true);
-        quantitySettingUI.SetActionInteractable(false);
+        
+        startWorkingBtn.interactable = false;
 
         hideCoroutine = StartCoroutine(HideAfterDelay());
     }
@@ -107,7 +105,7 @@ public class WorkListUI : MonoBehaviour
     {
         yield return new WaitForSeconds(displayDuration);
 
-        quantitySettingUI.SetActionInteractable(true);
+        startWorkingBtn.interactable = true;
         warningText.gameObject.SetActive(false);
         hideCoroutine = null;
     }

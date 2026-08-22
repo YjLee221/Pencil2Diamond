@@ -5,16 +5,16 @@ using UnityEngine.UI;
 public class MainWorkshopUI : MonoBehaviour
 {
     [Header("Buttons")] 
-    [SerializeField] Button pressButton;
-    [SerializeField] Button sharpeningButton;
+    [SerializeField] Button mainPressingButton;
+    [SerializeField] Button mainSharpeningButton;
     
     public event Action OnPressingButtonClickedEvent;
     public event Action OnSharpeningButtonClickedEvent;
 
     void Start()
     {
-        pressButton.onClick.AddListener(OnPressingButtonClicked);
-        sharpeningButton.onClick.AddListener(OnSharpeningButtonClicked);
+        mainPressingButton.onClick.AddListener(OnPressingButtonClicked);
+        mainSharpeningButton.onClick.AddListener(OnSharpeningButtonClicked);
     }
 
     void OnPressingButtonClicked()
