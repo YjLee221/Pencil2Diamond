@@ -12,7 +12,7 @@ public class QuantitySettingUI : MonoBehaviour
     [SerializeField, Min(0)] public int maximumQuantity = 10;
     [SerializeField, Min(0)] int initialQuantity = 1;
 
-    public int CurrentQuantity { get; private set; }
+    public int CurrentQuantity { get; set; }
 
     void Awake()
     {

@@ -29,6 +29,8 @@ public class MainMarketUI : MonoBehaviour
         
     void OnClickedCloseButton()
     {
-        mainMarketPanel.SetActive(false);
+        
+        if(setAmountPanel.activeSelf) setAmountPanel.SetActive(false);
+        else mainMarketPanel.SetActive(false);
     }
 }

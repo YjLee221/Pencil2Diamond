@@ -6549,6 +6549,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemDetailInfoUI
   itemDetailInfoPanel: {fileID: 1777846266}
   purchaseButton: {fileID: 1458710293}
+  quantitySettingUI: {fileID: 1759873719}
 --- !u!1 &1787376290
 GameObject:
   m_ObjectHideFlags: 0
