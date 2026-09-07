@@ -25,8 +25,8 @@ public class ItemDetailInfoUI : MonoBehaviour
 
     public void ShowDetailInfo()
     {
+        quantitySettingUI.ResetQuantity();
         itemDetailInfoPanel.SetActive(true);
-        if (quantitySettingUI.CurrentQuantity > 1) quantitySettingUI.CurrentQuantity = 1;
     }
 
     void OnPurchaseButtonClicked()

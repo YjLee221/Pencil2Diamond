@@ -12,7 +12,7 @@ public class QuantitySettingUI : MonoBehaviour
     [SerializeField, Min(0)] public int maximumQuantity = 10;
     [SerializeField, Min(0)] int initialQuantity = 1;
 
-    public int CurrentQuantity { get; set; }
+    public int CurrentQuantity { get; private set; }
 
     void Awake()
     {
@@ -52,14 +52,20 @@ public class QuantitySettingUI : MonoBehaviour
     void SetQuantity(int quantity)
     {
         CurrentQuantity = maximumQuantity == 0 ? 0 : Mathf.Clamp(quantity, 1, maximumQuantity);
-
         Refresh();
     }
 
     void Refresh()
     {
         quantityText.text = CurrentQuantity.ToString();
+        Debug.Log("!!!!!!!!!!!!!: " + quantityText.text);
         minusButton.interactable = maximumQuantity > 0 && CurrentQuantity > 1;
         plusButton.interactable = maximumQuantity > 0 && CurrentQuantity < maximumQuantity;
     }
+
+    public void ResetQuantity()
+    {
+        SetQuantity(initialQuantity);
+    }
+    
 }
