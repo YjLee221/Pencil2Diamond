@@ -58,7 +58,6 @@ public class QuantitySettingUI : MonoBehaviour
     void Refresh()
     {
         quantityText.text = CurrentQuantity.ToString();
-        Debug.Log("!!!!!!!!!!!!!: " + quantityText.text);
         minusButton.interactable = maximumQuantity > 0 && CurrentQuantity > 1;
         plusButton.interactable = maximumQuantity > 0 && CurrentQuantity < maximumQuantity;
     }
