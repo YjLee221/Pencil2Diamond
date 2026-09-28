@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 61c436ca27a31564e98225f8528e7125, type: 3}
-  m_Name: 1_TwoBPencil
+  m_Name: 3_GoldenPencil
   m_EditorClassIdentifier: Assembly-CSharp::PencilData
-  pencilName: "2B\uC5F0\uD544"
-  pencilType: 1
-  sellPriceForPencil: 200
-  maxPencilHp: 80
-  maxGraphiteHp: 45
-  pencilShortInfo: "\uC791\uC740 \uC2DC\uC791\uC744 \uD568\uAED8\uD558\uB294 \uC5F0\uD544"
-  pencilDetailInfo: "- \uC775\uC219\uD55C \uBAA8\uC2B5\uC758 2B \uC5F0\uD544 - \uB2F4\uBC31\uD55C
-    \uB514\uC790\uC778\uC774 \uC8FC\uB294 \uD3B8\uC548\uD568 - \uC791\uC740 \uD55C
-    \uC790\uB8E8\uC5D0\uC11C \uC2DC\uC791\uD558\uB294 \uB3C4\uC804"
+  pencilName: "\uD669\uAE08\uC5F0\uD544"
+  pencilType: 3
+  sellPriceForPencil: 450
+  maxPencilHp: 120
+  maxGraphiteHp: 60
+  pencilShortInfo: "\uD669\uAE08\uBE5B\uC73C\uB85C \uBE5B\uB098\uB294 \uD55C \uC790\uB8E8"
+  pencilDetailInfo: "- \uB530\uC2A4\uD55C \uD669\uAE08\uBE5B\uC744 \uB450\uB978 \uC5F0\uD544
+    - \uB208\uAE38\uC744 \uC0AC\uB85C\uC7A1\uB294 \uBC18\uC9DD\uC784 - \uC190\uC548\uC5D0
+    \uB2F4\uB294 \uC791\uC740 \uD654\uB824\uD568"
   imgPencilStates:
   - remainingHpPercent: 100
-    pencilSprite: {fileID: 5806247343882902020, guid: 1ceabae795bcfa6438aeac65fa4a01a9, type: 3}
+    pencilSprite: {fileID: 5829937431585247580, guid: 781597ec3a4cc9f478c917b9d929819e, type: 3}
   - remainingHpPercent: 50
     pencilSprite: {fileID: 2478069006673878822, guid: 45823131582c47644a447de7b43efe45, type: 3}
   - remainingHpPercent: 0

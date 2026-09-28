@@ -28,6 +28,9 @@ public class PencilData : ScriptableObject
     [SerializeField] int sellPriceForPencil; // 연필 가격
     [SerializeField] int maxPencilHp = 100; // 연필의 최대 HP
     [SerializeField] int maxGraphiteHp = 15; // 연필심의 최대 HP
+    
+    [SerializeField] string pencilShortInfo; // 상점에서의 연필 한 줄 설명
+    [SerializeField] string pencilDetailInfo; // 상점에서의 연필 디테일 설명
 
     [Header("연필 상태별 이미지")]
     [SerializeField] PencilState[] imgPencilStates; // 연필의 HP 단계별로 보여줄 이미지 설정
@@ -41,6 +44,8 @@ public class PencilData : ScriptableObject
     public int MaxPencilHp => maxPencilHp;
     public int MaxGraphiteHp => maxGraphiteHp;
     public PencilState[] PencilStates { get { return imgPencilStates; } }
+    public string PencilShortInfo => pencilShortInfo;
+    public string PencilDetailInfo => pencilDetailInfo;
 
     public GraphiteData GraphiteData { get { return graphiteData; } }
 }

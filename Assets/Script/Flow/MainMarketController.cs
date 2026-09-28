@@ -1,19 +1,48 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MainMarketController : MonoBehaviour
 {
     [SerializeField] MainMarketUI mainMarketUI;
     [SerializeField] ItemDetailInfoUI itemDetailInfoUI;
-    
+    [SerializeField] PencilManager pencilManager;
+
+    readonly List<ShopListViewData> pencilItems = new List<ShopListViewData>();
+
+    void Start()
+    {
+        for (var i = (int)PencilType.TwoBPencil; i < (int)PencilType.MaxPencilType; i++)
+        {
+            var pencilData = pencilManager.GetPencilData((PencilType)i);
+            
+            if (pencilData == null || pencilData.PencilStates == null || pencilData.PencilStates.Length == 0
+                || pencilData.PencilShortInfo == null || pencilData.PencilDetailInfo == null) continue;
+
+            var shopViewData = new ShopListViewData(pencilData.PencilType, pencilData.PencilName
+                , pencilData.SellPriceForPencil, pencilData.PencilStates[0].pencilSprite
+                , pencilData.PencilShortInfo, pencilData.PencilDetailInfo);
+            
+            pencilItems.Add(shopViewData);
+        }
+        
+        mainMarketUI.SettingItemButtons(pencilItems.ToArray());
+    }
+
     void OnEnable()
     {
         mainMarketUI.OnItemButtonClickedEvent += HandleItemButtonClickedEvent;
         itemDetailInfoUI.OnPurchaseButtonClickedEvent += HandlePurchaseButtonClickedEvent;
     }
 
-    void HandleItemButtonClickedEvent()
+    void HandleItemButtonClickedEvent(PencilType pencilType)
     {
-        itemDetailInfoUI.ShowDetailInfo();
+        var selectedItem = pencilItems.Find(item=>item.PencilType == pencilType);
+        if (selectedItem == null) return;
+        
+        var itemInfo = new ShopItemInfoViewData(selectedItem.PencilName, selectedItem.PencilShortInfo, selectedItem.PencilDetailInfo);
+        
+        itemDetailInfoUI.ShowDetailInfo(itemInfo);
     }
 
     void HandlePurchaseButtonClickedEvent(int amount)
