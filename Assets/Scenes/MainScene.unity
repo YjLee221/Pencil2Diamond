@@ -4694,6 +4694,8 @@ MonoBehaviour:
   mainMarketUI: {fileID: 2097648630}
   itemDetailInfoUI: {fileID: 1777846270}
   pencilManager: {fileID: 2132270389}
+  playerInventoryManager: {fileID: 1133477365}
+  quantitySettingUI: {fileID: 2015848815}
 --- !u!1 &1056142531
 GameObject:
   m_ObjectHideFlags: 0
@@ -4710,7 +4712,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1056142532
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6810,7 +6812,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1777846267
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6891,6 +6893,7 @@ MonoBehaviour:
   txtPencilShortInfo: {fileID: 428033318}
   txtPencilDetailInfo: {fileID: 1668489325}
   quantitySettingUI: {fileID: 2015848815}
+  mainMarketController: {fileID: 1050515283}
 --- !u!1 &1787376290
 GameObject:
   m_ObjectHideFlags: 0

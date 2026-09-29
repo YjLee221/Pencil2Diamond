@@ -6,8 +6,12 @@ public class MainMarketController : MonoBehaviour
 {
     [SerializeField] MainMarketUI mainMarketUI;
     [SerializeField] ItemDetailInfoUI itemDetailInfoUI;
+    
     [SerializeField] PencilManager pencilManager;
+    [SerializeField] PlayerInventoryManager playerInventoryManager;
 
+    [SerializeField] QuantitySettingUI quantitySettingUI;
+    
     readonly List<ShopListViewData> pencilItems = new List<ShopListViewData>();
 
     void Start()
@@ -40,18 +44,22 @@ public class MainMarketController : MonoBehaviour
         var selectedItem = pencilItems.Find(item=>item.PencilType == pencilType);
         if (selectedItem == null) return;
         
-        var itemInfo = new ShopItemInfoViewData(selectedItem.PencilName, selectedItem.PencilShortInfo, selectedItem.PencilDetailInfo);
+        var itemInfo = new ShopItemInfoViewData(selectedItem.PencilType, selectedItem.PencilName, selectedItem.PencilPrice , selectedItem.PencilShortInfo, selectedItem.PencilDetailInfo);
         
         itemDetailInfoUI.ShowDetailInfo(itemInfo);
     }
 
-    void HandlePurchaseButtonClickedEvent(int amount)
+    public bool CheckCanPurchase(int buyingCount, ShopItemInfoViewData itemInfoData)
     {
-        // 연필의 종류, 가격, 개수를 비교해 돈 계산
-        
-        // 플레이어가 가지고 있는 돈과 비교
-        // 플레이어 소유 돈이 더 많거나 같으면 구매하기 버튼 활성화
-        // 그 외는 비활성화
+        if(buyingCount <= 0 || itemInfoData == null) return false;
+
+        int totalPrice = buyingCount * itemInfoData.PencilPrice;
+        return playerInventoryManager.PlayerCoinCount >= totalPrice;
+    }
+    
+    void HandlePurchaseButtonClickedEvent(ShopItemInfoViewData itemInfo, int amount)
+    {
+        // 구매버튼 눌렀을 때
     }
 
     void OnDisable()

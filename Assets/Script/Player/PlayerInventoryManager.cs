@@ -8,6 +8,7 @@ public class PlayerInventoryManager : MonoBehaviour
 
     public int UnsharpenedPencilCount => playerData.unSharpenedPencilCount;
     public int GraphiteCount => playerData.graphiteCount;
+    public int PlayerCoinCount => playerData.coinCount;
     
     public event Action OnInventoryChangedEvent;
 

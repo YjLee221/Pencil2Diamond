@@ -14,6 +14,8 @@ public class QuantitySettingUI : MonoBehaviour
 
     public int CurrentQuantity { get; private set; }
 
+    public event Action<int> OnQuantityChangedEvent;
+
     void Awake()
     {
         minusButton.onClick.AddListener(OnMinusButtonClicked);
@@ -28,14 +30,10 @@ public class QuantitySettingUI : MonoBehaviour
         plusButton.onClick.RemoveListener(OnPlusButtonClicked);
     }
 
-    public void Configure(
-        int maxQuantity,
-        int startQuantity = 1)
+    public void Configure(int maxQuantity, int startQuantity = 1)
     {
         maximumQuantity = Mathf.Max(0, maxQuantity);
-        CurrentQuantity = maximumQuantity == 0
-            ? 0
-            : Mathf.Clamp(startQuantity, 1, maximumQuantity);
+        CurrentQuantity = maximumQuantity == 0 ? 0 : Mathf.Clamp(startQuantity, 1, maximumQuantity);
         Refresh();
     }
 
@@ -53,6 +51,8 @@ public class QuantitySettingUI : MonoBehaviour
     {
         CurrentQuantity = maximumQuantity == 0 ? 0 : Mathf.Clamp(quantity, 1, maximumQuantity);
         Refresh();
+        
+        OnQuantityChangedEvent?.Invoke(CurrentQuantity);
     }
 
     void Refresh()
