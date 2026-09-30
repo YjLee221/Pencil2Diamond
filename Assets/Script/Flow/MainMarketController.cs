@@ -60,6 +60,7 @@ public class MainMarketController : MonoBehaviour
     void HandlePurchaseButtonClickedEvent(ShopItemInfoViewData itemInfo, int amount)
     {
         // 구매버튼 눌렀을 때
+        playerInventoryManager.CalForBuyingPencil(itemInfo.PencilType, amount);
     }
 
     void OnDisable()

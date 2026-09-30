@@ -4882,6 +4882,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInventoryManager
   playerData: {fileID: 11400000, guid: 9394a472009553543a06b9f5ee54351c, type: 2}
   diamondData: {fileID: 11400000, guid: aca751ca6c9cca7498869818e01f20f3, type: 2}
+  pencilManager: {fileID: 2132270389}
 --- !u!1 &1241390856
 GameObject:
   m_ObjectHideFlags: 0
