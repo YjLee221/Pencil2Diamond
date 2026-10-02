@@ -2,7 +2,7 @@ using UnityEngine;
 
 public interface IPencil
 {
-    int CurrentHP { get; }
+    int CurrentHp { get; }
     RectTransform HitArea { get; }
     void TakeShaveDamage(int damage);
 }

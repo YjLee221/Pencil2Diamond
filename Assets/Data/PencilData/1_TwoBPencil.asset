@@ -17,6 +17,10 @@ MonoBehaviour:
   sellPriceForPencil: 200
   maxPencilHp: 80
   maxGraphiteHp: 45
+  pencilShortInfo: "\uC791\uC740 \uC2DC\uC791\uC744 \uD568\uAED8\uD558\uB294 \uC5F0\uD544"
+  pencilDetailInfo: "- \uC775\uC219\uD55C \uBAA8\uC2B5\uC758 2B \uC5F0\uD544 - \uB2F4\uBC31\uD55C
+    \uB514\uC790\uC778\uC774 \uC8FC\uB294 \uD3B8\uC548\uD568 - \uC791\uC740 \uD55C
+    \uC790\uB8E8\uC5D0\uC11C \uC2DC\uC791\uD558\uB294 \uB3C4\uC804"
   imgPencilStates:
   - remainingHpPercent: 100
     pencilSprite: {fileID: 5806247343882902020, guid: 1ceabae795bcfa6438aeac65fa4a01a9, type: 3}

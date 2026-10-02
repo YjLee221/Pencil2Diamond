@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c436ca27a31564e98225f8528e7125, type: 3}
+  m_Name: 2_FourBPencil
+  m_EditorClassIdentifier: Assembly-CSharp::PencilData
+  pencilName: "4B\uC5F0\uD544"
+  pencilType: 2
+  sellPriceForPencil: 450
+  maxPencilHp: 120
+  maxGraphiteHp: 60
+  pencilShortInfo: "\uC9D9\uC740 \uD751\uC5F0\uBE5B\uC744 \uD488\uC740 \uC5F0\uD544"
+  pencilDetailInfo: "- \uC9D9\uC740 \uD751\uC5F0\uBE5B\uC744 \uD488\uC740 4B \uC5F0\uD544
+    - \uCC28\uBD84\uD558\uBA74\uC11C\uB3C4 \uBB35\uC9C1\uD55C \uBD84\uC704\uAE30
+    - \uD55C\uCE35 \uAE4A\uC5B4\uC9C4 \uC5F0\uD544\uC758 \uB9E4\uB825"
+  imgPencilStates:
+  - remainingHpPercent: 100
+    pencilSprite: {fileID: 695249442116960368, guid: 121c440ce14580a40b11e733f42bbabe, type: 3}
+  - remainingHpPercent: 50
+    pencilSprite: {fileID: 2478069006673878822, guid: 45823131582c47644a447de7b43efe45, type: 3}
+  - remainingHpPercent: 0
+    pencilSprite: {fileID: 1778453237253330166, guid: 45823131582c47644a447de7b43efe45, type: 3}
+  graphiteData: {fileID: 11400000, guid: bfd9341b9cb1b5a4eb4e8f75aec61501, type: 2}

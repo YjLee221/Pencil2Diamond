@@ -2,13 +2,13 @@ using UnityEngine;
 
 public enum WorkShopLevelType
 {
-    TUTORIAL,
-    STARTER,
-    STARTING,
-    ADVANCED,
-    PROFESSIONAL,
-    MASTER,
-    MAX_LEVEL
+    Tutorial,
+    Starter,
+    Starting,
+    Advanced,
+    Professional,
+    Master,
+    MaxLevel
 }
 
 [System.Serializable]

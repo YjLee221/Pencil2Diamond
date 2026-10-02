@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c436ca27a31564e98225f8528e7125, type: 3}
+  m_Name: 4_DiamondPencil
+  m_EditorClassIdentifier: Assembly-CSharp::PencilData
+  pencilName: "\uB2E4\uC774\uC544\uBAAC\uB4DC\uC5F0\uD544"
+  pencilType: 4
+  sellPriceForPencil: 450
+  maxPencilHp: 120
+  maxGraphiteHp: 60
+  pencilShortInfo: "\uBCF4\uC11D\uCC98\uB7FC \uB208\uBD80\uC2E0 \uD55C \uC790\uB8E8"
+  pencilDetailInfo: "- \uB9D1\uC740 \uBCF4\uC11D\uBE5B\uC744 \uB2F4\uC740 \uC5F0\uD544
+    - \uC5B4\uB290 \uAC01\uB3C4\uC5D0\uC11C\uB098 \uB208\uBD80\uC2E0 \uBC18\uC9DD\uC784
+    - \uC624\uB798 \uBC14\uB77C\uBCF4\uACE0 \uC2F6\uC740 \uD55C \uC790\uB8E8"
+  imgPencilStates:
+  - remainingHpPercent: 100
+    pencilSprite: {fileID: 5663787804662000246, guid: 8650c686aafe3b34e96bcc4ad3cbb813, type: 3}
+  - remainingHpPercent: 50
+    pencilSprite: {fileID: 2478069006673878822, guid: 45823131582c47644a447de7b43efe45, type: 3}
+  - remainingHpPercent: 0
+    pencilSprite: {fileID: 1778453237253330166, guid: 45823131582c47644a447de7b43efe45, type: 3}
+  graphiteData: {fileID: 11400000, guid: bfd9341b9cb1b5a4eb4e8f75aec61501, type: 2}

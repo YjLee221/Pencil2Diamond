@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8aeff3f4bddccd045be7c2534a2b71ca
+guid: 33f15675de15aa240a7ac4ddf1d78e6b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -920621944182108156
-    second: PressMachine_0
+      213: -5113961118195871931
+    second: ImgQuestList_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,23 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PressMachine_0
+      name: ImgQuestList_0
       rect:
         serializedVersion: 2
-        x: 50
-        y: 0
-        width: 323
-        height: 620
+        x: 488
+        y: 187
+        width: 624
+        height: 731
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 400989c283b4933f0800000000000000
-      internalID: -920621944182108156
+      spriteID: 54f86ca357f8709b0800000000000000
+      internalID: -5113961118195871931
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 816456608e1865641bd76e464f043194
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PressMachine_0: -920621944182108156
+      ImgQuestList_0: -5113961118195871931
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

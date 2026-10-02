@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 // ReSharper disable All
 
-public class GameFlowController : MonoBehaviour
+public class TutorialFlowController : MonoBehaviour
 {
     public GamePhase currentGamePhase;
     public TutorialStep currentTutorialStep;
@@ -17,6 +17,9 @@ public class GameFlowController : MonoBehaviour
     
     [Header("Player")]
     [SerializeField] PlayerInventoryManager playerInventoryManager;
+    
+    [Header("UI")]
+    [SerializeField] MainMenuUI mainMenuUI;
 
 #if UNITY_EDITOR
     [Header("개발용 재화")]
@@ -67,8 +70,8 @@ public class GameFlowController : MonoBehaviour
         talkManager.OnDialogSequenceFinished += HandleTutorialFinished;
         SharpeningPencil.OnPencilSharpeningCompleted += HandleCompletedPencilSharpening;
         PencilCollectedGraphite.OnGraphiteExtractionCompleted += HandleCompletedGraphiteExtraction;
-        PressMachine.OnMatchingTemperatureCompleted += HandleCompletedTemperature;
-        MainMenuUI.OnSellingButtonClickedEvent += HandleSellingButtonClicked;
+        SettingTemperature.OnMatchingTemperatureCompleted += HandleCompletedTemperature;
+        mainMenuUI.OnSellingButtonClickedEvent += HandleSellingButtonClicked;
     }
 
     void HandleDialogFinished(string command)
@@ -164,8 +167,8 @@ public class GameFlowController : MonoBehaviour
         talkManager.OnDialogSequenceFinished -= HandleTutorialFinished;
         SharpeningPencil.OnPencilSharpeningCompleted -= HandleCompletedPencilSharpening;
         PencilCollectedGraphite.OnGraphiteExtractionCompleted -= HandleCompletedGraphiteExtraction;
-        PressMachine.OnMatchingTemperatureCompleted -= HandleCompletedTemperature;
-        MainMenuUI.OnSellingButtonClickedEvent -= HandleSellingButtonClicked;
+        SettingTemperature.OnMatchingTemperatureCompleted -= HandleCompletedTemperature;
+        mainMenuUI.OnSellingButtonClickedEvent -= HandleSellingButtonClicked;
     }
 
     void ChangeGamePhase()

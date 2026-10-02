@@ -8,7 +8,7 @@ public class StartMenuUI: MonoBehaviour
     [SerializeField] GameObject startPanel;
     [SerializeField] GameObject scriptPanel;
 
-    [SerializeField] GameFlowController gameFlowController;
+    [SerializeField] TutorialFlowController tutorialFlowController;
     
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
     [Header("개발용 옵션")]
@@ -30,14 +30,14 @@ public class StartMenuUI: MonoBehaviour
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
         if (startFromWorkshopForDev)
         {
-            gameFlowController.MainGameStartForDev();
+            tutorialFlowController.MainGameStartForDev();
             return;
         }
 #endif
         
         scriptPanel.SetActive(true);
         
-        if(gameFlowController.currentGamePhase == GamePhase.Tutorial) gameFlowController.TutorialStart();
-        else gameFlowController.MainGameStartForDev();
+        if(tutorialFlowController.currentGamePhase == GamePhase.Tutorial) tutorialFlowController.TutorialStart();
+        else tutorialFlowController.MainGameStartForDev();
     }
 }

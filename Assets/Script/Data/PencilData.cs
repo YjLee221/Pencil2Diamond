@@ -10,12 +10,12 @@ public struct PencilState
 
 public enum PencilType
 {
-    INTRO_PENCIL,        // 게임 시작 시 연습용 연필
-    TWOB_PENCIL,    
-    FOURB_PENCIL,
-    GOLDEN_PENCIL,       
-    DIAMOND_PENCIL,     // 과금용 연필
-    MAX_PENCIL_TYPE     // 연필 종류의 최대값 (새로운 연필 추가 시 이 값도 업데이트 필요)
+    IntroPencil,        // 게임 시작 시 연습용 연필
+    TwoBPencil,    
+    FourBPencil,
+    GoldenPencil,       
+    DiamondPencil,     // 과금용 연필
+    MaxPencilType     // 연필 종류의 최대값 (새로운 연필 추가 시 이 값도 업데이트 필요)
 }
 
 // 유니티 프로젝트에서 연필의 상태를 설정할 수 있도록 팝업메뉴 만들기
@@ -28,6 +28,9 @@ public class PencilData : ScriptableObject
     [SerializeField] int sellPriceForPencil; // 연필 가격
     [SerializeField] int maxPencilHp = 100; // 연필의 최대 HP
     [SerializeField] int maxGraphiteHp = 15; // 연필심의 최대 HP
+    
+    [SerializeField] string pencilShortInfo; // 상점에서의 연필 한 줄 설명
+    [SerializeField] string pencilDetailInfo; // 상점에서의 연필 디테일 설명
 
     [Header("연필 상태별 이미지")]
     [SerializeField] PencilState[] imgPencilStates; // 연필의 HP 단계별로 보여줄 이미지 설정
@@ -41,6 +44,8 @@ public class PencilData : ScriptableObject
     public int MaxPencilHp => maxPencilHp;
     public int MaxGraphiteHp => maxGraphiteHp;
     public PencilState[] PencilStates { get { return imgPencilStates; } }
+    public string PencilShortInfo => pencilShortInfo;
+    public string PencilDetailInfo => pencilDetailInfo;
 
     public GraphiteData GraphiteData { get { return graphiteData; } }
 }

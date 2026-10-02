@@ -1,43 +1,47 @@
 using System;
+using System.Collections;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class MainMenuUI : MonoBehaviour
 {
-    [FormerlySerializedAs("WorkShopLevelText")]
-    [Header("WorkShop Level")]
+    [Header("WorkShop Level")] 
     [SerializeField] TextMeshProUGUI workShopLevelText;
     [SerializeField] TextMeshProUGUI workShopLevelName;
 
-    [Header("Currency")]
+    [Header("Currency")] 
     [SerializeField] TextMeshProUGUI diamondCount;
     [SerializeField] TextMeshProUGUI coinCount;
 
-    [Header("Buttons")]
-    [SerializeField] Button goMainButton;
+    [Header("Buttons")] 
+    [SerializeField] Button marketButton;
     [SerializeField] Button missionButton;
-    [SerializeField] Button makingButton;
+    [SerializeField] Button upgradeButton;
     [SerializeField] Button sellingButton;
 
+    bool isWorkingPanelClosed;
+    Coroutine hideCoroutine;
+    
+    [Header("Data")]
     [SerializeField] PlayerData player;
     [SerializeField] WorkShopData workshop;
     [SerializeField] PlayerInventoryManager inventoryManager;
+    
+    [SerializeField] MainWorkshopUI mainWorkshopUI;
 
-    public static event Action OnGoMainButtonClickedEvent;
-    public static event Action OnMissionButtonClickedEvent;
-    public static event Action OnMakingButtonClickedEvent;
-    public static event Action OnSellingButtonClickedEvent;
+    public event Action OnMarketButtonClickedEvent;
+    public event Action OnMissionButtonClickedEvent;
+    public event Action OnUpgradeButtonClickedEvent;
+    public event Action OnSellingButtonClickedEvent;
 
     void Start()
     {
         ShowInfo();
-
-        goMainButton.onClick.AddListener(OnGoMainButtonClicked);
+ 
+        marketButton.onClick.AddListener(OnMarketButtonClicked);
         missionButton.onClick.AddListener(OnMissionButtonClicked);
-        makingButton.onClick.AddListener(OnMakingButtonClicked);
+        upgradeButton.onClick.AddListener(OnUpgradeButtonClicked);
         sellingButton.onClick.AddListener(OnSellingButtonClicked);
     }
 
@@ -50,6 +54,10 @@ public class MainMenuUI : MonoBehaviour
     void OnDisable()
     {
         inventoryManager.OnInventoryChangedEvent -= ShowInfo;
+
+        if (hideCoroutine == null) return;
+        StopCoroutine(hideCoroutine);
+        hideCoroutine = null;
     }
 
     void ShowInfo()
@@ -60,9 +68,9 @@ public class MainMenuUI : MonoBehaviour
         coinCount.text = player.coinCount.ToString();
     }
 
-    void OnGoMainButtonClicked()
+    void OnMarketButtonClicked()
     {
-        OnGoMainButtonClickedEvent?.Invoke();
+        OnMarketButtonClickedEvent?.Invoke();
     }
 
     void OnMissionButtonClicked()
@@ -70,9 +78,9 @@ public class MainMenuUI : MonoBehaviour
         OnMissionButtonClickedEvent?.Invoke();
     }
 
-    void OnMakingButtonClicked()
+    void OnUpgradeButtonClicked()
     {
-        OnMakingButtonClickedEvent?.Invoke();
+        OnUpgradeButtonClickedEvent?.Invoke();
     }
 
     void OnSellingButtonClicked()

@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -14,19 +15,21 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject sharpeningPanel;
     [SerializeField] GameObject extractingPanel;
     [SerializeField] GameObject pressingPanel;
-    [SerializeField] PressMachine pressMachine;
+    [SerializeField] SettingTemperature settingTemperature;
     [SerializeField] PencilCollectedGraphite graphiteCollector;
 
+    [FormerlySerializedAs("WorkShopImg")]
     [Header("Background Image")]
-    [SerializeField] Image WorkShopImg;
+    [SerializeField] Image workShopImg;
     [SerializeField] Image deskImg;
     [SerializeField] Image mainImg;
     [SerializeField] Image jewelShopImg;
     [SerializeField] Image openingImg;
 
-    [SerializeField] BaseTool selectedTool; // 현재 유저가 장착한 도구(다형성 활용)
+    [SerializeField] BaseTool selectedTool; // 현재 유저가 장착한 도구
+    [SerializeField] GameObject startPanel;
 
-    void Start()
+    public void Start()
     {
         ShowCanvasFirst();
     }
@@ -39,9 +42,11 @@ public class UIManager : MonoBehaviour
         inworkCanvas.SetActive(false);
         ShowOnlyWorkPanel(null);
 
-        WorkShopImg.gameObject.SetActive(false);
+        workShopImg.gameObject.SetActive(false);
         deskImg.gameObject.SetActive(false);
         mainImg.gameObject.SetActive(false);
+        
+        startPanel.gameObject.SetActive(true);
     }
 
     public void StartWorkingCanvas()
@@ -61,7 +66,7 @@ public class UIManager : MonoBehaviour
         popupCanvas.SetActive(true);
         ShowOnlyWorkPanel(null);
 
-        WorkShopImg.gameObject.SetActive(true);
+        workShopImg.gameObject.SetActive(true);
         deskImg.gameObject.SetActive(false);
     }
 
@@ -76,11 +81,11 @@ public class UIManager : MonoBehaviour
         ShowWorkCanvas();
         ShowOnlyWorkPanel(pressingPanel);
 
-        if (pressMachine != null)
+        if (settingTemperature != null)
         {
-            GraphiteData graphiteData = graphiteCollector != null ? graphiteCollector.currentGraphiteData : null;
+            GraphiteData graphiteData = graphiteCollector != null ? graphiteCollector.CurrentGraphiteData : null;
 
-            pressMachine.StartPressing(graphiteData);
+            settingTemperature.StartPressing(graphiteData);
         }
     }
 
@@ -99,7 +104,7 @@ public class UIManager : MonoBehaviour
         popupCanvas.SetActive(false);
         mainCanvas.SetActive(false);
 
-        WorkShopImg.gameObject.SetActive(false);
+        workShopImg.gameObject.SetActive(false);
         deskImg.gameObject.SetActive(true);
         mainImg.gameObject.SetActive(false);
     }
@@ -119,6 +124,6 @@ public class UIManager : MonoBehaviour
     // TODO: 추후 자동 도구 버튼 클릭 시 호출될 메서드
     public void OnAutoToolClicked()
     {
-
+        
     }
 }

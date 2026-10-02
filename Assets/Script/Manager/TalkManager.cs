@@ -62,7 +62,7 @@ public class TalkManager : MonoBehaviour
         if (currentData == null) return;
 
         // 현재 대사가 진행 중이면 타이핑을 건너뛰고 전체 대사를 표시
-        if(dialogManager.isTyping)
+        if(dialogManager.IsTyping)
         {
             dialogManager.SkipTyping(currentData.content);
             return;

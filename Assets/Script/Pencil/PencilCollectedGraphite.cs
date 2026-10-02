@@ -6,31 +6,31 @@ public class PencilCollectedGraphite : MonoBehaviour, IPencil
 {
     public PencilData currentPencilData;
     public int currentGraphiteHp;
-    public PencilPhase currentPencilPhase { get; private set; }
+    public PencilPhase CurrentPencilPhase { get; private set; }
 
-    public int CurrentHP => currentGraphiteHp;
+    public int CurrentHp => currentGraphiteHp;
 
     [SerializeField] public RectTransform graphiteHitArea;
     public RectTransform HitArea => graphiteHitArea;
 
-    public GraphiteData currentGraphiteData { get; private set; }
+    public GraphiteData CurrentGraphiteData { get; private set; }
     public static event Action<PencilCollectedGraphite> OnGraphiteExtractionCompleted;
 
     [SerializeField] Image imgSharpenedPencil;
 
-    public void StartExtractingPhase(PencilData pencilData, GraphiteData graphiteData, int graphiteHP)
+    public void StartExtractingPhase(PencilData pencilData, GraphiteData graphiteData, int graphiteHp)
     {
         currentPencilData = pencilData;
-        currentGraphiteData = graphiteData;
-        currentGraphiteHp = graphiteHP;
-        currentPencilPhase = PencilPhase.Extracting;
+        CurrentGraphiteData = graphiteData;
+        currentGraphiteHp = graphiteHp;
+        CurrentPencilPhase = PencilPhase.Extracting;
 
         UpdateGraphiteSprite();
     }
 
     public void TakeShaveDamage(int damage)
     {
-        if (currentGraphiteData == null || currentGraphiteHp <= 0) return;
+        if (CurrentGraphiteData == null || currentGraphiteHp <= 0) return;
 
         currentGraphiteHp -= damage;
 
@@ -48,18 +48,18 @@ public class PencilCollectedGraphite : MonoBehaviour, IPencil
 
     public void UpdateGraphiteSprite()
     {
-        if (currentGraphiteData == null || currentGraphiteData.ImgGraphiteStates == null || currentGraphiteData.ImgGraphiteStates.Length == 0) return;
+        if (CurrentGraphiteData == null || CurrentGraphiteData.ImgGraphiteStates == null || CurrentGraphiteData.ImgGraphiteStates.Length == 0) return;
 
-        float currentHPRatio = (float)currentGraphiteHp / currentPencilData.MaxGraphiteHp;
+        float currentHpRatio = (float)currentGraphiteHp / currentPencilData.MaxGraphiteHp;
 
-        Sprite targetSprite = currentGraphiteData.ImgGraphiteStates[0].graphiteSprite;
+        Sprite targetSprite = CurrentGraphiteData.ImgGraphiteStates[0].graphiteSprite;
 
-        for (int i = 0; i < currentGraphiteData.ImgGraphiteStates.Length; i++)
+        for (int i = 0; i < CurrentGraphiteData.ImgGraphiteStates.Length; i++)
         {
-            float statePercent = currentGraphiteData.ImgGraphiteStates[i].remainingHpPercent;
-            if (currentHPRatio <= statePercent)
+            float statePercent = CurrentGraphiteData.ImgGraphiteStates[i].remainingHpPercent;
+            if (currentHpRatio <= statePercent)
             {                
-                targetSprite = currentGraphiteData.ImgGraphiteStates[i].graphiteSprite;
+                targetSprite = CurrentGraphiteData.ImgGraphiteStates[i].graphiteSprite;
             }
         }
 
