@@ -34,7 +34,6 @@ public class StartMenuUI: MonoBehaviour
             return;
         }
 #endif
-        
         scriptPanel.SetActive(true);
         
         if(tutorialFlowController.currentGamePhase == GamePhase.Tutorial) tutorialFlowController.TutorialStart();

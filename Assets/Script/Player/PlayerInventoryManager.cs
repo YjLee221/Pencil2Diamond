@@ -6,43 +6,61 @@ public class PlayerInventoryManager : MonoBehaviour
     [SerializeField] PlayerData playerData;
     [SerializeField] DiamondData diamondData;
     [SerializeField] PencilManager pencilManager;
-
-    public int UnsharpenedPencilCount => playerData.unSharpenedPencilCount;
-    public int GraphiteCount => playerData.graphiteCount;
-    public int PlayerCoinCount => playerData.coinCount;
+    
+    [Header("Data")]
+    PencilData pencilData;
+    PencilInventoryData pencilInventoryData;
+    
+    public int UnsharpenedPencilCount { get; private set; }
+    public int GraphiteCount { get; private set; }
+    public int PlayerCoinCount { get; private set; }
     
     public event Action OnInventoryChangedEvent;
+    
+    // 연필 데이터를 찾는 함수
+    public PencilInventoryData FindPencilData(PencilType pencilType)
+    {
+        return playerData.pencilInventoryDataList.Find(inventoryData=>inventoryData.pencilType == pencilType);
+    }
 
     public void ResetInventory()
     {
-        playerData.graphiteCount = 0;
-        playerData.diamondCount = 0;
-        playerData.coinCount = 0;
+        UnsharpenedPencilCount = 0;
+        GraphiteCount = 0;
+        PlayerCoinCount = 0;
     }
+    
 
-    public int CalForBuyingPencil(PencilType pencilType, int purchaseAmount)
+    public int TryBuyingPencil(PencilType pencilType, int purchaseAmount)
     {
-        var pencilData = pencilManager.GetPencilData(pencilType);
-        playerData.coinCount -= (pencilData.SellPriceForPencil * purchaseAmount);
+        var findPencilData = FindPencilData(pencilType);
+        
+        int checkRemainCoin = playerData.coinCount - (findPencilData.pencilData.SellPriceForPencil * purchaseAmount);
 
-        if (playerData.coinCount < 0) Debug.Log("잔액이 부족합니다");
-
-        CalForGettingPencil(purchaseAmount);
+        if (checkRemainCoin >= 0)
+        {
+            TyrGettingPencil(pencilType, purchaseAmount);
+            playerData.coinCount = checkRemainCoin;
+            
+            OnInventoryChangedEvent?.Invoke();
+        }
+        else Debug.Log("잔액이 부족합니다");
         
         return playerData.coinCount;
     }
 
-    int CalForGettingPencil(int purchaseAmount)
+    int TyrGettingPencil(PencilType pencilType, int purchaseAmount)
     {
-        return playerData.unSharpenedPencilCount += purchaseAmount;
+        var newPencilData = FindPencilData(pencilType);
+        return newPencilData.unSharpenedCount += purchaseAmount;
     }
 
     public int AddGraphite()
     {
-        playerData.graphiteCount++;
+        GraphiteCount++;
         OnInventoryChangedEvent?.Invoke();
         
-        return playerData.graphiteCount;
+        return GraphiteCount;
     }
 
     int AddCoin()

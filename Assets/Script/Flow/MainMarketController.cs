@@ -18,14 +18,18 @@ public class MainMarketController : MonoBehaviour
     {
         for (var i = (int)PencilType.TwoBPencil; i < (int)PencilType.MaxPencilType; i++)
         {
-            var pencilData = pencilManager.GetPencilData((PencilType)i);
-            
-            if (pencilData == null || pencilData.PencilStates == null || pencilData.PencilStates.Length == 0
-                || pencilData.PencilShortInfo == null || pencilData.PencilDetailInfo == null) continue;
+            // var pencilData = pencilManager.GetPencilData((PencilType)i);
+            var findPencilData = playerInventoryManager.FindPencilData((PencilType)i);
 
-            var shopViewData = new ShopListViewData(pencilData.PencilType, pencilData.PencilName
-                , pencilData.SellPriceForPencil, pencilData.PencilStates[0].pencilSprite
-                , pencilData.PencilShortInfo, pencilData.PencilDetailInfo);
+            var pencilInfoData = findPencilData.pencilData;
+
+            if (pencilInfoData == null || pencilInfoData.PencilStates == null || pencilInfoData.PencilStates.Length == 0 
+                || pencilInfoData.PencilShortInfo == null || pencilInfoData.PencilDetailInfo == null) continue;
+
+            var shopViewData = new ShopListViewData(pencilInfoData.PencilType, pencilInfoData.PencilName
+                , playerInventoryManager.UnsharpenedPencilCount, pencilInfoData.SellPriceForPencil
+                , pencilInfoData.PencilStates[0].pencilSprite, pencilInfoData.PencilShortInfo, pencilInfoData.PencilDetailInfo
+                );
             
             pencilItems.Add(shopViewData);
         }
@@ -60,7 +64,7 @@ public class MainMarketController : MonoBehaviour
     void HandlePurchaseButtonClickedEvent(ShopItemInfoViewData itemInfo, int amount)
     {
         // 구매버튼 눌렀을 때
-        playerInventoryManager.CalForBuyingPencil(itemInfo.PencilType, amount);
+        playerInventoryManager.TryBuyingPencil(itemInfo.PencilType, amount);
     }
 
     void OnDisable()

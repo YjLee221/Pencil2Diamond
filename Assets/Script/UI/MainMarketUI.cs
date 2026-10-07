@@ -1,5 +1,6 @@
 using System;
 using System.Drawing;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -58,6 +59,8 @@ public class MainMarketUI : MonoBehaviour
             pencilButton.image.sprite = shopItemData.PencilSprite;
             
             PencilType pencilType = shopItemData.PencilType;
+            
+            
             
             pencilButton.onClick.AddListener(()=>OnClickedItemButton(pencilType));
             

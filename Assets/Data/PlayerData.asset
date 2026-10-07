@@ -13,9 +13,36 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: Assembly-CSharp::PlayerData
   currentWorkshopLevel: 0
-  unSharpenedPencilCount: 0
-  sharpeningPencilCount: 0
-  sharpenedPencilCount: 0
-  graphiteCount: 0
+  pencilInventoryDataList:
+  - pencilType: 0
+    unSharpenedCount: 0
+    sharpeningCount: 0
+    sharpenedCount: 0
+    graphiteCount: 0
+    pencilData: {fileID: 11400000, guid: 0eb68e07708b17a4684ef8df3260bcb5, type: 2}
+  - pencilType: 1
+    unSharpenedCount: 0
+    sharpeningCount: 0
+    sharpenedCount: 0
+    graphiteCount: 0
+    pencilData: {fileID: 11400000, guid: d5299e4933070c94580e5edfa7e001a7, type: 2}
+  - pencilType: 2
+    unSharpenedCount: 0
+    sharpeningCount: 0
+    sharpenedCount: 0
+    graphiteCount: 0
+    pencilData: {fileID: 11400000, guid: 6a48239c5b4869043811fbddb97cfc18, type: 2}
+  - pencilType: 3
+    unSharpenedCount: 0
+    sharpeningCount: 0
+    sharpenedCount: 0
+    graphiteCount: 0
+    pencilData: {fileID: 11400000, guid: 6850419bd22acde4bba144bc36ce0eef, type: 2}
+  - pencilType: 4
+    unSharpenedCount: 0
+    sharpeningCount: 0
+    sharpenedCount: 0
+    graphiteCount: 0
+    pencilData: {fileID: 11400000, guid: e0db57e770af7614b8e3e5a1c55bf0e8, type: 2}
   diamondCount: 0
   coinCount: 0
