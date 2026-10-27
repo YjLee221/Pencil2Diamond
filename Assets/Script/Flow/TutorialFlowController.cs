@@ -21,12 +21,10 @@ public class TutorialFlowController : MonoBehaviour
     [Header("UI")]
     [SerializeField] MainMenuUI mainMenuUI;
 
-#if UNITY_EDITOR
-    [Header("개발용 재화")]
-    [SerializeField] PlayerData playerData;
-
-    public int CoinCount => playerData != null ? playerData.coinCount : 0;
-    public int DiamondCount => playerData != null ? playerData.diamondCount : 0;
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+    public int CoinCount => playerInventoryManager != null ? playerInventoryManager.PlayerCoinCount : 0;
+    public int DiamondCount => playerInventoryManager != null && playerInventoryManager.playerData != null
+        ? playerInventoryManager.playerData.diamondCount : 0;
 #endif
 
     [Header("Diamond")] 
@@ -46,21 +44,17 @@ public class TutorialFlowController : MonoBehaviour
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
     public void MainGameStartForDev()
     {
-        currentGamePhase = GamePhase.Workshop;
-        currentTutorialStep = TutorialStep.None;
-
-        if (playerData == null)
+        if (playerInventoryManager == null || playerInventoryManager.playerData == null)
         {
-            Debug.Log("PlayerData is null!!!!!!!!");
+            Debug.LogError("개발용 시작에 필요한 PlayerInventoryManager 또는 PlayerData가 연결되지 않았습니다.", this);
             return;
         }
         
-        playerData.coinCount = 200;
-        playerData.diamondCount = 0;
+        playerInventoryManager.SetCurrencyForDev(playerInventoryManager.PlayerCoinCount, playerInventoryManager.playerData.diamondCount);
+        currentGamePhase = GamePhase.Workshop;
+        currentTutorialStep = TutorialStep.None;
         
         uiManager.ShowMainCanvas();
-        
-        Debug.Log($"현재 게임 단계: {currentGamePhase} / 현재 튜토리얼 단계: {currentTutorialStep}");
     }
 #endif
 

@@ -36,7 +36,6 @@ public class StartMenuUI: MonoBehaviour
 #endif
         scriptPanel.SetActive(true);
         
-        if(tutorialFlowController.currentGamePhase == GamePhase.Tutorial) tutorialFlowController.TutorialStart();
-        else tutorialFlowController.MainGameStartForDev();
+        tutorialFlowController.TutorialStart();
     }
 }

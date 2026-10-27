@@ -3309,7 +3309,6 @@ MonoBehaviour:
   missionButton: {fileID: 275529037}
   upgradeButton: {fileID: 41609813}
   sellingButton: {fileID: 105302179}
-  player: {fileID: 11400000, guid: 9394a472009553543a06b9f5ee54351c, type: 2}
   workshop: {fileID: 11400000, guid: 5d35dcd8c66f6b940966e75302946df9, type: 2}
   inventoryManager: {fileID: 1133477365}
   mainWorkshopUI: {fileID: 2121347695}
@@ -5259,7 +5258,7 @@ MonoBehaviour:
   startPanel: {fileID: 1304611888}
   scriptPanel: {fileID: 2010262616}
   tutorialFlowController: {fileID: 1754813000}
-  startFromWorkshopForDev: 0
+  startFromWorkshopForDev: 1
 --- !u!1 &1325479351
 GameObject:
   m_ObjectHideFlags: 0
@@ -6841,7 +6840,6 @@ MonoBehaviour:
   uiManager: {fileID: 390131465}
   playerInventoryManager: {fileID: 1133477365}
   mainMenuUI: {fileID: 637994261}
-  playerData: {fileID: 11400000, guid: 9394a472009553543a06b9f5ee54351c, type: 2}
   tutorialDiamond: {fileID: 11400000, guid: aca751ca6c9cca7498869818e01f20f3, type: 2}
 --- !u!4 &1754813001
 Transform:
@@ -8442,6 +8440,7 @@ MonoBehaviour:
   setAmountPanel: {fileID: 1777846266}
   buttonList: {fileID: 1056142531}
   itemButton: {fileID: 315305632}
+  inventoryManager: {fileID: 1133477365}
 --- !u!1 &2121347693
 GameObject:
   m_ObjectHideFlags: 0

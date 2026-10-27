@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,9 +15,10 @@ public class ItemDetailInfoUI : MonoBehaviour
     
     [SerializeField] QuantitySettingUI quantitySettingUI;
     [SerializeField] MainMarketController mainMarketController;
-
+    
     ShopItemInfoViewData itemInfoData;
     
+    // 이벤트
     public event Action<ShopItemInfoViewData, int> OnPurchaseButtonClickedEvent;
 
     void Awake()
@@ -27,8 +29,6 @@ public class ItemDetailInfoUI : MonoBehaviour
     void Start()
     {
         int maxAmount = quantitySettingUI.maximumQuantity;
-        // 나중에는 선택한 연필의 가격 <= 플레이어의 코인 인 경우에만 뜨도록 수정해야할거 같아
-        purchaseButton.interactable = maxAmount >= 1;
     }
 
     void OnEnable()
@@ -39,10 +39,10 @@ public class ItemDetailInfoUI : MonoBehaviour
     public void ShowDetailInfo(ShopItemInfoViewData itemInfoData)
     {
         this.itemInfoData = itemInfoData;
-        
         quantitySettingUI.ResetQuantity();
         itemDetailInfoPanel.SetActive(true);
         
+        purchaseButton.interactable = mainMarketController.CheckCanPurchase(quantitySettingUI.CurrentQuantity, itemInfoData);
         txtPencilName.text = itemInfoData.PencilName;
         txtPencilShortInfo.text = itemInfoData.PencilShortInfo;
         txtPencilDetailInfo.text = itemInfoData.PencilDetailInfo;
@@ -59,6 +59,8 @@ public class ItemDetailInfoUI : MonoBehaviour
     {
         if (!purchaseButton.interactable) return;
         OnPurchaseButtonClickedEvent?.Invoke(itemInfoData, quantitySettingUI.CurrentQuantity);
+        
+        purchaseButton.interactable = mainMarketController.CheckCanPurchase(quantitySettingUI.CurrentQuantity, itemInfoData);
     }
 
     void OnDisable()

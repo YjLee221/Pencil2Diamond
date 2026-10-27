@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PencilData
   pencilName: "\uB2E4\uC774\uC544\uBAAC\uB4DC\uC5F0\uD544"
   pencilType: 4
-  sellPriceForPencil: 450
-  maxPencilHp: 120
-  maxGraphiteHp: 60
+  sellPriceForPencil: 1200
+  maxPencilHp: 200
+  maxGraphiteHp: 150
   pencilShortInfo: "\uBCF4\uC11D\uCC98\uB7FC \uB208\uBD80\uC2E0 \uD55C \uC790\uB8E8"
   pencilDetailInfo: "- \uB9D1\uC740 \uBCF4\uC11D\uBE5B\uC744 \uB2F4\uC740 \uC5F0\uD544
     - \uC5B4\uB290 \uAC01\uB3C4\uC5D0\uC11C\uB098 \uB208\uBD80\uC2E0 \uBC18\uC9DD\uC784

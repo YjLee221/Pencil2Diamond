@@ -18,7 +18,6 @@ public class MainMarketController : MonoBehaviour
     {
         for (var i = (int)PencilType.TwoBPencil; i < (int)PencilType.MaxPencilType; i++)
         {
-            // var pencilData = pencilManager.GetPencilData((PencilType)i);
             var findPencilData = playerInventoryManager.FindPencilData((PencilType)i);
 
             var pencilInfoData = findPencilData.pencilData;
@@ -27,7 +26,7 @@ public class MainMarketController : MonoBehaviour
                 || pencilInfoData.PencilShortInfo == null || pencilInfoData.PencilDetailInfo == null) continue;
 
             var shopViewData = new ShopListViewData(pencilInfoData.PencilType, pencilInfoData.PencilName
-                , playerInventoryManager.UnsharpenedPencilCount, pencilInfoData.SellPriceForPencil
+                , findPencilData.unSharpenedCount, pencilInfoData.SellPriceForPencil
                 , pencilInfoData.PencilStates[0].pencilSprite, pencilInfoData.PencilShortInfo, pencilInfoData.PencilDetailInfo
                 );
             
@@ -58,6 +57,9 @@ public class MainMarketController : MonoBehaviour
         if(buyingCount <= 0 || itemInfoData == null) return false;
 
         int totalPrice = buyingCount * itemInfoData.PencilPrice;
+
+        Debug.Log($"totalPrice:{totalPrice} / playerCoin: {playerInventoryManager.PlayerCoinCount}");
+        
         return playerInventoryManager.PlayerCoinCount >= totalPrice;
     }
     
@@ -65,6 +67,7 @@ public class MainMarketController : MonoBehaviour
     {
         // 구매버튼 눌렀을 때
         playerInventoryManager.TryBuyingPencil(itemInfo.PencilType, amount);
+        mainMarketUI.UpdatePlayerPencilCount(itemInfo.PencilType, amount);
     }
 
     void OnDisable()

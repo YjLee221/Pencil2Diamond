@@ -22,9 +22,8 @@ public class MainMenuUI : MonoBehaviour
 
     bool isWorkingPanelClosed;
     Coroutine hideCoroutine;
-    
+
     [Header("Data")]
-    [SerializeField] PlayerData player;
     [SerializeField] WorkShopData workshop;
     [SerializeField] PlayerInventoryManager inventoryManager;
     
@@ -48,6 +47,7 @@ public class MainMenuUI : MonoBehaviour
     void OnEnable()
     {
         inventoryManager.OnInventoryChangedEvent += ShowInfo;
+        
         ShowInfo();
     }
 
@@ -62,10 +62,10 @@ public class MainMenuUI : MonoBehaviour
 
     void ShowInfo()
     {
-        workShopLevelText.text = $"Lv.{player.currentWorkshopLevel}";
-        workShopLevelName.text = workshop.GetWorkShopLevelName((WorkShopLevelType)player.currentWorkshopLevel);
-        diamondCount.text = player.diamondCount.ToString();
-        coinCount.text = player.coinCount.ToString();
+        workShopLevelText.text = $"Lv.{inventoryManager.playerData.currentWorkshopLevel}";
+        workShopLevelName.text = workshop.GetWorkShopLevelName((WorkShopLevelType)inventoryManager.playerData.currentWorkshopLevel);
+        diamondCount.text = inventoryManager.playerData.diamondCount.ToString();
+        coinCount.text = inventoryManager.PlayerCoinCount.ToString();
     }
 
     void OnMarketButtonClicked()

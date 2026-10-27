@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerInventoryManager : MonoBehaviour
 {
-    [SerializeField] PlayerData playerData;
+    [SerializeField] public PlayerData playerData;
     [SerializeField] DiamondData diamondData;
     [SerializeField] PencilManager pencilManager;
     
@@ -16,6 +16,15 @@ public class PlayerInventoryManager : MonoBehaviour
     public int PlayerCoinCount { get; private set; }
     
     public event Action OnInventoryChangedEvent;
+
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+    public void SetCurrencyForDev(int coinCount, int diamondCount)
+    {
+        PlayerCoinCount = Mathf.Max(0, coinCount);
+        playerData.diamondCount = Mathf.Max(0, diamondCount);
+        OnInventoryChangedEvent?.Invoke();
+    }
+#endif
     
     // 연필 데이터를 찾는 함수
     public PencilInventoryData FindPencilData(PencilType pencilType)
@@ -34,25 +43,27 @@ public class PlayerInventoryManager : MonoBehaviour
     public int TryBuyingPencil(PencilType pencilType, int purchaseAmount)
     {
         var findPencilData = FindPencilData(pencilType);
-        
-        int checkRemainCoin = playerData.coinCount - (findPencilData.pencilData.SellPriceForPencil * purchaseAmount);
+
+        int checkRemainCoin = PlayerCoinCount - (findPencilData.pencilData.SellPriceForPencil * purchaseAmount);
 
         if (checkRemainCoin >= 0)
         {
-            TyrGettingPencil(pencilType, purchaseAmount);
-            playerData.coinCount = checkRemainCoin;
+            TryUnsharpenedGettingPencil(pencilType, purchaseAmount);
+            PlayerCoinCount = checkRemainCoin;
             
             OnInventoryChangedEvent?.Invoke();
         }
-        else Debug.Log("잔액이 부족합니다");
+        else Debug.LogError("잔액이 부족합니다");
         
-        return playerData.coinCount;
+        return PlayerCoinCount;
     }
 
-    int TyrGettingPencil(PencilType pencilType, int purchaseAmount)
+    int TryUnsharpenedGettingPencil(PencilType pencilType, int purchaseAmount)
     {
         var newPencilData = FindPencilData(pencilType);
-        return newPencilData.unSharpenedCount += purchaseAmount;
+        UnsharpenedPencilCount = newPencilData.unSharpenedCount += purchaseAmount;
+        
+        return UnsharpenedPencilCount;
     }
 
     public int AddGraphite()
@@ -65,10 +76,10 @@ public class PlayerInventoryManager : MonoBehaviour
 
     int AddCoin()
     {
-        playerData.coinCount += diamondData.SellPriceForDiamond;
+        PlayerCoinCount += diamondData.SellPriceForDiamond;
         OnInventoryChangedEvent?.Invoke();
         
-        return playerData.coinCount;
+        return PlayerCoinCount;
     }
 
     public int AddDiamond()
@@ -84,6 +95,7 @@ public class PlayerInventoryManager : MonoBehaviour
         if (playerData.diamondCount > 0)
         {
             playerData.diamondCount--;
+            
             AddCoin();
         }
         else

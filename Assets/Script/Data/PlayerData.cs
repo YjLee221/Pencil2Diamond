@@ -10,5 +10,5 @@ public class PlayerData : ScriptableObject
     [Header("재화 정보")] 
     public List<PencilInventoryData> pencilInventoryDataList;
     public int diamondCount = 0;
-    public int coinCount = 0;
+    // public int coinCount = 0;
 }
