@@ -14,7 +14,7 @@ public class MainMarketController : MonoBehaviour
     
     readonly List<ShopListViewData> pencilItems = new List<ShopListViewData>();
 
-    void Start()
+    void Awake()
     {
         for (var i = (int)PencilType.TwoBPencil; i < (int)PencilType.MaxPencilType; i++)
         {
@@ -66,8 +66,13 @@ public class MainMarketController : MonoBehaviour
     void HandlePurchaseButtonClickedEvent(ShopItemInfoViewData itemInfo, int amount)
     {
         // 구매버튼 눌렀을 때
-        playerInventoryManager.TryBuyingPencil(itemInfo.PencilType, amount);
-        mainMarketUI.UpdatePlayerPencilCount(itemInfo.PencilType, amount);
+        if (playerInventoryManager.TryBuyingPencil(itemInfo.PencilType, amount))
+        {
+            mainMarketUI.UpdatePlayerPencilCount(itemInfo.PencilType);
+        }
+        
+        // 소유수량 저장
+        PlayerPrefs.SetInt(itemInfo.PencilType.ToString(), playerInventoryManager.UnsharpenedPencilCount + amount);
     }
 
     void OnDisable()

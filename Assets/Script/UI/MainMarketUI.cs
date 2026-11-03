@@ -24,21 +24,21 @@ public class MainMarketUI : MonoBehaviour
     // 이벤트
     public event Action<PencilType> OnItemButtonClickedEvent;
 
+    void Start()
+    {
+        closeButton.onClick.AddListener(OnClickedCloseButton);
+    }
+
     void OnEnable()
     {
         setAmountPanel.SetActive(false);
         buttonList.SetActive(true);
     }
 
-    void Start()
-    {
-        closeButton.onClick.AddListener(OnClickedCloseButton);
-    }
     
     void OnClickedItemButton(PencilType shopItemData)
     {
         OnItemButtonClickedEvent?.Invoke(shopItemData);
-        
         if (setAmountPanel.activeSelf) buttonList.SetActive(false);
     }
         
@@ -65,8 +65,7 @@ public class MainMarketUI : MonoBehaviour
             PencilType pencilType = shopItemData.PencilType;
 
             var havingTextComponent = pencilButton.transform.Find("TxtHavingCount").GetComponent<TextMeshProUGUI>();
-            havingTextComponent.text = $"{shopItemData.UserPencilCount.ToString()}";
-            
+            havingTextComponent.text = shopItemData.UserPencilCount.ToString();
             playerPencilCount[pencilType] = havingTextComponent;
 
             var priceTextComponent = pencilButton.transform.Find("TxtPencilPrice").GetComponent<TextMeshProUGUI>();
@@ -78,10 +77,9 @@ public class MainMarketUI : MonoBehaviour
         }
     }
 
-    public void UpdatePlayerPencilCount(PencilType pencilType, int pencilCount)
+    public void UpdatePlayerPencilCount(PencilType pencilType)
     {
         var findPencilData = inventoryManager.FindPencilData(pencilType);
-        findPencilData.unSharpenedCount = pencilCount;
         playerPencilCount[findPencilData.pencilType].text = findPencilData.unSharpenedCount.ToString();
     }
 }

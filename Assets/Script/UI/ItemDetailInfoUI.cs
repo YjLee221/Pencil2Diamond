@@ -58,9 +58,9 @@ public class ItemDetailInfoUI : MonoBehaviour
     void OnPurchaseButtonClicked()
     {
         if (!purchaseButton.interactable) return;
+        purchaseButton.interactable = mainMarketController.CheckCanPurchase(quantitySettingUI.CurrentQuantity, itemInfoData);
         OnPurchaseButtonClickedEvent?.Invoke(itemInfoData, quantitySettingUI.CurrentQuantity);
         
-        purchaseButton.interactable = mainMarketController.CheckCanPurchase(quantitySettingUI.CurrentQuantity, itemInfoData);
     }
 
     void OnDisable()

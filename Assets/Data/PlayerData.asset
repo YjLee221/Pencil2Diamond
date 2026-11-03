@@ -21,7 +21,7 @@ MonoBehaviour:
     graphiteCount: 0
     pencilData: {fileID: 11400000, guid: 0eb68e07708b17a4684ef8df3260bcb5, type: 2}
   - pencilType: 1
-    unSharpenedCount: 0
+    unSharpenedCount: 3
     sharpeningCount: 0
     sharpenedCount: 0
     graphiteCount: 0

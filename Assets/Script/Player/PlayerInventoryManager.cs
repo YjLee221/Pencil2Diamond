@@ -22,6 +22,7 @@ public class PlayerInventoryManager : MonoBehaviour
     {
         PlayerCoinCount = Mathf.Max(0, coinCount);
         playerData.diamondCount = Mathf.Max(0, diamondCount);
+        
         OnInventoryChangedEvent?.Invoke();
     }
 #endif
@@ -39,8 +40,7 @@ public class PlayerInventoryManager : MonoBehaviour
         PlayerCoinCount = 0;
     }
     
-
-    public int TryBuyingPencil(PencilType pencilType, int purchaseAmount)
+    public bool TryBuyingPencil(PencilType pencilType, int purchaseAmount)
     {
         var findPencilData = FindPencilData(pencilType);
 
@@ -52,10 +52,14 @@ public class PlayerInventoryManager : MonoBehaviour
             PlayerCoinCount = checkRemainCoin;
             
             OnInventoryChangedEvent?.Invoke();
+            
+            return true;
         }
-        else Debug.LogError("잔액이 부족합니다");
-        
-        return PlayerCoinCount;
+        else
+        {
+            Debug.LogError("잔액이 부족합니다");
+            return false;
+        }
     }
 
     int TryUnsharpenedGettingPencil(PencilType pencilType, int purchaseAmount)

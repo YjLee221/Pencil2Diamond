@@ -53,6 +53,7 @@ public class TutorialFlowController : MonoBehaviour
         playerInventoryManager.SetCurrencyForDev(playerInventoryManager.PlayerCoinCount, playerInventoryManager.playerData.diamondCount);
         currentGamePhase = GamePhase.Workshop;
         currentTutorialStep = TutorialStep.None;
+        PlayerPrefs.GetInt(PencilType.TwoBPencil.ToString());
         
         uiManager.ShowMainCanvas();
     }
