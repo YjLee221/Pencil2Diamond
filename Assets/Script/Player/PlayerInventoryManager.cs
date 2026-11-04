@@ -12,7 +12,7 @@ public class PlayerInventoryManager : MonoBehaviour
     PencilInventoryData pencilInventoryData;
     
     public int UnsharpenedPencilCount { get; private set; }
-    public int GraphiteCount { get; private set; }
+    int GraphiteCount { get; set; }
     public int PlayerCoinCount { get; private set; }
     
     public event Action OnInventoryChangedEvent;

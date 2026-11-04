@@ -28,8 +28,7 @@ public class WorkListUI : MonoBehaviour
 
     void OnStartWorkingButtonClicked()
     {
-        if(startWorkingBtn.interactable)
-            OnStartWorkingButtonClickedEvent?.Invoke(checkWorkStep, quantitySettingUI.CurrentQuantity);
+        if(startWorkingBtn.interactable) OnStartWorkingButtonClickedEvent?.Invoke(checkWorkStep, quantitySettingUI.CurrentQuantity);
     }
 
     void OnDisable()
@@ -54,9 +53,7 @@ public class WorkListUI : MonoBehaviour
         checkWorkStep = workData.WorkingStep;
         workingPanel.SetActive(true);
 
-        quantitySettingUI.Configure(
-            workData.MaxSelectableAmount,
-            1);
+        quantitySettingUI.Configure(workData.MaxSelectableAmount, 1);
         
         startWorkingBtn.interactable = workData.MaxSelectableAmount > 0;
 

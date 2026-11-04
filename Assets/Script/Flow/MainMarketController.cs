@@ -72,7 +72,7 @@ public class MainMarketController : MonoBehaviour
         }
         
         // 소유수량 저장
-        PlayerPrefs.SetInt(itemInfo.PencilType.ToString(), playerInventoryManager.UnsharpenedPencilCount + amount);
+        PlayerPrefs.SetInt(itemInfo.PencilType.ToString(), playerInventoryManager.UnsharpenedPencilCount);
     }
 
     void OnDisable()
